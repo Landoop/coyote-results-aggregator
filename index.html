@@ -61,10 +61,10 @@
                 <label>Available test results</label>
                 <md-select ng-model="item">
                     <!-- <md-option><em>None</em></md-option> -->
-                    <md-option ng-repeat="item in list" ng-value="{{item}}">
+                    <md-option ng-repeat="i in list" ng-value="{{i}}" ng-selected="{{item == i}}">
                         <!-- <i class="fa fa-check" aria-hidden="true" ng-show="item.IsDir == 'passed'" style="color: green"></i>
                              <i class="fa fa-times" aria-hidden="true" ng-show="item.IsDir == 'failed'" style="color: red"></i> -->
-                        {{item.Name}}
+                        {{i.Name}}
                     </md-option>
                 </md-select>
             </md-input-container>
@@ -108,6 +108,7 @@
              $http.defaults.headers.common.Accept = 'application/json';
              $http.get('reports/').then(function(response) {
                  $scope.list = response.data.reverse();
+                 $scope.item = $scope.list[0];
              });
          });
         </script>
