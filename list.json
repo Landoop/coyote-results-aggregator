@@ -1,6 +1,0 @@
-//Example:
-//[
-  // { "name" : "cassandra", "file" : "files/test.html", "status": "passed" },
-  // { "name" : "elastic","file" : "files/test2.html", "status": "failed" }
-//]
-

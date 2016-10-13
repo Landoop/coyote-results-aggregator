@@ -1,117 +1,117 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <title>Kafka Connect UI</title>
-  <link rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/angular_material/1.1.0/angular-material.min.css">
-  <script src="https://use.fontawesome.com/fbbd91a770.js"></script>
-  <meta charset=utf-8/>
-  <meta name="viewport" content="width=device-width">
-  <meta name="description" content="Kafka Connect UI">
-  <meta name="keywords" content="kafka,schema registry,topics,kafka-topic,kafka-rest,kafka-rest-proxy,kafka management,avro">
-  <meta name="author" content="Landoop Team">
-  <link rel="shortcut icon" href="icons/favicon.png">
+    <head>
+        <title>TITLE</title>
+        <link rel="stylesheet" href="//ajax.googleapis.com/ajax/libs/angular_material/1.1.0/angular-material.min.css">
+        <script src="//use.fontawesome.com/fbbd91a770.js"></script>
+        <meta charset=utf-8/>
+        <meta name="viewport" content="width=device-width">
+        <meta name="description" content="TITLE">
+        <meta name="author" content="Landoop Team">
+        <link rel="shortcut icon" href="https://www.landoop.com/favicon.png">
 
-  <style>
-    body {
-    margin: 0;
-    padding: 0;
-    font-size: 14px;
-    background-color: #2b2b2b;
-    }
+        <style>
+         body {
+             margin: 0;
+             padding: 0;
+             font-size: 14px;
+             background-color: #2b2b2b;
+         }
+         header {
+             background-color: #141414;
+             min-height: 40px;
+             line-height: 40px;
+             color: blue;
+             margin-bottom: 0;
+             text-decoration: none;
+         }
+         header h5 {
+             margin:0px;
+             font-size: 14px;
+         }
+         header h5 a {
+             text-decoration:none;
+             padding-left:10px;
+             color: #337ab7;
+         }
+         .logo {
+             width:20px;float: left;padding-right:0px; padding-left:10px; padding-top: 5px;
+         }
+        </style>
+    </head>
 
-    header {
-    background-color: #141414;
-    min-height: 40px;
-    line-height: 40px;
-    color: blue;
-    margin-bottom: 0;
-    text-decoration: none;
-    }
+    <body ng-app="angularAPP" ng-controller="MainCtrl" ng-cloak>
+        <header class="header">
+            <div layout="row" layout-xs="column">
+                <div flex>
+                    <h5>
+                        <a ng-click="showLeftList()" href="/#/">
+                            <img ng-src="data:image/gif;base64,R0lGODlheAC3AKEAAP///wAAAP///////yH5BAEKAAIALAAAAAB4ALcAAAL+lI+py+0Po5y02ouz3rz7D4biSJbmiabqyrbuC8fyLAI2jWM2kOd3tPv1YkFgcUjcGZVIWJD3eDadR4d06npCG1psq2u9elXaraI8XqEZ6zRKyVy03SZ4PDGnk5j3Q9msV8PXJzAIGAhyVOX3Q4joUdWnKPSYGLc4eVjJIUl5SbnZ0dn4qRmaQWiIsHiqkTrH2noRWyhmQCtLQQvGCJpbsRts+rvE5ehIXGzM5psMgfvc7BwmHT08LYdsfY29Wr3drTyrHX5Lbl1OzR31HQ4tcd69OxE/LQzfbo9cX7uebOvNXz+BsgAG9PeOmMGD+Ahu4mVMIL+HCc3ls4gtT0T+iRfd/Km3kJnDKR87DtQ1kaRGdChNqqxoySWWkCNgevxzIuWYkjTHjUzDUyc1dx8/CKV4VGQ6PDKHLrX4M+JTqEabhrIpbilWlk+TioxayWs2q2HJfp0q9kxaPWuZgkW0NSvRt1K1mq2brq1bu3eV5tUbkG9NwC8H991JOPBcuk7lHcab8fHZyJLHMp6ZmCHlOplxdFbsLK6FzzJI99JXGfIv0aNTe3btV6Hp0zTWzqZdOi1rn5dd7cb95rY6ur9bw6ZXvLjx3rzvKgcm3LLz4+yYQ08eHbQaiMZfZIf6+7lPFkV5U7G+hIdX8ePJqDJ/3r2QpOzbB59vtb59zp7+murfXwIm/n031n2A6PQfgIap5VCCCoYQS0oOXoeeZQwiR9119xWYng8ZUnUhOB5WyKAm8fRE3mz75DPhgxBKc06LLsY0mYU9yIiRjSWS6NuHOXJYIhLCaXMMgXLtUc0rPupwG5F3oJiEj+Q8SWBHUPaoDojbWWlajCsZ2BCPP36FY41cCbIOdylySd2JVyLJz2cVYaUmk2zyCFOc5fWIUGc2ccQTn30el5khb+7Iop9LgvcTTmdWtSh4GNqRKGxlHjRoKSK+KOZG3AA0Z6GRYkqmiV5aaqRBNIWK56iaMVrdp6J2GutAFyWU4KWI0nnqgt7VWatqkLiKaVTv5Gqq5JjLNQYprVnaeY2izm6EJbWcnkeck6gSC9yMDibbzwbQSDutjvABGVO5QfJpZrNZ6LYioanaFi+c6vbSmzDb3qslu9JVqKuy/u5qXXb1jbsnKtHpd6yjCi/psLggAYuhgRS3NCljTQb1lp7KlVRDsaw1fHGYQdkrGiuBDsvxly2VXOrKhrVMc81k0YytzTpL7PIMOoM8VdBCD0100UYfjXTSSi/NdNNIFwAAOw==" class="logo">
+                            TITLE
+                        </a>
+                    </h5>
+                </div>
+            </div>
+        </header>
 
-    header h5 {
-    margin:0px;
-    font-size: 14px;
-    }
+        <!--Main Content Starts here-->
+        <div layout="column" >
 
-    header h5 a {
-    text-decoration:none;
-    padding-left:10px;
-    color: #337ab7;
-    }
+            <md-input-container flex style="padding:10px;">
+                <label>Available test results</label>
+                <md-select ng-model="item">
+                    <md-option><em>None</em></md-option>
+                    <md-option ng-repeat="item in list" ng-value="{{item}}">
+                        <!-- <i class="fa fa-check" aria-hidden="true" ng-show="item.IsDir == 'passed'" style="color: green"></i>
+                             <i class="fa fa-times" aria-hidden="true" ng-show="item.IsDir == 'failed'" style="color: red"></i> -->
+                        {{item.Name}}
+                    </md-option>
+                </md-select>
+            </md-input-container>
+            <iframe src="{{source}}" height="500" width="100%" frameborder="0"
+                    style="overflow:hidden;height:100%;" scrolling="no" height="100%"
+                    onload="resizeIframe(this)"></iframe>
+        </div>
 
-    .logo {
-      width:20px;float: left;padding-right:0px; padding-left:10px; padding-top: 5px;
-    }
-  </style>
-</head>
+        <!-- Landoop team promo -->
+        <!-- <div layout-margin flex>
+             <div flex="nogrow">
+             <img ng-src="icons/landoop.svg" style="width:20px;float: left;padding-right:5px;"></div>
+             <div flex>
+             <p class="md-caption" style="padding-top:5px">Powered by
+             <a href="http://www.landoop.com/capabilities/kafka" target="_blank" style="color:white; text-decoration:none">LANDOOP</a></p>
+             </div>
+             </div> -->
 
-<body ng-app="angularAPP" ng-controller="MainCtrl" ng-cloak>
-<header class="header">
-  <div layout="row" layout-xs="column">
-    <div flex>
-      <h5>
-        <a ng-click="showLeftList()" href="/#/">
-        <img ng-src="icons/logo-white-flipped.png" class="logo">
-          COYOTE
-        </a>
-      </h5>
-    </div>
-  </div>
-</header>
+        <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular.min.js"></script>
+        <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-animate.min.js"></script>
+        <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-aria.min.js"></script>
+        <script src="//ajax.googleapis.com/ajax/libs/angular_material/1.1.0/angular-material.min.js"></script>
 
-<!--Main Content Starts here-->
-<div layout="column" >
+        <script>
+         function resizeIframe(obj) {
+             obj.style.height = obj.contentWindow.document.body.scrollHeight + 'px';
+         }
+        </script>
 
-  <md-input-container flex style="padding:10px;">
-    <label>Available test results</label>
-    <md-select ng-model="item">
-      <md-option><em>None</em></md-option>
-      <md-option ng-repeat="item in list" ng-value="{{item}}">
-        <i class="fa fa-check" aria-hidden="true" ng-show="item.status == 'passed'" style="color: green"></i>
-        <i class="fa fa-times" aria-hidden="true" ng-show="item.status == 'failed'" style="color: red"></i>
-        {{item.name}}
-      </md-option>
-    </md-select>
-  </md-input-container>
-  <iframe src="{{item.file}}" height="500" width="100%" frameborder="0"
-          style="overflow:hidden;height:100%;" scrolling="no" height="100%"
-          onload="resizeIframe(this)"></iframe>
-</div>
+        <script>
+         angular
+         .module('angularAPP', ['ngMaterial', 'ngAnimate', 'ngAria'])
+         .config(function($mdThemingProvider) {
+             $mdThemingProvider.theme('default').primaryPalette('grey').accentPalette('red').dark()
+         })
+         .controller('MainCtrl', function ($rootScope, $scope, $log, $http, $sce) {
+             $scope.list = [];
+             $scope.$watch('item', function() {
+                 console.log("AA" + $scope.item);
+                 $scope.source = angular.isDefined($scope.item) ? 'reports/' + $scope.item.Name : '';
+             }, true);
+             $http.defaults.headers.common.Accept = 'application/json';
+             $http.get('reports/').then(function(response) {
+                 $scope.list = response.data;
+             });
+         });
+        </script>
 
-<!-- Landoop team promo -->
-<div layout-margin flex>
-  <div flex="nogrow">
-    <img ng-src="icons/landoop.svg" style="width:20px;float: left;padding-right:5px;"></div>
-  <div flex>
-    <p class="md-caption" style="padding-top:5px">Powered by
-      <a href="http://www.landoop.com/capabilities/kafka" target="_blank" style="color:white; text-decoration:none">LANDOOP</a></p>
-  </div>
-</div>
-
-<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular.min.js"></script>
-<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-animate.min.js"></script>
-<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-aria.min.js"></script>
-<script src="http://ajax.googleapis.com/ajax/libs/angular_material/1.1.0/angular-material.min.js"></script>
-
-<script>
-  function resizeIframe(obj) {
-    obj.style.height = obj.contentWindow.document.body.scrollHeight + 'px';
-  }
-</script>
-
-<script>
-angular
-    .module('angularAPP', ['ngMaterial', 'ngAnimate', 'ngAria'])
-    .config(function($mdThemingProvider) {
-      $mdThemingProvider.theme('default').primaryPalette('grey').accentPalette('red').dark()
-    })
-    .controller('MainCtrl', function ($rootScope, $scope, $log, $http, $sce) {
-      $scope.list = [];
-      $http.get('list.json').then(function(response) {
-       $scope.list = response.data;
-      });
-    });
-</script>
-
-</body>
+    </body>
 </html>
