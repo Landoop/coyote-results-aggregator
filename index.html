@@ -60,7 +60,7 @@
             <md-input-container flex style="padding:10px;">
                 <label>Available test results</label>
                 <md-select ng-model="item">
-                    <md-option><em>None</em></md-option>
+                    <!-- <md-option><em>None</em></md-option> -->
                     <md-option ng-repeat="item in list" ng-value="{{item}}">
                         <!-- <i class="fa fa-check" aria-hidden="true" ng-show="item.IsDir == 'passed'" style="color: green"></i>
                              <i class="fa fa-times" aria-hidden="true" ng-show="item.IsDir == 'failed'" style="color: red"></i> -->
@@ -103,12 +103,11 @@
          .controller('MainCtrl', function ($rootScope, $scope, $log, $http, $sce) {
              $scope.list = [];
              $scope.$watch('item', function() {
-                 console.log("AA" + $scope.item);
                  $scope.source = angular.isDefined($scope.item) ? 'reports/' + $scope.item.Name : '';
              }, true);
              $http.defaults.headers.common.Accept = 'application/json';
              $http.get('reports/').then(function(response) {
-                 $scope.list = response.data;
+                 $scope.list = response.data.reverse();
              });
          });
         </script>
