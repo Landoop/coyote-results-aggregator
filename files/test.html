@@ -1,0 +1,1278 @@
+
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Coyote Tester | Kafka-connect-cassandra Tests | Results</title>
+
+</head>
+<body>
+
+<div id="testResults" style="display:inline;width:33%"></div>
+<div id="testTimes" style="display:inline;width:66%"></div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.4.4/d3.min.js"></script>
+<script src="https://storage.googleapis.com/artifacts-landoop/d3pie.min.js"></script>
+<script>
+         var pie = new d3pie("testResults", {
+             "header": {
+                 "title": {
+                     "text": "all passed",
+                     "color": "#fffefe",
+                     "fontSize": 34,
+                     "font": "sans"
+                 },
+                 "subtitle": {
+                     "text": "Kafka-connect-cassandra Tests",
+                     "color": "#E8E6E6",
+                     "fontSize": 14,
+                     "font": "sans"
+                 },
+                 "location": "pie-center",
+                 "titleSubtitlePadding": 10
+             },
+             "footer": {
+                "text": "Coyote-tester, part of Landoop™ test-suite. 2016 Oct 10, Mon, 16:14 UTC",
+                "color": "#E8E6E6",
+                "fontSize": 14,
+                "font": "open sans",
+                "location": "bottom-left"
+             },
+             "size": {
+                 "canvasHeight": 375,
+                 "canvasWidth": 500,
+                 "pieInnerRadius": "72%",
+                 "pieOuterRadius": "92%"
+             },
+             "data": {
+                 "sortOrder": "label-desc",
+                 "content": [
+                     {
+                         "label": "failed",
+                         "value": 0,
+                         "color": "#e21515"
+                     },
+                     {
+                         "label": "passed",
+                         "value": 15,
+                         "color": "#64a61f"
+                     }
+                 ]
+             },
+             "labels": {
+                 "outer": {
+                     "format": "label-percentage1",
+                     "pieDistance": 25
+                 },
+                 "inner": {
+                     "format": "none"
+                 },
+                 "mainLabel": {
+                     "color": "#ffffff",
+                     "fontSize": 16
+                 },
+                 "percentage": {
+                     "color": "#919191",
+                     "fontSize": 16,
+                     "decimalPlaces": 1
+                 },
+                 "value": {
+                     "color": "#cccc43",
+                     "fontSize": 16
+                 },
+                 "lines": {
+                     "enabled": true,
+                     "color": "#777777"
+                 },
+                 "truncation": {
+                     "enabled": true
+                 }
+             },
+             "effects": {
+                 "pullOutSegmentOnClick": {
+                     "effect": "linear",
+                     "speed": 400,
+                     "size": 8
+                 }
+             },
+             "misc": {
+                 "colors": {
+                     "background": "#2b2b2b",
+                     "segmentStroke": "#f6f6f6"
+                 }
+             }
+         });
+        </script>
+<script>
+         var pie = new d3pie("testTimes", {
+             "header": {
+                 "title": {
+                     "text": "54 s",
+                     "color": "#fffefe",
+                     "fontSize": 34,
+                     "font": "sans"
+             },
+                 "subtitle": {
+                     "text": "total time",
+                     "color": "#999999",
+                     "fontSize": 14,
+                     "font": "sans"
+                 },
+                 "location": "pie-center",
+                 "titleSubtitlePadding": 10
+             },
+             "footer": {
+                "text": "",
+                "color": "#999999",
+                "fontSize": 10,
+                "font": "open sans",
+                "location": "bottom-left"
+             },
+             "size": {
+                 "canvasHeight": 375,
+                 "canvasWidth": 700,
+                 "pieInnerRadius": "72%",
+                 "pieOuterRadius": "85%"
+             },
+             "data": {
+                 "sortOrder": "label-desc",
+                 "smallSegmentGrouping": {
+                     "enabled": true,
+                     "value": 3
+                 },
+                 "content": [
+                     {
+                         "label": "Setup Containers, Docker Compose Pull",
+                         "value": 1.9056137080000002,
+                         "color": "#2383c1"
+                     },{
+                         "label": "Setup Containers, Build Docker Images",
+                         "value": 0.428655288,
+                         "color": "#64a61f"
+                     },{
+                         "label": "Setup Containers, Docker Compose Up",
+                         "value": 1.054809565,
+                         "color": "#7b6788"
+                     },{
+                         "label": "Setup Containers, Check docker compose log",
+                         "value": 0.48303515700000005,
+                         "color": "#a05c56"
+                     },{
+                         "label": "Setup Cassandra Source Connector, Create Source Topic",
+                         "value": 2.8934171600000003,
+                         "color": "#961919"
+                     },{
+                         "label": "Setup Cassandra Source Connector, Create Cassandra Source Table and Data",
+                         "value": 2.040251146,
+                         "color": "#d8d239"
+                     },{
+                         "label": "Setup Cassandra Source Connector, Create a Cassandra Source Distributed Connector",
+                         "value": 1.490580335,
+                         "color": "#e98125"
+                     },{
+                         "label": "Setup Cassandra Sink Connector, Create Sink Topic",
+                         "value": 2.809294835,
+                         "color": "#d0743c"
+                     },{
+                         "label": "Setup Cassandra Sink Connector, Create Cassandra Sink Table",
+                         "value": 1.97571094,
+                         "color": "#635122"
+                     },{
+                         "label": "Setup Cassandra Sink Connector, Create a Cassandra Sink Distributed Connector",
+                         "value": 1.177640875,
+                         "color": "#6ada6a"
+                     },{
+                         "label": "Test Cassandra Source Connector, Read Entries from Topic",
+                         "value": 20.800921537,
+                         "color": "#0b6197"
+                     },{
+                         "label": "Test Cassandra Sink Connector, Write Entries into Topic",
+                         "value": 2.97070485,
+                         "color": "#7c9058"
+                     },{
+                         "label": "Test Cassandra Sink Connector, Verify entries",
+                         "value": 1.697232079,
+                         "color": "#207f32"
+                     },{
+                         "label": "Other Tests, Read First 2000 Lines of Connect Logs",
+                         "value": 0.086570219,
+                         "color": "#44b9af"
+                     },{
+                         "label": "Clean-up Containers, Docker Compose Down",
+                         "value": 11.938804519,
+                         "color": "#2383c1"
+                     },
+                 ]
+             },
+             "labels": {
+                 "outer": {
+                     "format": "label-percentage1",
+                     "pieDistance": 25
+                 },
+                 "inner": {
+                     "format": "none"
+                 },
+                 "mainLabel": {
+                     "color": "#ffffff",
+                     "fontSize": 12
+                 },
+                 "percentage": {
+                     "color": "#919191",
+                     "fontSize": 12,
+                     "decimalPlaces": 1
+                 },
+                 "value": {
+                     "color": "#cccc43",
+                     "fontSize": 12
+                 },
+                 "lines": {
+                     "enabled": true,
+                     "color": "#777777"
+                 },
+                 "truncation": {
+                     "enabled": true
+                 }
+             },
+             "effects": {
+                 "pullOutSegmentOnClick": {
+                     "effect": "linear",
+                     "speed": 400,
+                     "size": 8
+                 }
+             },
+             "misc": {
+                 "colors": {
+                     "background": "#2b2b2b",
+                     "segmentStroke": "#f6f6f6"
+                 }
+             }
+         });
+        </script>
+
+<style type="text/css">
+    body {
+    font-family: "Open Sans", "Helvetica Neue", Helvetica, Arial;
+    font-size: 14px;
+    line-height: 20px;
+    font-weight: 400;
+    color: #3b3b3b;
+    -webkit-font-smoothing: antialiased;
+    font-smoothing: antialiased;
+    background: #2b2b2b;
+    }
+
+    .wrapper {
+    margin: 0 auto;
+    padding: 40px;
+    /*max-width: 800px;*/
+    }
+
+    div.ui-tooltip {
+    color: red;
+    border-radius: 20px;
+    /*font: bold 12px "Helvetica Neue", Sans-Serif;*/
+    /*text-transform: uppercase;*/
+    box-shadow: 0 0 7px black;
+    /*width: 400px;*/
+    word-wrap: "normal";
+    max-width: 900px;
+    }
+
+    .ui-tooltip-content {
+    color: black;
+    font: 11px Consolas, "Liberation Mono", Menlo, Courier, monospace;
+    word-wrap: "normal";
+    /*max-width: 900px;*/
+    }
+
+    .table {
+    margin: 0 0 40px 0;
+    width: 100%;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+    display: table;
+    }
+
+    @media screen and (max-width: 90%) {
+    .table {
+    display: block;
+    }
+    }
+
+    .row {
+    display: table-row;
+    background: #f6f6f6;
+    }
+
+    .row:nth-of-type(odd) {
+    background: #e9e9e9;
+    }
+
+    .row.header {
+    font-weight: 900;
+    color: #ffffff;
+    background: #ea6153;
+    }
+    .row.green {
+    background: #27ae60;
+    }
+    .row.blue {
+    background: #2980b9;
+    }
+    .row.purple {
+    background: #8e44ad;
+    }
+    .row.gray {
+    background: #2c3e50;
+    }
+    .row.yellow {
+    background: #f1c40f;
+    }
+    .row.orange {
+    background: #d35400;
+    }
+    .row.turquoise {
+    background: #1abc9c;
+    }
+
+    @media screen and (max-width: 90%) {
+    .row {
+    padding: 8px 0;
+    display: block;
+    }
+    }
+
+    .cell {
+    padding: 6px 12px;
+    display: table-cell;
+    }
+
+    .cell.red {
+    background: #ea6153;
+    }
+
+    .cell.green {
+    background: #27ae60;
+    }
+
+    .cell.skip {
+    background: #2b2b2b;
+    }
+
+    .cell.center {
+    text-align: center;
+    }
+
+    .cell.width12 {
+    width: 12%;
+    max-width: 10px;
+    }
+    @media screen and (max-width: 90%) {
+    .cell {
+    padding: 2px 12px;
+    display: block;
+    }
+    }
+    /* .hideContent {overflow:hidden;line-height:1em;height:2em;}
+    .showContent {line-height:1em;height:auto;}
+    */
+</style>
+
+<div class="wrapper">
+
+    <div class="table">
+        <div class="row header">
+            <div class="cell">
+                Setup Containers
+            </div>
+            <div class="cell">
+                <!--                         Status -->
+            </div>
+            <div class="cell">
+                Time (sec)
+            </div>
+            <div class="cell">
+                Exit Code
+            </div>
+            <div class="cell">
+                Command
+            </div>
+            <div class="cell width12">
+                StdOutput
+            </div>
+            <div class="cell width12">
+                StdError
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="cell">
+                Docker Compose Pull
+            </div>
+            <div class="cell  center">
+                &#10004;
+            </div>
+            <div class="cell">
+                1.91
+            </div>
+            <div class="cell">
+                (ignore) 1
+            </div>
+            <!-- <div class="cell" style="overflow:hidden;">
+
+
+                 docker-compose pull</br>
+
+
+                 </div> -->
+            <div class="cell">
+                docker-compose pull
+            </div>
+            <div class="cell" style="overflow:hidden;">
+
+                Pulling repository docker.io/landoop/cassandra
+            </div>
+            <div class="cell" style="overflow:hidden;">
+                <button id="trigger_0_0" class="trigger" data-tooltip-id="0_0" title="Pulling cassandra (landoop/cassandra:latest)...</br>Error: image landoop/cassandra:latest not found</br></br>">view</button>
+
+            </div>
+        </div><div class="row">
+        <div class="cell">
+            Build Docker Images
+        </div>
+        <div class="cell  center">
+            &#10004;
+        </div>
+        <div class="cell">
+            0.43
+        </div>
+        <div class="cell">
+            0
+        </div>
+        <!-- <div class="cell" style="overflow:hidden;">
+
+
+             docker-compose build</br>
+
+
+             </div> -->
+        <div class="cell">
+            docker-compose build
+        </div>
+        <div class="cell" style="overflow:hidden;">
+            <button id="trigger_0_1" class="trigger" data-tooltip-id="0_1" title="Step 1 : FROM cassandra:latest</br> ---&gt; a552f6550254</br>Step 2 : MAINTAINER Marios Andreopoulos &lt;marios@landoop.com&gt;</br> ---&gt; Using cache</br> ---&gt; e58ed2491a79</br>Step 3 : RUN sed -e &#39;s/authenticator: AllowAllAuthenticator/authenticator: PasswordAuthenticator/&#39;         -i /etc/cassandra/cassandra.yaml</br> ---&gt; Using cache</br> ---&gt; 27808c1c0b3c</br>Successfully built 27808c1c0b3c</br></br>">view</button>
+
+        </div>
+        <div class="cell" style="overflow:hidden;">
+            <button id="trigger_0_1" class="trigger" data-tooltip-id="0_1" title="Building cassandra</br>fast-data-dev uses an image, skipping</br></br>">view</button>
+
+        </div>
+    </div><div class="row">
+        <div class="cell">
+            Docker Compose Up
+        </div>
+        <div class="cell  center">
+            &#10004;
+        </div>
+        <div class="cell">
+            1.05
+        </div>
+        <div class="cell">
+            0
+        </div>
+        <!-- <div class="cell" style="overflow:hidden;">
+
+
+             docker-compose up -d</br>
+
+
+             </div> -->
+        <div class="cell">
+            docker-compose up -d
+        </div>
+        <div class="cell" style="overflow:hidden;">
+
+        </div>
+        <div class="cell" style="overflow:hidden;">
+            <button id="trigger_0_2" class="trigger" data-tooltip-id="0_2" title="Creating network &#34;kafkaconnectcassandra_default&#34; with the default driver</br>Creating kafkaconnectcassandra_cassandra_1</br>Creating kafkaconnectcassandra_fast-data-dev_1</br></br>">view</button>
+
+        </div>
+    </div><div class="row">
+        <div class="cell">
+            Check docker compose log
+        </div>
+        <div class="cell  center">
+            &#10004;
+        </div>
+        <div class="cell">
+            0.48
+        </div>
+        <div class="cell">
+            0
+        </div>
+        <!-- <div class="cell" style="overflow:hidden;">
+
+
+             docker-compose logs</br>
+
+
+             </div> -->
+        <div class="cell">
+            docker-compose logs
+        </div>
+        <div class="cell" style="overflow:hidden;">
+            <button id="trigger_0_3" class="trigger" data-tooltip-id="0_3" title="Attaching to kafkaconnectcassandra_fast-data-dev_1, kafkaconnectcassandra_cassandra_1</br>[36mfast-data-dev_1  |[0m [92mSetting advertised host to [96mfast-data-dev[34m[92m.[34m</br>[36mfast-data-dev_1  |[0m [92mStarting services.[39m</br>[36mfast-data-dev_1  |[0m [34mYou may visit [96mhttp://fast-data-dev:3030[34m in about a minute.[39m</br>[36mfast-data-dev_1  |[0m 2016-10-10 16:10:49,828 CRIT Supervisor running as root (no user in config file)</br>[33mcassandra_1      |[0m INFO  16:10:53 Configuration location: file:/etc/cassandra/cassandra.yaml</br>[36mfast-data-dev_1  |[0m 2016-10-10 16:10:49,831 INFO supervisord started with pid 7</br>[33mcassandra_1      |[0m INFO  16:10:54 Node configuration:[allocate_tokens_for_keyspace=null; authenticator=PasswordAuthenticator; authorizer=AllowAllAuthorizer; auto_bootstrap=true; auto_snapshot=true; batch_size_fail_threshold_in_kb=50; batch_size_warn_threshold_in_kb=5; batchlog_replay_throttle_in_kb=1024; broadcast_address=172.18.0.2; broadcast_rpc_address=172.18.0.2; buffer_pool_use_heap_if_exhausted=true; cas_contention_timeout_in_ms=1000; cdc_enabled=false; cdc_free_space_check_interval_ms=250; cdc_raw_directory=null; cdc_total_space_in_mb=null; client_encryption_options=&lt;REDACTED&gt;; cluster_name=Test Cluster; column_index_cache_size_in_kb=2; column_index_size_in_kb=64; commit_failure_policy=stop; commitlog_compression=null; commitlog_directory=/var/lib/cassandra/commitlog; commitlog_max_compression_buffers_in_pool=3; commitlog_periodic_queue_size=-1; commitlog_segment_size_in_mb=32; commitlog_sync=periodic; commitlog_sync_batch_window_in_ms=null; commitlog_sync_period_in_ms=10000; commitlog_total_space_in_mb=null; compaction_large_partition_warning_threshold_mb=100; compaction_throughput_mb_per_sec=16; concurrent_compactors=null; concurrent_counter_writes=32; concurrent_materialized_view_writes=32; concurrent_reads=32; concurrent_replicates=null; concurrent_writes=32; counter_cache_keys_to_save=2147483647; counter_cache_save_period=7200; counter_cache_size_in_mb=null; counter_write_request_timeout_in_ms=5000; credentials_cache_max_entries=1000; credentials_update_interval_in_ms=-1; credentials_validity_in_ms=2000; cross_node_timeout=false; data_file_directories=[Ljava.lang.String;@29176cc1; disk_access_mode=auto; disk_failure_policy=stop; disk_optimization_estimate_percentile=0.95; disk_optimization_page_cross_chance=0.1; disk_optimization_strategy=ssd; dynamic_snitch=true; dynamic_snitch_badness_threshold=0.1; dynamic_snitch_reset_interval_in_ms=600000; dynamic_snitch_update_interval_in_ms=100; enable_scripted_user_defined_functions=false; enable_user_defined_functions=false; enable_user_defined_functions_threads=true; encryption_options=null; endpoint_snitch=SimpleSnitch; file_cache_size_in_mb=null; gc_log_threshold_in_ms=200; gc_warn_threshold_in_ms=1000; hinted_handoff_disabled_datacenters=[]; hinted_handoff_enabled=true; hinted_handoff_throttle_in_kb=1024; hints_compression=null; hints_directory=null; hints_flush_period_in_ms=10000; incremental_backups=false; index_interval=null; index_summary_capacity_in_mb=null; index_summary_resize_interval_in_minutes=60; initial_token=null; inter_dc_stream_throughput_outbound_megabits_per_sec=200; inter_dc_tcp_nodelay=false; internode_authenticator=null; internode_compression=dc; internode_recv_buff_size_in_bytes=null; internode_send_buff_size_in_bytes=null; key_cache_keys_to_save=2147483647; key_cache_save_period=14400; key_cache_size_in_mb=null; listen_address=172.18.0.2; listen_interface=null; listen_interface_prefer_ipv6=false; listen_on_broadcast_address=false; max_hint_window_in_ms=10800000; max_hints_delivery_threads=2; max_hints_file_size_in_mb=128; max_mutation_size_in_kb=null; max_streaming_retries=3; max_value_size_in_mb=256; memtable_allocation_type=heap_buffers; memtable_cleanup_threshold=null; memtable_flush_writers=1; memtable_heap_space_in_mb=null; memtable_offheap_space_in_mb=null; min_free_space_per_drive_in_mb=50; native_transport_max_concurrent_connections=-1; native_transport_max_concurrent_connections_per_ip=-1; native_transport_max_frame_size_in_mb=256; native_transport_max_threads=128; native_transport_port=9042; native_transport_port_ssl=null; num_tokens=256; otc_coalescing_strategy=TIMEHORIZON; otc_coalescing_window_us=200; partitioner=org.apache.cassandra.dht.Murmur3Partitioner; permissions_cache_max_entries=1000; permissions_update_interval_in_ms=-1; permissions_validity_in_ms=2000; phi_convict_threshold=8.0; prepared_statements_cache_size_mb=null; range_request_timeout_in_ms=10000; read_request_timeout_in_ms=5000; request_scheduler=org.apache.cassandra.scheduler.NoScheduler; request_scheduler_id=null; request_scheduler_options=null; request_timeout_in_ms=10000; role_manager=CassandraRoleManager; roles_cache_max_entries=1000; roles_update_interval_in_ms=-1; roles_validity_in_ms=2000; row_cache_class_name=org.apache.cassandra.cache.OHCProvider; row_cache_keys_to_save=2147483647; row_cache_save_period=0; row_cache_size_in_mb=0; rpc_address=0.0.0.0; rpc_interface=null; rpc_interface_prefer_ipv6=false; rpc_keepalive=true; rpc_listen_backlog=50; rpc_max_threads=2147483647; rpc_min_threads=16; rpc_port=9160; rpc_recv_buff_size_in_bytes=null; rpc_send_buff_size_in_bytes=null; rpc_server_type=sync; saved_caches_directory=/var/lib/cassandra/saved_caches; seed_provider=org.apache.cassandra.locator.SimpleSeedProvider{seeds=172.18.0.2}; server_encryption_options=&lt;REDACTED&gt;; snapshot_before_compaction=false; ssl_storage_port=7001; sstable_preemptive_open_interval_in_mb=50; start_native_transport=true; start_rpc=false; storage_port=7000; stream_throughput_outbound_megabits_per_sec=200; streaming_socket_timeout_in_ms=86400000; thrift_framed_transport_size_in_mb=15; thrift_max_message_length_in_mb=16; thrift_prepared_statements_cache_size_mb=null; tombstone_failure_threshold=100000; tombstone_warn_threshold=1000; tracetype_query_ttl=86400; tracetype_repair_ttl=604800; transparent_data_encryption_options=org.apache.cassandra.config.TransparentDataEncryptionOptions@2f177a4b; trickle_fsync=false; trickle_fsync_interval_in_kb=10240; truncate_request_timeout_in_ms=60000; unlogged_batch_across_partitions_warn_threshold=10; user_defined_function_fail_timeout=1500; user_defined_function_warn_timeout=500; user_function_timeout_policy=die; windows_timer_interval=1; write_request_timeout_in_ms=2000]</br>[36mfast-data-dev_1  |[0m 2016-10-10 16:10:50,834 INFO spawned: &#39;zookeeper&#39; with pid 50</br>[33mcassandra_1      |[0m INFO  16:10:54 DiskAccessMode &#39;auto&#39; determined to be mmap, indexAccessMode is mmap</br>[36mfast-data-dev_1  |[0m 2016-10-10 16:10:50,836 INFO spawned: &#39;caddy&#39; with pid 51</br>[33mcassandra_1      |[0m INFO  16:10:54 Global memtable on-heap threshold is enabled at 1996MB</br>[36mfast-data-dev_1  |[0m 2016-10-10 16:10:50,838 INFO spawned: &#39;broker&#39; with pid 52</br>[33mcassandra_1      |[0m INFO  16:10:54 Global memtable off-heap threshold is enabled at 1996MB</br>[36mfast-data-dev_1  |[0m 2016-10-10 16:10:50,840 INFO spawned: &#39;smoke-tests&#39; with pid 53</br>[33mcassandra_1      |[0m INFO  16:10:54 Hostname: fa1ca1ad7954</br>[36mfast-data-dev_1  |[0m 2016-10-10 16:10:50,842 INFO spawned: &#39;connect-distributed&#39; with pid 54</br>[33mcassandra_1      |[0m INFO  16:10:54 JVM vendor/version: OpenJDK 64-Bit Server VM/1.8.0_102</br>[36mfast-data-dev_1  |[0m 2016-10-10 16:10:50,844 INFO spawned: &#39;logs-to-kafka&#39; with pid 55</br>[33mcassandra_1      |[0m INFO  16:10:54 Heap size: 7.800GiB/7.800GiB</br>[36mfast-data-dev_1  |[0m 2016-10-10 16:10:50,846 INFO spawned: &#39;schema-registry&#39; with pid 57</br>[33mcassandra_1      |[0m INFO  16:10:54 Code Cache Non-heap memory: init = 2555904(2496K) used = 6455104(6303K) committed = 6488064(6336K) max = 251658240(245760K)</br>[33mcassandra_1      |[0m INFO  16:10:54 Metaspace Non-heap memory: init = 0(0K) used = 15273848(14915K) committed = 15990784(15616K) max = -1(-1K)</br>[33mcassandra_1      |[0m INFO  16:10:54 Compressed Class Space Non-heap memory: init = 0(0K) used = 1852688(1809K) committed = 2097152(2048K) max = 1073741824(1048576K)</br>[33mcassandra_1      |[0m INFO  16:10:54 Par Eden Space Heap memory: init = 1718091776(1677824K) used = 274902672(268459K) committed = 1718091776(1677824K) max = 1718091776(1677824K)</br>[33mcassandra_1      |[0m INFO  16:10:54 Par Survivor Space Heap memory: init = 214695936(209664K) used = 0(0K) committed = 214695936(209664K) max = 214695936(209664K)</br>[33mcassandra_1      |[0m INFO  16:10:54 CMS Old Gen Heap memory: init = 6442450944(6291456K) used = 0(0K) committed = 6442450944(6291456K) max = 6442450944(6291456K)</br>[33mcassandra_1      |[0m INFO  16:10:54 Classpath: /etc/cassandra:/usr/share/cassandra/lib/HdrHistogram-2.1.9.jar:/usr/share/cassandra/lib/ST4-4.0.8.jar:/usr/share/cassandra/lib/airline-0.6.jar:/usr/share/cassandra/lib/antlr-runtime-3.5.2.jar:/usr/share/cassandra/lib/asm-5.0.4.jar:/usr/share/cassandra/lib/caffeine-2.2.6.jar:/usr/share/cassandra/lib/cassandra-driver-core-3.0.1-shaded.jar:/usr/share/cassandra/lib/commons-cli-1.1.jar:/usr/share/cassandra/lib/commons-codec-1.2.jar:/usr/share/cassandra/lib/commons-lang3-3.1.jar:/usr/share/cassandra/lib/commons-math3-3.2.jar:/usr/share/cassandra/lib/compress-lzf-0.8.4.jar:/usr/share/cassandra/lib/concurrent-trees-2.4.0.jar:/usr/share/cassandra/lib/concurrentlinkedhashmap-lru-1.4.jar:/usr/share/cassandra/lib/disruptor-3.0.1.jar:/usr/share/cassandra/lib/ecj-4.4.2.jar:/usr/share/cassandra/lib/guava-18.0.jar:/usr/share/cassandra/lib/high-scale-lib-1.0.6.jar:/usr/share/cassandra/lib/hppc-0.5.4.jar:/usr/share/cassandra/lib/jackson-core-asl-1.9.2.jar:/usr/share/cassandra/lib/jackson-mapper-asl-1.9.2.jar:/usr/share/cassandra/lib/jamm-0.3.0.jar:/usr/share/cassandra/lib/javax.inject.jar:/usr/share/cassandra/lib/jbcrypt-0.3m.jar:/usr/share/cassandra/lib/jcl-over-slf4j-1.7.7.jar:/usr/share/cassandra/lib/jflex-1.6.0.jar:/usr/share/cassandra/lib/jna-4.0.0.jar:/usr/share/cassandra/lib/joda-time-2.4.jar:/usr/share/cassandra/lib/json-simple-1.1.jar:/usr/share/cassandra/lib/libthrift-0.9.2.jar:/usr/share/cassandra/lib/log4j-over-slf4j-1.7.7.jar:/usr/share/cassandra/lib/logback-classic-1.1.3.jar:/usr/share/cassandra/lib/logback-core-1.1.3.jar:/usr/share/cassandra/lib/lz4-1.3.0.jar:/usr/share/cassandra/lib/metrics-core-3.1.0.jar:/usr/share/cassandra/lib/metrics-jvm-3.1.0.jar:/usr/share/cassandra/lib/metrics-logback-3.1.0.jar:/usr/share/cassandra/lib/netty-all-4.0.39.Final.jar:/usr/share/cassandra/lib/ohc-core-0.4.3.jar:/usr/share/cassandra/lib/ohc-core-j8-0.4.3.jar:/usr/share/cassandra/lib/primitive-1.0.jar:/usr/share/cassandra/lib/reporter-config-base-3.0.0.jar:/usr/share/cassandra/lib/reporter-config3-3.0.0.jar:/usr/share/cassandra/lib/sigar-1.6.4.jar:/usr/share/cassandra/lib/slf4j-api-1.7.7.jar:/usr/share/cassandra/lib/snakeyaml-1.11.jar:/usr/share/cassandra/lib/snappy-java-1.1.1.7.jar:/usr/share/cassandra/lib/snowball-stemmer-1.3.0.581.1.jar:/usr/share/cassandra/lib/stream-2.5.2.jar:/usr/share/cassandra/lib/thrift-server-0.3.7.jar:/usr/share/cassandra/apache-cassandra-3.9.jar:/usr/share/cassandra/apache-cassandra-thrift-3.9.jar:/usr/share/cassandra/apache-cassandra.jar:/usr/share/cassandra/stress.jar::/usr/share/cassandra/lib/jamm-0.3.0.jar</br>[36mfast-data-dev_1  |[0m 2016-10-10 16:10:50,847 INFO spawned: &#39;rest-proxy&#39; with pid 58</br>[36mfast-data-dev_1  |[0m 2016-10-10 16:10:51,838 INFO success: zookeeper entered RUNNING state, process has stayed up for &gt; than 1 seconds (startsecs)</br>[36mfast-data-dev_1  |[0m 2016-10-10 16:10:51,838 INFO success: caddy entered RUNNING state, process has stayed up for &gt; than 1 seconds (startsecs)</br>[36mfast-data-dev_1  |[0m 2016-10-10 16:10:51,838 INFO success: broker entered RUNNING state, process has stayed up for &gt; than 1 seconds (startsecs)</br>[33mcassandra_1      |[0m INFO  16:10:54 JVM Arguments: [-Xloggc:/var/log/cassandra/gc.log, -ea, -XX:+UseThreadPriorities, -XX:ThreadPriorityPolicy=42, -XX:+HeapDumpOnOutOfMemoryError, -Xss256k, -XX:StringTableSize=1000003, -XX:+AlwaysPreTouch, -XX:-UseBiasedLocking, -XX:+UseTLAB, -XX:+ResizeTLAB, -XX:+PerfDisableSharedMem, -Djava.net.preferIPv4Stack=true, -XX:+UseParNewGC, -XX:+UseConcMarkSweepGC, -XX:+CMSParallelRemarkEnabled, -XX:SurvivorRatio=8, -XX:MaxTenuringThreshold=1, -XX:CMSInitiatingOccupancyFraction=75, -XX:+UseCMSInitiatingOccupancyOnly, -XX:CMSWaitDuration=10000, -XX:+CMSParallelInitialMarkEnabled, -XX:+CMSEdenChunksRecordAlways, -XX:+CMSClassUnloadingEnabled, -XX:+PrintGCDetails, -XX:+PrintGCDateStamps, -XX:+PrintHeapAtGC, -XX:+PrintTenuringDistribution, -XX:+PrintGCApplicationStoppedTime, -XX:+PrintPromotionFailure, -XX:+UseGCLogFileRotation, -XX:NumberOfGCLogFiles=10, -XX:GCLogFileSize=10M, -Xms8192M, -Xmx8192M, -Xmn2048M, -XX:CompileCommandFile=/etc/cassandra/hotspot_compiler, -javaagent:/usr/share/cassandra/lib/jamm-0.3.0.jar, -Dcassandra.jmx.local.port=7199, -Dcom.sun.management.jmxremote.authenticate=false, -Dcom.sun.management.jmxremote.password.file=/etc/cassandra/jmxremote.password, -Djava.library.path=/usr/share/cassandra/lib/sigar-bin, -Dlogback.configurationFile=logback.xml, -Dcassandra.logdir=/var/log/cassandra, -Dcassandra.storagedir=/var/lib/cassandra, -Dcassandra-foreground=yes]</br>[33mcassandra_1      |[0m WARN  16:10:54 Unable to lock JVM memory (ENOMEM). This can result in part of the JVM being swapped out, especially with mmapped I/O enabled. Increase RLIMIT_MEMLOCK or run Cassandra as root.</br>[33mcassandra_1      |[0m WARN  16:10:54 jemalloc shared library could not be preloaded to speed up memory allocations</br>[33mcassandra_1      |[0m WARN  16:10:54 JMX is not enabled to receive remote connections. Please see cassandra-env.sh for more info.</br>[33mcassandra_1      |[0m WARN  16:10:54 OpenJDK is not recommended. Please upgrade to the newest Oracle Java release</br>[33mcassandra_1      |[0m INFO  16:10:54 Initializing SIGAR library</br>[33mcassandra_1      |[0m INFO  16:10:54 Checked OS settings and found them configured for optimal performance.</br>[33mcassandra_1      |[0m WARN  16:10:54 Directory /var/lib/cassandra/data doesn&#39;t exist</br>[33mcassandra_1      |[0m WARN  16:10:54 Directory /var/lib/cassandra/commitlog doesn&#39;t exist</br>[33mcassandra_1      |[0m WARN  16:10:54 Directory /var/lib/cassandra/saved_caches doesn&#39;t exist</br>[33mcassandra_1      |[0m WARN  16:10:54 Directory /var/lib/cassandra/hints doesn&#39;t exist</br>[33mcassandra_1      |[0m INFO  16:10:54 Initialized prepared statement caches with 31 MB (native) and 31 MB (Thrift)</br>[36mfast-data-dev_1  |[0m 2016-10-10 16:10:51,844 INFO success: smoke-tests entered RUNNING state, process has stayed up for &gt; than 1 seconds (startsecs)</br>[33mcassandra_1      |[0m INFO  16:10:54 Initializing system.IndexInfo</br>[36mfast-data-dev_1  |[0m 2016-10-10 16:10:51,844 INFO success: connect-distributed entered RUNNING state, process has stayed up for &gt; than 1 seconds (startsecs)</br>[33mcassandra_1      |[0m INFO  16:10:55 Initializing system.batches</br>[36mfast-data-dev_1  |[0m 2016-10-10 16:10:51,844 INFO success: logs-to-kafka entered RUNNING state, process has stayed up for &gt; than 1 seconds (startsecs)</br>[33mcassandra_1      |[0m INFO  16:10:55 Initializing system.paxos</br>[36mfast-data-dev_1  |[0m 2016-10-10 16:10:51,846 INFO success: schema-registry entered RUNNING state, process has stayed up for &gt; than 1 seconds (startsecs)</br>[33mcassandra_1      |[0m INFO  16:10:55 Initializing system.local</br>[36mfast-data-dev_1  |[0m 2016-10-10 16:10:51,846 INFO success: rest-proxy entered RUNNING state, process has stayed up for &gt; than 1 seconds (startsecs)</br>[33mcassandra_1      |[0m INFO  16:10:55 Initializing system.peers</br>[36mfast-data-dev_1  |[0m 2016-10-10 16:10:52,474 INFO exited: schema-registry (exit status 1; not expected)</br>[33mcassandra_1      |[0m INFO  16:10:55 Initializing system.peer_events</br>[36mfast-data-dev_1  |[0m 2016-10-10 16:10:52,477 INFO spawned: &#39;schema-registry&#39; with pid 446</br>[33mcassandra_1      |[0m INFO  16:10:55 Initializing system.range_xfers</br>[36mfast-data-dev_1  |[0m 2016-10-10 16:10:52,477 INFO exited: rest-proxy (exit status 1; not expected)</br>[33mcassandra_1      |[0m INFO  16:10:55 Initializing system.compaction_history</br>[36mfast-data-dev_1  |[0m 2016-10-10 16:10:52,479 INFO spawned: &#39;rest-proxy&#39; with pid 447</br>[33mcassandra_1      |[0m INFO  16:10:55 Initializing system.sstable_activity</br>[36mfast-data-dev_1  |[0m 2016-10-10 16:10:53,497 INFO success: schema-registry entered RUNNING state, process has stayed up for &gt; than 1 seconds (startsecs)</br>[33mcassandra_1      |[0m INFO  16:10:55 Initializing system.size_estimates</br>[36mfast-data-dev_1  |[0m 2016-10-10 16:10:53,497 INFO success: rest-proxy entered RUNNING state, process has stayed up for &gt; than 1 seconds (startsecs)</br>[33mcassandra_1      |[0m INFO  16:10:55 Initializing system.available_ranges</br>[36mfast-data-dev_1  |[0m 2016-10-10 16:11:20,855 INFO exited: smoke-tests (exit status 0; expected)</br>[33mcassandra_1      |[0m INFO  16:10:55 Initializing system.views_builds_in_progress</br>[36mfast-data-dev_1  |[0m 2016-10-10 16:11:30,860 INFO exited: logs-to-kafka (exit status 0; expected)</br>[33mcassandra_1      |[0m INFO  16:10:55 Initializing system.built_views</br>[33mcassandra_1      |[0m INFO  16:10:55 Initializing system.hints</br>[33mcassandra_1      |[0m INFO  16:10:55 Initializing system.batchlog</br>[33mcassandra_1      |[0m INFO  16:10:55 Initializing system.schema_keyspaces</br>[33mcassandra_1      |[0m INFO  16:10:55 Initializing system.schema_columnfamilies</br>[33mcassandra_1      |[0m INFO  16:10:55 Initializing system.schema_columns</br>[33mcassandra_1      |[0m INFO  16:10:55 Initializing system.schema_triggers</br>[33mcassandra_1      |[0m INFO  16:10:55 Initializing system.schema_usertypes</br>[33mcassandra_1      |[0m INFO  16:10:55 Initializing system.schema_functions</br>[33mcassandra_1      |[0m INFO  16:10:55 Initializing system.schema_aggregates</br>[33mcassandra_1      |[0m INFO  16:10:55 Not submitting build tasks for views in keyspace system as storage service is not initialized</br>[33mcassandra_1      |[0m INFO  16:10:55 Configured JMX server at: service:jmx:rmi://127.0.0.1/jndi/rmi://127.0.0.1:7199/jmxrmi</br>[33mcassandra_1      |[0m INFO  16:10:56 Initializing key cache with capacity of 100 MBs.</br>[33mcassandra_1      |[0m INFO  16:10:56 Initializing row cache with capacity of 0 MBs</br>[33mcassandra_1      |[0m INFO  16:10:56 Initializing counter cache with capacity of 50 MBs</br>[33mcassandra_1      |[0m INFO  16:10:56 Scheduling counter cache save to every 7200 seconds (going to save all keys).</br>[33mcassandra_1      |[0m INFO  16:10:56 Global buffer pool is enabled, when pool is exhausted (max is 512.000MiB) it will allocate on heap</br>[33mcassandra_1      |[0m INFO  16:10:56 Populating token metadata from system tables</br>[33mcassandra_1      |[0m INFO  16:10:56 Token metadata: </br>[33mcassandra_1      |[0m INFO  16:10:56 Initializing system_schema.keyspaces</br>[33mcassandra_1      |[0m INFO  16:10:56 Initializing system_schema.tables</br>[33mcassandra_1      |[0m INFO  16:10:56 Initializing system_schema.columns</br>[33mcassandra_1      |[0m INFO  16:10:56 Initializing system_schema.triggers</br>[33mcassandra_1      |[0m INFO  16:10:56 Initializing system_schema.dropped_columns</br>[33mcassandra_1      |[0m INFO  16:10:56 Initializing system_schema.views</br>[33mcassandra_1      |[0m INFO  16:10:56 Initializing system_schema.types</br>[33mcassandra_1      |[0m INFO  16:10:56 Initializing system_schema.functions</br>[33mcassandra_1      |[0m INFO  16:10:56 Initializing system_schema.aggregates</br>[33mcassandra_1      |[0m INFO  16:10:56 Initializing system_schema.indexes</br>[33mcassandra_1      |[0m INFO  16:10:56 Not submitting build tasks for views in keyspace system_schema as storage service is not initialized</br>[33mcassandra_1      |[0m INFO  16:10:56 Completed loading (1 ms; 1 keys) KeyCache cache</br>[33mcassandra_1      |[0m INFO  16:10:56 No commitlog files found; skipping replay</br>[33mcassandra_1      |[0m INFO  16:10:56 Populating token metadata from system tables</br>[33mcassandra_1      |[0m INFO  16:10:56 Token metadata: </br>[33mcassandra_1      |[0m INFO  16:10:56 Cassandra version: 3.9</br>[33mcassandra_1      |[0m INFO  16:10:56 Thrift API version: 20.1.0</br>[33mcassandra_1      |[0m INFO  16:10:56 CQL supported versions: 3.4.2 (default: 3.4.2)</br>[33mcassandra_1      |[0m INFO  16:10:56 Initializing index summary manager with a memory pool size of 399 MB and a resize interval of 60 minutes</br>[33mcassandra_1      |[0m INFO  16:10:56 Starting Messaging Service on /172.18.0.2:7000 (eth0)</br>[33mcassandra_1      |[0m WARN  16:10:56 No host ID found, created 0b50ea41-baa9-4286-8f04-d342118e4e0f (Note: This should happen exactly once per node).</br>[33mcassandra_1      |[0m INFO  16:10:56 Loading persisted ring state</br>[33mcassandra_1      |[0m INFO  16:10:56 Starting up server gossip</br>[33mcassandra_1      |[0m INFO  16:10:56 This node will not auto bootstrap because it is configured to be a seed node.</br>[33mcassandra_1      |[0m INFO  16:10:56 Generated random tokens. tokens are [5361933494852794762, -1336560728201538397, -8399895654452463090, -8593666184590259293, 282797873426601501, -772326891880396945, 6070757847194642246, -7094365646555913253, 1689685526545852046, 730222481602846129, 6384509773890477712, 521377042696548727, -876374179721288456, 5498637021166329346, 9142935119766074324, 7812658559867021719, -3464510019057992462, -7838950817102358008, 424171982232870728, -8943744044421000287, 1643791560450324031, 1234759766261294732, 511138641713940108, 5138337309192871806, 1415075462294451265, 5168115662302248945, -37017610754240660, 796148011693060293, 526137141858736678, -564502954638259781, -4351910119293392895, 7160030166374657358, 3433823311617688469, -3292152404391950054, -1309635761747189432, -3940917744680416644, -8379074331448710965, -7985395024686750550, 7069572272670645951, -2437579352239686687, 1741006880265414523, -3868499708356171380, 7295374735815222352, -7859597964235074131, -7577799339892945053, 7982872370755269308, 3720468779459208428, -6821546047234541896, 3517825991482224991, -8192770741056228481, -7121487882358028257, -5041026784119453701, -2625187321700477752, -2591702600708051179, -7862624251449662077, -4582754824911962441, 7651149732430658641, 8339549929758733475, 3190986609247369367, -7084394024322257064, -8365906075720589378, -910810413633338192, -1314434568509381007, 2657694497332561528, -2616570189083929154, -1963789496089102845, 6617881914144128967, 1598085814496521095, 8708411861241347365, 3563246687171256829, -4274120994345104209, -6812931282253810478, 1853047067426807138, -5304123657200933204, -4244322490704289343, 7949010172794734399, 3648190782541755005, 7601575267522045878, 542506078700839995, -4856299845829479008, -103349143526404382, 3361702405163186885, -1566358385511740100, -506032550345948278, 6268512428100538264, 6820479151397284673, -1338272568216483539, -7566662043709036546, -7237634642204407371, 5531601009013663928, -8826838241403788949, -836436419794876979, -3832536774650896818, 6212170557471400177, 9050711314752756447, 3641153502931217784, 3131735904419753931, -3231437034589818896, -200241746396942829, -6418997182727256733, -4843264239276230052, 3413448862626958327, -9019928823496863577, -1052069329281688531, 2887687556175976041, 3284804075504320412, 5722771022143033317, 8548624892049974725, 1384895789796938110, -1125784910924531509, -7512995024371696512, 2095262666956407470, 3935715804934173990, -4571107636748812248, 5546663563572358233, 1434351242156354568, 2480968448639197501, -9070377312051890840, -9075577167463737868, 3993041748411120273, 8712813315030048570, -1961600972999179476, -2757183384713672045, -5819208792674668691, -8056796903914860641, -5032813663455232647, 2284940990079301994, -654561292641654705, 8376020369861317144, 940529118409548274, 4993962811118699721, 5894962553811662811, -5437126703433523046, -3705939545152649190, 544720480970275576, 2754460671523407780, 3243740522673920832, 1693948287422866390, -1522282548254913369, 9011991783827777803, -6436227966482294511, 4436076548088369580, -5307385249247830508, -7603978218894385729, 8038518641180260692, -7792902937646397289, 8887690068335264663, -877850883291446249, 292420913663485858, -6352286242708732400, 5722480217270677420, 5916773947844756009, -7516026415350740537, -1234453102466035424, -6224984061239091160, 8783009130856714540, 958674547124274075, -5160955090238213761, -1533230851919988857, 1717600368032650788, -2163916498788809807, 4075051756611683943, 1773762401965882168, -124349396683150003, 3667110096029409408, 7054501084140697134, -4225293599596189292, 4512818880147385321, 314406596299450178, 2619518033000590190, -3059197604899517180, 6634735859692967382, -8942027191970946137, 8432107230994093551, 4330850608063006210, 7043404457355202030, -7302237260625102137, -3953874531469338367, 2671355417439804090, -7609043774218553528, 8670079792624754978, 851025128400743219, 7952569146507568619, 6056974749067534520, 6833342457101886298, -410798362436050792, 2651575662178309260, -6754584615423796099, -5758656267853784771, -3058643964147532829, 4778260189831490603, 5618330171505066088, -4261477498880595088, 4397056739294136212, 6932881540255342205, 4768184008241291090, -360712909353284892, 1653296084907269641, -3514145031332238560, -7829230254403291177, 5456885942206647289, 7607336952005472351, -5471828616684947974, -5297922889646929922, 6483173863133633806, -4690807282117132430, 5875097005277370163, -5615685489140386045, 4293887869826722842, -133216918351417360, -5161210085234755747, 3151484589619265479, -6484759377389448490, -6814470953697336648, 6440826396501131463, -8419996706603784214, -1997108872832196876, 8778265190749346056, 3888816690109101705, 4596004762793933221, -8085641429561756623, 4621060114265529040, 399695976816041811, -8196271705560567105, 697193574917473566, -1975249248172446257, 4345257717318862607, 1887319377823160774, -8210615732132821154, 5011057400404331082, 2359013114974744583, 3208550009776747700, 1580264569276487336, -1684214882148415464, 9202111358928267625, 477577924409359126, 4684073089109194522, -9136007027703064418, 7705979899879815250, -2690169556824955481, 586990211487830499, -6233436374310670075, 5636939871972407303, -6505371479702409432, 3742534145902319266, 8314181912447261586, 2688855749025124934, -2625550148784333869, 7914518339044671311, 972260082405096163, 510540229649943702, 7845596871155358207, -2624302618798055512, -4026879419912305235, -1920920984416489886, -6100012586024161564]</br>[33mcassandra_1      |[0m INFO  16:10:56 Create new Keyspace: KeyspaceMetadata{name=system_traces, params=KeyspaceParams{durable_writes=true, replication=ReplicationParams{class=org.apache.cassandra.locator.SimpleStrategy, replication_factor=2}}, tables=[org.apache.cassandra.config.CFMetaData@1a9ee250[cfId=c5e99f16-8677-3914-b17e-960613512345,ksName=system_traces,cfName=sessions,flags=[COMPOUND],params=TableParams{comment=tracing sessions, read_repair_chance=0.0, dclocal_read_repair_chance=0.0, bloom_filter_fp_chance=0.01, crc_check_chance=1.0, gc_grace_seconds=0, default_time_to_live=0, memtable_flush_period_in_ms=3600000, min_index_interval=128, max_index_interval=2048, speculative_retry=99PERCENTILE, caching={&#39;keys&#39; : &#39;ALL&#39;, &#39;rows_per_partition&#39; : &#39;NONE&#39;}, compaction=CompactionParams{class=org.apache.cassandra.db.compaction.SizeTieredCompactionStrategy, options={min_threshold=4, max_threshold=32}}, compression=org.apache.cassandra.schema.CompressionParams@cdf43f87, extensions={}, cdc=false},comparator=comparator(),partitionColumns=[[] | [client command coordinator duration request started_at parameters]],partitionKeyColumns=[session_id],clusteringColumns=[],keyValidator=org.apache.cassandra.db.marshal.UUIDType,columnMetadata=[client, command, session_id, coordinator, request, started_at, duration, parameters],droppedColumns={},triggers=[],indexes=[]], org.apache.cassandra.config.CFMetaData@240fc3af[cfId=8826e8e9-e16a-3728-8753-3bc1fc713c25,ksName=system_traces,cfName=events,flags=[COMPOUND],params=TableParams{comment=tracing events, read_repair_chance=0.0, dclocal_read_repair_chance=0.0, bloom_filter_fp_chance=0.01, crc_check_chance=1.0, gc_grace_seconds=0, default_time_to_live=0, memtable_flush_period_in_ms=3600000, min_index_interval=128, max_index_interval=2048, speculative_retry=99PERCENTILE, caching={&#39;keys&#39; : &#39;ALL&#39;, &#39;rows_per_partition&#39; : &#39;NONE&#39;}, compaction=CompactionParams{class=org.apache.cassandra.db.compaction.SizeTieredCompactionStrategy, options={min_threshold=4, max_threshold=32}}, compression=org.apache.cassandra.schema.CompressionParams@cdf43f87, extensions={}, cdc=false},comparator=comparator(org.apache.cassandra.db.marshal.TimeUUIDType),partitionColumns=[[] | [activity source source_elapsed thread]],partitionKeyColumns=[session_id],clusteringColumns=[event_id],keyValidator=org.apache.cassandra.db.marshal.UUIDType,columnMetadata=[activity, session_id, thread, event_id, source, source_elapsed],droppedColumns={},triggers=[],indexes=[]]], views=[], functions=[], types=[]}</br>[33mcassandra_1      |[0m INFO  16:10:56 Not submitting build tasks for views in keyspace system_traces as storage service is not initialized</br>[33mcassandra_1      |[0m INFO  16:10:56 Initializing system_traces.events</br>[33mcassandra_1      |[0m INFO  16:10:56 Initializing system_traces.sessions</br>[33mcassandra_1      |[0m INFO  16:10:56 Create new Keyspace: KeyspaceMetadata{name=system_distributed, params=KeyspaceParams{durable_writes=true, replication=ReplicationParams{class=org.apache.cassandra.locator.SimpleStrategy, replication_factor=3}}, tables=[org.apache.cassandra.config.CFMetaData@2ca7da89[cfId=759fffad-624b-3181-80ee-fa9a52d1f627,ksName=system_distributed,cfName=repair_history,flags=[COMPOUND],params=TableParams{comment=Repair history, read_repair_chance=0.0, dclocal_read_repair_chance=0.0, bloom_filter_fp_chance=0.01, crc_check_chance=1.0, gc_grace_seconds=0, default_time_to_live=0, memtable_flush_period_in_ms=3600000, min_index_interval=128, max_index_interval=2048, speculative_retry=99PERCENTILE, caching={&#39;keys&#39; : &#39;ALL&#39;, &#39;rows_per_partition&#39; : &#39;NONE&#39;}, compaction=CompactionParams{class=org.apache.cassandra.db.compaction.SizeTieredCompactionStrategy, options={min_threshold=4, max_threshold=32}}, compression=org.apache.cassandra.schema.CompressionParams@cdf43f87, extensions={}, cdc=false},comparator=comparator(org.apache.cassandra.db.marshal.TimeUUIDType),partitionColumns=[[] | [coordinator exception_message exception_stacktrace finished_at parent_id range_begin range_end started_at status participants]],partitionKeyColumns=[keyspace_name, columnfamily_name],clusteringColumns=[id],keyValidator=org.apache.cassandra.db.marshal.CompositeType(org.apache.cassandra.db.marshal.UTF8Type,org.apache.cassandra.db.marshal.UTF8Type),columnMetadata=[status, id, coordinator, finished_at, participants, exception_stacktrace, parent_id, range_end, range_begin, exception_message, keyspace_name, started_at, columnfamily_name],droppedColumns={},triggers=[],indexes=[]], org.apache.cassandra.config.CFMetaData@750ab282[cfId=deabd734-b99d-3b9c-92e5-fd92eb5abf14,ksName=system_distributed,cfName=parent_repair_history,flags=[COMPOUND],params=TableParams{comment=Repair history, read_repair_chance=0.0, dclocal_read_repair_chance=0.0, bloom_filter_fp_chance=0.01, crc_check_chance=1.0, gc_grace_seconds=0, default_time_to_live=0, memtable_flush_period_in_ms=3600000, min_index_interval=128, max_index_interval=2048, speculative_retry=99PERCENTILE, caching={&#39;keys&#39; : &#39;ALL&#39;, &#39;rows_per_partition&#39; : &#39;NONE&#39;}, compaction=CompactionParams{class=org.apache.cassandra.db.compaction.SizeTieredCompactionStrategy, options={min_threshold=4, max_threshold=32}}, compression=org.apache.cassandra.schema.CompressionParams@cdf43f87, extensions={}, cdc=false},comparator=comparator(),partitionColumns=[[] | [exception_message exception_stacktrace finished_at keyspace_name started_at columnfamily_names options requested_ranges successful_ranges]],partitionKeyColumns=[parent_id],clusteringColumns=[],keyValidator=org.apache.cassandra.db.marshal.TimeUUIDType,columnMetadata=[requested_ranges, exception_message, keyspace_name, successful_ranges, started_at, finished_at, options, exception_stacktrace, parent_id, columnfamily_names],droppedColumns={},triggers=[],indexes=[]], org.apache.cassandra.config.CFMetaData@37296faa[cfId=5582b59f-8e4e-35e1-b913-3acada51eb04,ksName=system_distributed,cfName=view_build_status,flags=[COMPOUND],params=TableParams{comment=Materialized View build status, read_repair_chance=0.0, dclocal_read_repair_chance=0.0, bloom_filter_fp_chance=0.01, crc_check_chance=1.0, gc_grace_seconds=0, default_time_to_live=0, memtable_flush_period_in_ms=3600000, min_index_interval=128, max_index_interval=2048, speculative_retry=99PERCENTILE, caching={&#39;keys&#39; : &#39;ALL&#39;, &#39;rows_per_partition&#39; : &#39;NONE&#39;}, compaction=CompactionParams{class=org.apache.cassandra.db.compaction.SizeTieredCompactionStrategy, options={min_threshold=4, max_threshold=32}}, compression=org.apache.cassandra.schema.CompressionParams@cdf43f87, extensions={}, cdc=false},comparator=comparator(org.apache.cassandra.db.marshal.UUIDType),partitionColumns=[[] | [status]],partitionKeyColumns=[keyspace_name, view_name],clusteringColumns=[host_id],keyValidator=org.apache.cassandra.db.marshal.CompositeType(org.apache.cassandra.db.marshal.UTF8Type,org.apache.cassandra.db.marshal.UTF8Type),columnMetadata=[status, keyspace_name, view_name, host_id],droppedColumns={},triggers=[],indexes=[]]], views=[], functions=[], types=[]}</br>[33mcassandra_1      |[0m INFO  16:10:56 Not submitting build tasks for views in keyspace system_distributed as storage service is not initialized</br>[33mcassandra_1      |[0m INFO  16:10:56 Initializing system_distributed.parent_repair_history</br>[33mcassandra_1      |[0m INFO  16:10:56 Initializing system_distributed.repair_history</br>[33mcassandra_1      |[0m INFO  16:10:56 Initializing system_distributed.view_build_status</br>[33mcassandra_1      |[0m INFO  16:10:56 Node /172.18.0.2 state jump to NORMAL</br>[33mcassandra_1      |[0m INFO  16:10:56 Create new Keyspace: KeyspaceMetadata{name=system_auth, params=KeyspaceParams{durable_writes=true, replication=ReplicationParams{class=org.apache.cassandra.locator.SimpleStrategy, replication_factor=1}}, tables=[org.apache.cassandra.config.CFMetaData@e1e7f6f[cfId=5bc52802-de25-35ed-aeab-188eecebb090,ksName=system_auth,cfName=roles,flags=[COMPOUND],params=TableParams{comment=role definitions, read_repair_chance=0.0, dclocal_read_repair_chance=0.0, bloom_filter_fp_chance=0.01, crc_check_chance=1.0, gc_grace_seconds=7776000, default_time_to_live=0, memtable_flush_period_in_ms=3600000, min_index_interval=128, max_index_interval=2048, speculative_retry=99PERCENTILE, caching={&#39;keys&#39; : &#39;ALL&#39;, &#39;rows_per_partition&#39; : &#39;NONE&#39;}, compaction=CompactionParams{class=org.apache.cassandra.db.compaction.SizeTieredCompactionStrategy, options={min_threshold=4, max_threshold=32}}, compression=org.apache.cassandra.schema.CompressionParams@cdf43f87, extensions={}, cdc=false},comparator=comparator(),partitionColumns=[[] | [can_login is_superuser salted_hash member_of]],partitionKeyColumns=[role],clusteringColumns=[],keyValidator=org.apache.cassandra.db.marshal.UTF8Type,columnMetadata=[role, salted_hash, member_of, can_login, is_superuser],droppedColumns={},triggers=[],indexes=[]], org.apache.cassandra.config.CFMetaData@2d5b1573[cfId=0ecdaa87-f8fb-3e60-88d1-74fb36fe5c0d,ksName=system_auth,cfName=role_members,flags=[COMPOUND],params=TableParams{comment=role memberships lookup table, read_repair_chance=0.0, dclocal_read_repair_chance=0.0, bloom_filter_fp_chance=0.01, crc_check_chance=1.0, gc_grace_seconds=7776000, default_time_to_live=0, memtable_flush_period_in_ms=3600000, min_index_interval=128, max_index_interval=2048, speculative_retry=99PERCENTILE, caching={&#39;keys&#39; : &#39;ALL&#39;, &#39;rows_per_partition&#39; : &#39;NONE&#39;}, compaction=CompactionParams{class=org.apache.cassandra.db.compaction.SizeTieredCompactionStrategy, options={min_threshold=4, max_threshold=32}}, compression=org.apache.cassandra.schema.CompressionParams@cdf43f87, extensions={}, cdc=false},comparator=comparator(org.apache.cassandra.db.marshal.UTF8Type),partitionColumns=[[] | []],partitionKeyColumns=[role],clusteringColumns=[member],keyValidator=org.apache.cassandra.db.marshal.UTF8Type,columnMetadata=[role, member],droppedColumns={},triggers=[],indexes=[]], org.apache.cassandra.config.CFMetaData@47f245bd[cfId=3afbe79f-2194-31a7-add7-f5ab90d8ec9c,ksName=system_auth,cfName=role_permissions,flags=[COMPOUND],params=TableParams{comment=permissions granted to db roles, read_repair_chance=0.0, dclocal_read_repair_chance=0.0, bloom_filter_fp_chance=0.01, crc_check_chance=1.0, gc_grace_seconds=7776000, default_time_to_live=0, memtable_flush_period_in_ms=3600000, min_index_interval=128, max_index_interval=2048, speculative_retry=99PERCENTILE, caching={&#39;keys&#39; : &#39;ALL&#39;, &#39;rows_per_partition&#39; : &#39;NONE&#39;}, compaction=CompactionParams{class=org.apache.cassandra.db.compaction.SizeTieredCompactionStrategy, options={min_threshold=4, max_threshold=32}}, compression=org.apache.cassandra.schema.CompressionParams@cdf43f87, extensions={}, cdc=false},comparator=comparator(org.apache.cassandra.db.marshal.UTF8Type),partitionColumns=[[] | [permissions]],partitionKeyColumns=[role],clusteringColumns=[resource],keyValidator=org.apache.cassandra.db.marshal.UTF8Type,columnMetadata=[resource, role, permissions],droppedColumns={},triggers=[],indexes=[]], org.apache.cassandra.config.CFMetaData@e83d3b2[cfId=5f2fbdad-91f1-3946-bd25-d5da3a5c35ec,ksName=system_auth,cfName=resource_role_permissons_index,flags=[COMPOUND],params=TableParams{comment=index of db roles with permissions granted on a resource, read_repair_chance=0.0, dclocal_read_repair_chance=0.0, bloom_filter_fp_chance=0.01, crc_check_chance=1.0, gc_grace_seconds=7776000, default_time_to_live=0, memtable_flush_period_in_ms=3600000, min_index_interval=128, max_index_interval=2048, speculative_retry=99PERCENTILE, caching={&#39;keys&#39; : &#39;ALL&#39;, &#39;rows_per_partition&#39; : &#39;NONE&#39;}, compaction=CompactionParams{class=org.apache.cassandra.db.compaction.SizeTieredCompactionStrategy, options={min_threshold=4, max_threshold=32}}, compression=org.apache.cassandra.schema.CompressionParams@cdf43f87, extensions={}, cdc=false},comparator=comparator(org.apache.cassandra.db.marshal.UTF8Type),partitionColumns=[[] | []],partitionKeyColumns=[resource],clusteringColumns=[role],keyValidator=org.apache.cassandra.db.marshal.UTF8Type,columnMetadata=[resource, role],droppedColumns={},triggers=[],indexes=[]]], views=[], functions=[], types=[]}</br>[33mcassandra_1      |[0m INFO  16:10:57 Not submitting build tasks for views in keyspace system_auth as storage service is not initialized</br>[33mcassandra_1      |[0m INFO  16:10:57 Initializing system_auth.resource_role_permissons_index</br>[33mcassandra_1      |[0m INFO  16:10:57 Initializing system_auth.role_members</br>[33mcassandra_1      |[0m INFO  16:10:57 Initializing system_auth.role_permissions</br>[33mcassandra_1      |[0m INFO  16:10:57 Initializing system_auth.roles</br>[33mcassandra_1      |[0m INFO  16:10:57 (Re)initializing CredentialsCache (validity period/update interval/max entries) (2000/2000/1000)</br>[33mcassandra_1      |[0m INFO  16:10:57 Waiting for gossip to settle before accepting client requests...</br>[33mcassandra_1      |[0m INFO  16:11:05 No gossip backlog; proceeding</br>[33mcassandra_1      |[0m INFO  16:11:05 Netty using native Epoll event loop</br>[33mcassandra_1      |[0m INFO  16:11:05 Using Netty Version: [netty-buffer=netty-buffer-4.0.39.Final.38bdf86, netty-codec=netty-codec-4.0.39.Final.38bdf86, netty-codec-haproxy=netty-codec-haproxy-4.0.39.Final.38bdf86, netty-codec-http=netty-codec-http-4.0.39.Final.38bdf86, netty-codec-socks=netty-codec-socks-4.0.39.Final.38bdf86, netty-common=netty-common-4.0.39.Final.38bdf86, netty-handler=netty-handler-4.0.39.Final.38bdf86, netty-tcnative=netty-tcnative-1.1.33.Fork19.fe4816e, netty-transport=netty-transport-4.0.39.Final.38bdf86, netty-transport-native-epoll=netty-transport-native-epoll-4.0.39.Final.38bdf86, netty-transport-rxtx=netty-transport-rxtx-4.0.39.Final.38bdf86, netty-transport-sctp=netty-transport-sctp-4.0.39.Final.38bdf86, netty-transport-udt=netty-transport-udt-4.0.39.Final.38bdf86]</br>[33mcassandra_1      |[0m INFO  16:11:05 Starting listening for CQL clients on /0.0.0.0:9042 (unencrypted)...</br>[33mcassandra_1      |[0m INFO  16:11:05 Not starting RPC server as requested. Use JMX (StorageService-&gt;startRPCServer()) or nodetool (enablethrift) to start it</br>[33mcassandra_1      |[0m INFO  16:11:07 Scheduling approximate time-check task with a precision of 10 milliseconds</br>[33mcassandra_1      |[0m INFO  16:11:07 Created default superuser role &#39;cassandra&#39;</br></br>">view</button>
+
+        </div>
+        <div class="cell" style="overflow:hidden;">
+
+        </div>
+    </div>
+
+        <div class="row">
+            <div class="cell skip"></div>
+            <div class="cell skip"></div>
+            <div class="cell skip"></div>
+            <div class="cell skip"></div>
+            <div class="cell skip"></div>
+            <div class="cell" style="font-weight: bold;">
+                Passed 4 out of 4
+            </div>
+            <div class="cell" style="font-weight: bold;">
+                3.87 seconds
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="cell skip"></div>
+            <div class="cell skip"></div>
+            <div class="cell skip"></div>
+            <div class="cell skip"></div>
+            <div class="cell skip"></div>
+            <div class="cell skip"></div>
+            <div class="cell skip"></div>
+        </div><div class="row header green">
+        <div class="cell">
+            Setup Cassandra Source Connector
+        </div>
+        <div class="cell">
+            <!--                         Status -->
+        </div>
+        <div class="cell">
+            Time (sec)
+        </div>
+        <div class="cell">
+            Exit Code
+        </div>
+        <div class="cell">
+            Command
+        </div>
+        <div class="cell width12">
+            StdOutput
+        </div>
+        <div class="cell width12">
+            StdError
+        </div>
+    </div>
+
+        <div class="row">
+            <div class="cell">
+                Create Source Topic
+            </div>
+            <div class="cell  center">
+                &#10004;
+            </div>
+            <div class="cell">
+                2.89
+            </div>
+            <div class="cell">
+                0
+            </div>
+            <!-- <div class="cell" style="overflow:hidden;">
+
+
+                 <a href="" title='docker run --rm --network=kafkaconnectcassandra_default landoop/fast-data-dev</br>  kafka-topics --zookeeper fast-data-dev:2181 --topic cassandra-source --partition 1 --replication 1 --create</br></br>'>docker run --rm --network=kafkaconnectcassandra_default landoop/fast-data-dev</a>
+
+
+                 </div> -->
+            <div class="cell">
+                docker run --rm --network=kafkaconnectcassandra_default landoop/fast-data-dev
+                kafka-topics --zookeeper fast-data-dev:2181 --topic cassandra-source --partition 1 --replication 1 --create
+
+            </div>
+            <div class="cell" style="overflow:hidden;">
+
+                Created topic &#34;cassandra-source&#34;.
+            </div>
+            <div class="cell" style="overflow:hidden;">
+
+            </div>
+        </div><div class="row">
+        <div class="cell">
+            Create Cassandra Source Table and Data
+        </div>
+        <div class="cell  center">
+            &#10004;
+        </div>
+        <div class="cell">
+            2.04
+        </div>
+        <div class="cell">
+            0
+        </div>
+        <!-- <div class="cell" style="overflow:hidden;">
+
+
+             <a href="" title='docker run --rm --network=kafkaconnectcassandra_default -i landoop/cassandra</br>  cqlsh -u cassandra -p cassandra cassandra</br></br>'>docker run --rm --network=kafkaconnectcassandra_default -i landoop/cassandra</a>
+
+
+             </div> -->
+        <div class="cell">
+            docker run --rm --network=kafkaconnectcassandra_default -i landoop/cassandra
+            cqlsh -u cassandra -p cassandra cassandra
+
+        </div>
+        <div class="cell" style="overflow:hidden;">
+            <button id="trigger_1_1" class="trigger" data-tooltip-id="1_1" title=" id | created                              | price | product                 | qty</br>----+--------------------------------------+-------+-------------------------+-----</br>  1 | 42be55b0-8f04-11e6-84b1-9116fc548b6b |  94.2 |  OP-DAX-P-20150201-95.7 | 100</br>  2 | 42becae0-8f04-11e6-84b1-9116fc548b6b |  99.5 |   OP-DAX-C-20150201-100 | 100</br>  3 | 42bf1900-8f04-11e6-84b1-9116fc548b6b |   150 | FU-KOSPI-C-20150201-100 | 200</br></br>(3 rows)</br></br>">view</button>
+
+        </div>
+        <div class="cell" style="overflow:hidden;">
+
+        </div>
+    </div><div class="row">
+        <div class="cell">
+            Create a Cassandra Source Distributed Connector
+        </div>
+        <div class="cell  center">
+            &#10004;
+        </div>
+        <div class="cell">
+            1.49
+        </div>
+        <div class="cell">
+            0
+        </div>
+        <!-- <div class="cell" style="overflow:hidden;">
+
+
+             <a href="" title='docker run --rm --network=kafkaconnectcassandra_default -i landoop/fast-data-dev</br>  curl -vs --stderr - -X POST -H &#34;Content-Type: application/json&#34;</br>       --data @-</br>       &#34;http://fast-data-dev:8083/connectors&#34;</br></br>'>docker run --rm --network=kafkaconnectcassandra_default -i landoop/fast-data-dev</a>
+
+
+             </div> -->
+        <div class="cell">
+            docker run --rm --network=kafkaconnectcassandra_default -i landoop/fast-data-dev
+            curl -vs --stderr - -X POST -H &#34;Content-Type: application/json&#34;
+            --data @-
+            &#34;http://fast-data-dev:8083/connectors&#34;
+
+        </div>
+        <div class="cell" style="overflow:hidden;">
+            <button id="trigger_1_2" class="trigger" data-tooltip-id="1_2" title="*   Trying 172.18.0.3...</br>* TCP_NODELAY set</br>* Connected to fast-data-dev (172.18.0.3) port 8083 (#0)</br>&gt; POST /connectors HTTP/1.1
+</br>&gt; Host: fast-data-dev:8083
+</br>&gt; User-Agent: curl/7.50.3
+</br>&gt; Accept: */*
+</br>&gt; Content-Type: application/json
+</br>&gt; Content-Length: 522
+</br>&gt;
+</br>} [522 bytes data]</br>* upload completely sent off: 522 out of 522 bytes</br>&lt; HTTP/1.1 201 Created
+</br>&lt; Date: Mon, 10 Oct 2016 16:11:55 GMT
+</br>&lt; Location: http://fast-data-dev:8083/connectors/cassandra-source
+</br>&lt; Content-Type: application/json
+</br>&lt; Content-Length: 511
+</br>&lt; Server: Jetty(9.2.12.v20150709)
+</br>&lt;
+</br>{ [511 bytes data]</br>{&#34;name&#34;:&#34;cassandra-source&#34;,&#34;config&#34;:{&#34;connector.class&#34;:&#34;com.datamountaineer.streamreactor.connect.cassandra.source.CassandraSourceConnector&#34;,&#34;tasks.max&#34;:&#34;1&#34;,&#34;connect.cassandra.key.space&#34;:&#34;source&#34;,&#34;connect.cassandra.import.route.query&#34;:&#34;INSERT INTO cassandra-source SELECT * FROM orders PK created&#34;,&#34;connect.cassandra.import.mode&#34;:&#34;incremental&#34;,&#34;connect.cassandra.contact.points&#34;:&#34;cassandra&#34;,&#34;connect.cassandra.username&#34;:&#34;cassandra&#34;,&#34;connect.cassandra.password&#34;:&#34;cassandra&#34;,&#34;name&#34;:&#34;cassandra-source&#34;},&#34;tasks&#34;:[]}* Curl_http_done: called premature == 0</br>* Connection #0 to host fast-data-dev left intact</br></br>">view</button>
+
+        </div>
+        <div class="cell" style="overflow:hidden;">
+
+        </div>
+    </div>
+
+        <div class="row">
+            <div class="cell skip"></div>
+            <div class="cell skip"></div>
+            <div class="cell skip"></div>
+            <div class="cell skip"></div>
+            <div class="cell skip"></div>
+            <div class="cell" style="font-weight: bold;">
+                Passed 3 out of 3
+            </div>
+            <div class="cell" style="font-weight: bold;">
+                6.42 seconds
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="cell skip"></div>
+            <div class="cell skip"></div>
+            <div class="cell skip"></div>
+            <div class="cell skip"></div>
+            <div class="cell skip"></div>
+            <div class="cell skip"></div>
+            <div class="cell skip"></div>
+        </div><div class="row header blue">
+        <div class="cell">
+            Setup Cassandra Sink Connector
+        </div>
+        <div class="cell">
+            <!--                         Status -->
+        </div>
+        <div class="cell">
+            Time (sec)
+        </div>
+        <div class="cell">
+            Exit Code
+        </div>
+        <div class="cell">
+            Command
+        </div>
+        <div class="cell width12">
+            StdOutput
+        </div>
+        <div class="cell width12">
+            StdError
+        </div>
+    </div>
+
+        <div class="row">
+            <div class="cell">
+                Create Sink Topic
+            </div>
+            <div class="cell  center">
+                &#10004;
+            </div>
+            <div class="cell">
+                2.81
+            </div>
+            <div class="cell">
+                0
+            </div>
+            <!-- <div class="cell" style="overflow:hidden;">
+
+
+                 <a href="" title='docker run --rm --network=kafkaconnectcassandra_default landoop/fast-data-dev</br>  kafka-topics --zookeeper fast-data-dev:2181 --topic cassandra-sink --partition 1 --replication 1 --create</br></br>'>docker run --rm --network=kafkaconnectcassandra_default landoop/fast-data-dev</a>
+
+
+                 </div> -->
+            <div class="cell">
+                docker run --rm --network=kafkaconnectcassandra_default landoop/fast-data-dev
+                kafka-topics --zookeeper fast-data-dev:2181 --topic cassandra-sink --partition 1 --replication 1 --create
+
+            </div>
+            <div class="cell" style="overflow:hidden;">
+
+                Created topic &#34;cassandra-sink&#34;.
+            </div>
+            <div class="cell" style="overflow:hidden;">
+
+            </div>
+        </div><div class="row">
+        <div class="cell">
+            Create Cassandra Sink Table
+        </div>
+        <div class="cell  center">
+            &#10004;
+        </div>
+        <div class="cell">
+            1.98
+        </div>
+        <div class="cell">
+            0
+        </div>
+        <!-- <div class="cell" style="overflow:hidden;">
+
+
+             <a href="" title='docker run --rm --network=kafkaconnectcassandra_default -i landoop/cassandra</br>  cqlsh -u cassandra -p cassandra cassandra</br></br>'>docker run --rm --network=kafkaconnectcassandra_default -i landoop/cassandra</a>
+
+
+             </div> -->
+        <div class="cell">
+            docker run --rm --network=kafkaconnectcassandra_default -i landoop/cassandra
+            cqlsh -u cassandra -p cassandra cassandra
+
+        </div>
+        <div class="cell" style="overflow:hidden;">
+
+        </div>
+        <div class="cell" style="overflow:hidden;">
+
+        </div>
+    </div><div class="row">
+        <div class="cell">
+            Create a Cassandra Sink Distributed Connector
+        </div>
+        <div class="cell  center">
+            &#10004;
+        </div>
+        <div class="cell">
+            1.18
+        </div>
+        <div class="cell">
+            0
+        </div>
+        <!-- <div class="cell" style="overflow:hidden;">
+
+
+             <a href="" title='docker run --rm --network=kafkaconnectcassandra_default -i landoop/fast-data-dev</br>  curl -vs --stderr - -X POST -H &#34;Content-Type: application/json&#34;</br>       --data @-</br>       &#34;http://fast-data-dev:8083/connectors&#34;</br></br>'>docker run --rm --network=kafkaconnectcassandra_default -i landoop/fast-data-dev</a>
+
+
+             </div> -->
+        <div class="cell">
+            docker run --rm --network=kafkaconnectcassandra_default -i landoop/fast-data-dev
+            curl -vs --stderr - -X POST -H &#34;Content-Type: application/json&#34;
+            --data @-
+            &#34;http://fast-data-dev:8083/connectors&#34;
+
+        </div>
+        <div class="cell" style="overflow:hidden;">
+            <button id="trigger_2_2" class="trigger" data-tooltip-id="2_2" title="*   Trying 172.18.0.3...</br>* TCP_NODELAY set</br>* Connected to fast-data-dev (172.18.0.3) port 8083 (#0)</br>&gt; POST /connectors HTTP/1.1
+</br>&gt; Host: fast-data-dev:8083
+</br>&gt; User-Agent: curl/7.50.3
+</br>&gt; Accept: */*
+</br>&gt; Content-Type: application/json
+</br>&gt; Content-Length: 481
+</br>&gt;
+</br>} [481 bytes data]</br>* upload completely sent off: 481 out of 481 bytes</br>&lt; HTTP/1.1 201 Created
+</br>&lt; Date: Mon, 10 Oct 2016 16:12:01 GMT
+</br>&lt; Location: http://fast-data-dev:8083/connectors/cassandra-sink
+</br>&lt; Content-Type: application/json
+</br>&lt; Content-Length: 468
+</br>&lt; Server: Jetty(9.2.12.v20150709)
+</br>&lt;
+</br>{ [468 bytes data]</br>{&#34;name&#34;:&#34;cassandra-sink&#34;,&#34;config&#34;:{&#34;connector.class&#34;:&#34;com.datamountaineer.streamreactor.connect.cassandra.sink.CassandraSinkConnector&#34;,&#34;tasks.max&#34;:&#34;1&#34;,&#34;topics&#34;:&#34;cassandra-sink&#34;,&#34;connect.cassandra.key.space&#34;:&#34;sink&#34;,&#34;connect.cassandra.export.route.query&#34;:&#34;INSERT INTO orders SELECT * FROM cassandra-sink&#34;,&#34;connect.cassandra.contact.points&#34;:&#34;cassandra&#34;,&#34;connect.cassandra.username&#34;:&#34;cassandra&#34;,&#34;connect.cassandra.password&#34;:&#34;cassandra&#34;,&#34;name&#34;:&#34;cassandra-sink&#34;},&#34;tasks&#34;:[]}* Curl_http_done: called premature == 0</br>* Connection #0 to host fast-data-dev left intact</br></br>">view</button>
+
+        </div>
+        <div class="cell" style="overflow:hidden;">
+
+        </div>
+    </div>
+
+        <div class="row">
+            <div class="cell skip"></div>
+            <div class="cell skip"></div>
+            <div class="cell skip"></div>
+            <div class="cell skip"></div>
+            <div class="cell skip"></div>
+            <div class="cell" style="font-weight: bold;">
+                Passed 3 out of 3
+            </div>
+            <div class="cell" style="font-weight: bold;">
+                5.96 seconds
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="cell skip"></div>
+            <div class="cell skip"></div>
+            <div class="cell skip"></div>
+            <div class="cell skip"></div>
+            <div class="cell skip"></div>
+            <div class="cell skip"></div>
+            <div class="cell skip"></div>
+        </div><div class="row header purple">
+        <div class="cell">
+            Test Cassandra Source Connector
+        </div>
+        <div class="cell">
+            <!--                         Status -->
+        </div>
+        <div class="cell">
+            Time (sec)
+        </div>
+        <div class="cell">
+            Exit Code
+        </div>
+        <div class="cell">
+            Command
+        </div>
+        <div class="cell width12">
+            StdOutput
+        </div>
+        <div class="cell width12">
+            StdError
+        </div>
+    </div>
+
+        <div class="row">
+            <div class="cell">
+                Read Entries from Topic
+            </div>
+            <div class="cell  center">
+                &#10004;
+            </div>
+            <div class="cell">
+                20.80
+            </div>
+            <div class="cell">
+                (ignore) 124
+            </div>
+            <!-- <div class="cell" style="overflow:hidden;">
+
+
+                 <a href="" title='timeout 20 docker run --rm --network=kafkaconnectcassandra_default landoop/fast-data-dev</br>  kafka-avro-console-consumer --zookeeper fast-data-dev:2181/confluent</br>                              --bootstrap-server fast-data-dev:9092</br>                              --topic cassandra-source --from-beginning --new-consumer</br>                              --property schema.registry.url=http://fast-data-dev:8081</br></br>'>timeout 20 docker run --rm --network=kafkaconnectcassandra_default landoop/fast-data-dev</a>
+
+
+                 </div> -->
+            <div class="cell">
+                timeout 20 docker run --rm --network=kafkaconnectcassandra_default landoop/fast-data-dev
+                kafka-avro-console-consumer --zookeeper fast-data-dev:2181/confluent
+                --bootstrap-server fast-data-dev:9092
+                --topic cassandra-source --from-beginning --new-consumer
+                --property schema.registry.url=http://fast-data-dev:8081
+
+            </div>
+            <div class="cell" style="overflow:hidden;">
+                <button id="trigger_3_0" class="trigger" data-tooltip-id="3_0" title="{&#34;id&#34;:{&#34;int&#34;:1},&#34;created&#34;:{&#34;string&#34;:&#34;42be55b0-8f04-11e6-84b1-9116fc548b6b&#34;},&#34;price&#34;:{&#34;float&#34;:94.2},&#34;product&#34;:{&#34;string&#34;:&#34;OP-DAX-P-20150201-95.7&#34;},&#34;qty&#34;:{&#34;int&#34;:100}}</br>{&#34;id&#34;:{&#34;int&#34;:2},&#34;created&#34;:{&#34;string&#34;:&#34;42becae0-8f04-11e6-84b1-9116fc548b6b&#34;},&#34;price&#34;:{&#34;float&#34;:99.5},&#34;product&#34;:{&#34;string&#34;:&#34;OP-DAX-C-20150201-100&#34;},&#34;qty&#34;:{&#34;int&#34;:100}}</br>{&#34;id&#34;:{&#34;int&#34;:3},&#34;created&#34;:{&#34;string&#34;:&#34;42bf1900-8f04-11e6-84b1-9116fc548b6b&#34;},&#34;price&#34;:{&#34;float&#34;:150.0},&#34;product&#34;:{&#34;string&#34;:&#34;FU-KOSPI-C-20150201-100&#34;},&#34;qty&#34;:{&#34;int&#34;:200}}</br>{&#34;id&#34;:{&#34;int&#34;:1},&#34;created&#34;:{&#34;string&#34;:&#34;42be55b0-8f04-11e6-84b1-9116fc548b6b&#34;},&#34;price&#34;:{&#34;float&#34;:94.2},&#34;product&#34;:{&#34;string&#34;:&#34;OP-DAX-P-20150201-95.7&#34;},&#34;qty&#34;:{&#34;int&#34;:100}}</br>{&#34;id&#34;:{&#34;int&#34;:2},&#34;created&#34;:{&#34;string&#34;:&#34;42becae0-8f04-11e6-84b1-9116fc548b6b&#34;},&#34;price&#34;:{&#34;float&#34;:99.5},&#34;product&#34;:{&#34;string&#34;:&#34;OP-DAX-C-20150201-100&#34;},&#34;qty&#34;:{&#34;int&#34;:100}}</br>{&#34;id&#34;:{&#34;int&#34;:3},&#34;created&#34;:{&#34;string&#34;:&#34;42bf1900-8f04-11e6-84b1-9116fc548b6b&#34;},&#34;price&#34;:{&#34;float&#34;:150.0},&#34;product&#34;:{&#34;string&#34;:&#34;FU-KOSPI-C-20150201-100&#34;},&#34;qty&#34;:{&#34;int&#34;:200}}</br></br>">view</button>
+
+            </div>
+            <div class="cell" style="overflow:hidden;">
+                <button id="trigger_3_0" class="trigger" data-tooltip-id="3_0" title="SLF4J: Class path contains multiple SLF4J bindings.</br>SLF4J: Found binding in [jar:file:/opt/confluent-3.0.1/share/java/kafka-serde-tools/slf4j-log4j12-1.7.6.jar!/org/slf4j/impl/StaticLoggerBinder.class]</br>SLF4J: Found binding in [jar:file:/opt/confluent-3.0.1/share/java/confluent-common/slf4j-log4j12-1.7.6.jar!/org/slf4j/impl/StaticLoggerBinder.class]</br>SLF4J: Found binding in [jar:file:/opt/confluent-3.0.1/share/java/schema-registry/slf4j-log4j12-1.7.6.jar!/org/slf4j/impl/StaticLoggerBinder.class]</br>SLF4J: See http://www.slf4j.org/codes.html#multiple_bindings for an explanation.</br>SLF4J: Actual binding is of type [org.slf4j.impl.Log4jLoggerFactory]</br>Processed a total of 6 messages</br></br>">view</button>
+
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="cell skip"></div>
+            <div class="cell skip"></div>
+            <div class="cell skip"></div>
+            <div class="cell skip"></div>
+            <div class="cell skip"></div>
+            <div class="cell" style="font-weight: bold;">
+                Passed 1 out of 1
+            </div>
+            <div class="cell" style="font-weight: bold;">
+                20.80 seconds
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="cell skip"></div>
+            <div class="cell skip"></div>
+            <div class="cell skip"></div>
+            <div class="cell skip"></div>
+            <div class="cell skip"></div>
+            <div class="cell skip"></div>
+            <div class="cell skip"></div>
+        </div><div class="row header gray">
+        <div class="cell">
+            Test Cassandra Sink Connector
+        </div>
+        <div class="cell">
+            <!--                         Status -->
+        </div>
+        <div class="cell">
+            Time (sec)
+        </div>
+        <div class="cell">
+            Exit Code
+        </div>
+        <div class="cell">
+            Command
+        </div>
+        <div class="cell width12">
+            StdOutput
+        </div>
+        <div class="cell width12">
+            StdError
+        </div>
+    </div>
+
+        <div class="row">
+            <div class="cell">
+                Write Entries into Topic
+            </div>
+            <div class="cell  center">
+                &#10004;
+            </div>
+            <div class="cell">
+                2.97
+            </div>
+            <div class="cell">
+                0
+            </div>
+            <!-- <div class="cell" style="overflow:hidden;">
+
+
+                 <a href="" title='docker run --rm -i --network=kafkaconnectcassandra_default landoop/fast-data-dev</br>  kafka-avro-console-producer --broker-list fast-data-dev:9092</br>    --topic cassandra-sink --property schema.registry.url=&#34;http://fast-data-dev:8081&#34;</br>    --property</br>    value.schema=&#39;{&#34;type&#34;:&#34;record&#34;,&#34;name&#34;:&#34;myrecord&#34;,&#34;fields&#34;:[{&#34;name&#34;:&#34;id&#34;,&#34;type&#34;:&#34;int&#34;},{&#34;name&#34;:&#34;created&#34;, &#34;type&#34;: &#34;string&#34;}, {&#34;name&#34;:&#34;product&#34;, &#34;type&#34;: &#34;string&#34;}, {&#34;name&#34;:&#34;price&#34;, &#34;type&#34;: &#34;double&#34;}]}&#39;</br></br>'>docker run --rm -i --network=kafkaconnectcassandra_default landoop/fast-data-dev</a>
+
+
+                 </div> -->
+            <div class="cell">
+                docker run --rm -i --network=kafkaconnectcassandra_default landoop/fast-data-dev
+                kafka-avro-console-producer --broker-list fast-data-dev:9092
+                --topic cassandra-sink --property schema.registry.url=&#34;http://fast-data-dev:8081&#34;
+                --property
+                value.schema=&#39;{&#34;type&#34;:&#34;record&#34;,&#34;name&#34;:&#34;myrecord&#34;,&#34;fields&#34;:[{&#34;name&#34;:&#34;id&#34;,&#34;type&#34;:&#34;int&#34;},{&#34;name&#34;:&#34;created&#34;, &#34;type&#34;: &#34;string&#34;}, {&#34;name&#34;:&#34;product&#34;, &#34;type&#34;: &#34;string&#34;}, {&#34;name&#34;:&#34;price&#34;, &#34;type&#34;: &#34;double&#34;}]}&#39;
+
+            </div>
+            <div class="cell" style="overflow:hidden;">
+
+            </div>
+            <div class="cell" style="overflow:hidden;">
+                <button id="trigger_4_0" class="trigger" data-tooltip-id="4_0" title="SLF4J: Class path contains multiple SLF4J bindings.</br>SLF4J: Found binding in [jar:file:/opt/confluent-3.0.1/share/java/kafka-serde-tools/slf4j-log4j12-1.7.6.jar!/org/slf4j/impl/StaticLoggerBinder.class]</br>SLF4J: Found binding in [jar:file:/opt/confluent-3.0.1/share/java/confluent-common/slf4j-log4j12-1.7.6.jar!/org/slf4j/impl/StaticLoggerBinder.class]</br>SLF4J: Found binding in [jar:file:/opt/confluent-3.0.1/share/java/schema-registry/slf4j-log4j12-1.7.6.jar!/org/slf4j/impl/StaticLoggerBinder.class]</br>SLF4J: See http://www.slf4j.org/codes.html#multiple_bindings for an explanation.</br>SLF4J: Actual binding is of type [org.slf4j.impl.Log4jLoggerFactory]</br></br>">view</button>
+
+            </div>
+        </div><div class="row">
+        <div class="cell">
+            Verify entries
+        </div>
+        <div class="cell  center">
+            &#10004;
+        </div>
+        <div class="cell">
+            1.70
+        </div>
+        <div class="cell">
+            0
+        </div>
+        <!-- <div class="cell" style="overflow:hidden;">
+
+
+             <a href="" title='docker run --rm -i --network=kafkaconnectcassandra_default landoop/cassandra</br>  cqlsh -u cassandra -p cassandra cassandra</br></br>'>docker run --rm -i --network=kafkaconnectcassandra_default landoop/cassandra</a>
+
+
+             </div> -->
+        <div class="cell">
+            docker run --rm -i --network=kafkaconnectcassandra_default landoop/cassandra
+            cqlsh -u cassandra -p cassandra cassandra
+
+        </div>
+        <div class="cell" style="overflow:hidden;">
+            <button id="trigger_4_1" class="trigger" data-tooltip-id="4_1" title=" id | created             | price | product                         | qty</br>----+---------------------+-------+---------------------------------+------</br>  1 | 2016-05-06 13:53:00 |  94.2 |          OP-DAX-P-20150201-95.7 | null</br>  2 | 2016-05-06 13:54:00 |  99.5 |           OP-DAX-C-20150201-100 | null</br>  4 | 2016-05-06 13:56:00 |   150 |         FU-KOSPI-C-20150201-100 | null</br>  3 | 2016-05-06 13:55:00 | 10000 | FU-DATAMOUNTAINEER-20150201-100 | null</br></br>(4 rows)</br></br>">view</button>
+
+        </div>
+        <div class="cell" style="overflow:hidden;">
+
+        </div>
+    </div>
+
+        <div class="row">
+            <div class="cell skip"></div>
+            <div class="cell skip"></div>
+            <div class="cell skip"></div>
+            <div class="cell skip"></div>
+            <div class="cell skip"></div>
+            <div class="cell" style="font-weight: bold;">
+                Passed 2 out of 2
+            </div>
+            <div class="cell" style="font-weight: bold;">
+                4.67 seconds
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="cell skip"></div>
+            <div class="cell skip"></div>
+            <div class="cell skip"></div>
+            <div class="cell skip"></div>
+            <div class="cell skip"></div>
+            <div class="cell skip"></div>
+            <div class="cell skip"></div>
+        </div><div class="row header yellow">
+        <div class="cell">
+            Other Tests
+        </div>
+        <div class="cell">
+            <!--                         Status -->
+        </div>
+        <div class="cell">
+            Time (sec)
+        </div>
+        <div class="cell">
+            Exit Code
+        </div>
+        <div class="cell">
+            Command
+        </div>
+        <div class="cell width12">
+            StdOutput
+        </div>
+        <div class="cell width12">
+            StdError
+        </div>
+    </div>
+
+        <div class="row">
+            <div class="cell">
+                Read First 2000 Lines of Connect Logs
+            </div>
+            <div class="cell  center">
+                &#10004;
+            </div>
+            <div class="cell">
+                0.09
+            </div>
+            <div class="cell">
+                0
+            </div>
+            <!-- <div class="cell" style="overflow:hidden;">
+
+
+                 <a href="" title='docker exec kafkaconnectcassandra_fast-data-dev_1 head -n2000 /var/log/connect-distributed.log</br></br>'>docker exec kafkaconnectcassandra_fast-data-dev_1 head -n2000 /var/log/connect-distributed.log</a>
+
+
+                 </div> -->
+            <div class="cell">
+                docker exec kafkaconnectcassandra_fast-data-dev_1 head -n2000 /var/log/connect-distributed.log
+
+            </div>
+            <div class="cell" style="overflow:hidden;">
+                <button id="trigger_5_0" class="trigger" data-tooltip-id="5_0" title="SLF4J: Class path contains multiple SLF4J bindings.</br>SLF4J: Found binding in [jar:file:/connectors/kafka-connect-twitter-0.1-develop-8624fbe-jar-with-dependencies.jar!/org/slf4j/impl/StaticLoggerBinder.class]</br>SLF4J: Found binding in [jar:file:/opt/confluent-3.0.1/share/java/confluent-common/slf4j-log4j12-1.7.6.jar!/org/slf4j/impl/StaticLoggerBinder.class]</br>SLF4J: Found binding in [jar:file:/opt/confluent-3.0.1/share/java/kafka-serde-tools/slf4j-log4j12-1.7.6.jar!/org/slf4j/impl/StaticLoggerBinder.class]</br>SLF4J: Found binding in [jar:file:/opt/confluent-3.0.1/share/java/kafka-connect-blockchain/slf4j-log4j12-1.7.21.jar!/org/slf4j/impl/StaticLoggerBinder.class]</br>SLF4J: Found binding in [jar:file:/opt/confluent-3.0.1/share/java/kafka-connect-bloomberg/slf4j-log4j12-1.7.21.jar!/org/slf4j/impl/StaticLoggerBinder.class]</br>SLF4J: Found binding in [jar:file:/opt/confluent-3.0.1/share/java/kafka-connect-cassandra/slf4j-log4j12-1.7.21.jar!/org/slf4j/impl/StaticLoggerBinder.class]</br>SLF4J: Found binding in [jar:file:/opt/confluent-3.0.1/share/java/kafka-connect-druid/slf4j-log4j12-1.7.21.jar!/org/slf4j/impl/StaticLoggerBinder.class]</br>SLF4J: Found binding in [jar:file:/opt/confluent-3.0.1/share/java/kafka-connect-elastic/slf4j-log4j12-1.7.21.jar!/org/slf4j/impl/StaticLoggerBinder.class]</br>SLF4J: Found binding in [jar:file:/opt/confluent-3.0.1/share/java/kafka-connect-hazelcast/slf4j-log4j12-1.7.21.jar!/org/slf4j/impl/StaticLoggerBinder.class]</br>SLF4J: Found binding in [jar:file:/opt/confluent-3.0.1/share/java/kafka-connect-hbase/slf4j-log4j12-1.7.21.jar!/org/slf4j/impl/StaticLoggerBinder.class]</br>SLF4J: Found binding in [jar:file:/opt/confluent-3.0.1/share/java/kafka-connect-hdfs/slf4j-log4j12-1.7.5.jar!/org/slf4j/impl/StaticLoggerBinder.class]</br>SLF4J: Found binding in [jar:file:/opt/confluent-3.0.1/share/java/kafka-connect-influxdb/slf4j-log4j12-1.7.21.jar!/org/slf4j/impl/StaticLoggerBinder.class]</br>SLF4J: Found binding in [jar:file:/opt/confluent-3.0.1/share/java/kafka-connect-jms/slf4j-log4j12-1.7.21.jar!/org/slf4j/impl/StaticLoggerBinder.class]</br>SLF4J: Found binding in [jar:file:/opt/confluent-3.0.1/share/java/kafka-connect-kudu/slf4j-log4j12-1.7.21.jar!/org/slf4j/impl/StaticLoggerBinder.class]</br>SLF4J: Found binding in [jar:file:/opt/confluent-3.0.1/share/java/kafka-connect-redis/slf4j-log4j12-1.7.21.jar!/org/slf4j/impl/StaticLoggerBinder.class]</br>SLF4J: Found binding in [jar:file:/opt/confluent-3.0.1/share/java/kafka-connect-rethink/slf4j-log4j12-1.7.21.jar!/org/slf4j/impl/StaticLoggerBinder.class]</br>SLF4J: Found binding in [jar:file:/opt/confluent-3.0.1/share/java/kafka-connect-voltdb/slf4j-log4j12-1.7.21.jar!/org/slf4j/impl/StaticLoggerBinder.class]</br>SLF4J: Found binding in [jar:file:/opt/confluent-3.0.1/share/java/kafka-connect-yahoo/slf4j-log4j12-1.7.21.jar!/org/slf4j/impl/StaticLoggerBinder.class]</br>SLF4J: Found binding in [jar:file:/opt/confluent-3.0.1/share/java/kafka/slf4j-log4j12-1.7.21.jar!/org/slf4j/impl/StaticLoggerBinder.class]</br>SLF4J: See http://www.slf4j.org/codes.html#multiple_bindings for an explanation.</br>[main] INFO org.apache.kafka.connect.runtime.distributed.DistributedConfig - DistributedConfig values: </br>	cluster = connect</br>	metric.reporters = []</br>	metadata.max.age.ms = 300000</br>	reconnect.backoff.ms = 50</br>	sasl.kerberos.ticket.renew.window.factor = 0.8</br>	bootstrap.servers = [localhost:9092]</br>	ssl.keystore.type = JKS</br>	sasl.mechanism = GSSAPI</br>	offset.storage.topic = connect-offsets</br>	ssl.truststore.password = null</br>	key.converter = class io.confluent.connect.avro.AvroConverter</br>	client.id = </br>	ssl.endpoint.identification.algorithm = null</br>	config.storage.topic = connect-configs</br>	request.timeout.ms = 40000</br>	rest.advertised.host.name = null</br>	heartbeat.interval.ms = 3000</br>	receive.buffer.bytes = 32768</br>	ssl.truststore.type = JKS</br>	rest.port = 8083</br>	access.control.allow.origin = </br>	ssl.truststore.location = null</br>	ssl.keystore.password = null</br>	worker.unsync.backoff.ms = 300000</br>	internal.value.converter = class org.apache.kafka.connect.json.JsonConverter</br>	send.buffer.bytes = 131072</br>	group.id = connect-cluster</br>	task.shutdown.graceful.timeout.ms = 5000</br>	rest.advertised.port = null</br>	retry.backoff.ms = 100</br>	sasl.kerberos.kinit.cmd = /usr/bin/kinit</br>	sasl.kerberos.service.name = null</br>	sasl.kerberos.ticket.renew.jitter = 0.05</br>	ssl.trustmanager.algorithm = PKIX</br>	ssl.key.password = null</br>	sasl.kerberos.min.time.before.relogin = 60000</br>	value.converter = class io.confluent.connect.avro.AvroConverter</br>	connections.max.idle.ms = 540000</br>	session.timeout.ms = 30000</br>	metrics.num.samples = 2</br>	worker.sync.timeout.ms = 3000</br>	ssl.protocol = TLS</br>	ssl.provider = null</br>	ssl.enabled.protocols = [TLSv1.2, TLSv1.1, TLSv1]</br>	status.storage.topic = connect-statuses</br>	rest.host.name = null</br>	ssl.keystore.location = null</br>	offset.flush.timeout.ms = 5000</br>	ssl.cipher.suites = null</br>	offset.flush.interval.ms = 60000</br>	security.protocol = PLAINTEXT</br>	internal.key.converter = class org.apache.kafka.connect.json.JsonConverter</br>	access.control.allow.methods = </br>	ssl.keymanager.algorithm = SunX509</br>	metrics.sample.window.ms = 30000</br></br>[main] INFO org.eclipse.jetty.util.log - Logging initialized @1774ms</br>[main] INFO org.apache.kafka.common.utils.AppInfoParser - Kafka version : 0.10.0.0</br>[main] INFO org.apache.kafka.common.utils.AppInfoParser - Kafka commitId : b8642491e78c5a13</br>[main] INFO org.apache.kafka.connect.runtime.Connect - Kafka Connect starting</br>[main] INFO org.apache.kafka.connect.runtime.rest.RestServer - Starting REST server</br>[DistributedHerder] INFO org.apache.kafka.connect.runtime.distributed.DistributedHerder - Herder starting</br>[DistributedHerder] INFO org.apache.kafka.connect.runtime.Worker - Worker starting</br>[DistributedHerder] INFO org.apache.kafka.clients.producer.ProducerConfig - ProducerConfig values: </br>	metric.reporters = []</br>	metadata.max.age.ms = 300000</br>	reconnect.backoff.ms = 50</br>	sasl.kerberos.ticket.renew.window.factor = 0.8</br>	bootstrap.servers = [localhost:9092]</br>	ssl.keystore.type = JKS</br>	sasl.mechanism = GSSAPI</br>	max.block.ms = 9223372036854775807</br>	interceptor.classes = null</br>	ssl.truststore.password = null</br>	client.id = </br>	ssl.endpoint.identification.algorithm = null</br>	request.timeout.ms = 2147483647</br>	acks = all</br>	receive.buffer.bytes = 32768</br>	ssl.truststore.type = JKS</br>	retries = 2147483647</br>	ssl.truststore.location = null</br>	ssl.keystore.password = null</br>	send.buffer.bytes = 131072</br>	compression.type = none</br>	metadata.fetch.timeout.ms = 60000</br>	retry.backoff.ms = 100</br>	sasl.kerberos.kinit.cmd = /usr/bin/kinit</br>	buffer.memory = 33554432</br>	timeout.ms = 30000</br>	key.serializer = class org.apache.kafka.common.serialization.ByteArraySerializer</br>	sasl.kerberos.service.name = null</br>	sasl.kerberos.ticket.renew.jitter = 0.05</br>	ssl.trustmanager.algorithm = PKIX</br>	block.on.buffer.full = false</br>	ssl.key.password = null</br>	sasl.kerberos.min.time.before.relogin = 60000</br>	connections.max.idle.ms = 540000</br>	max.in.flight.requests.per.connection = 1</br>	metrics.num.samples = 2</br>	ssl.protocol = TLS</br>	ssl.provider = null</br>	ssl.enabled.protocols = [TLSv1.2, TLSv1.1, TLSv1]</br>	batch.size = 16384</br>	ssl.keystore.location = null</br>	ssl.cipher.suites = null</br>	security.protocol = PLAINTEXT</br>	max.request.size = 1048576</br>	value.serializer = class org.apache.kafka.common.serialization.ByteArraySerializer</br>	ssl.keymanager.algorithm = SunX509</br>	metrics.sample.window.ms = 30000</br>	partitioner.class = class org.apache.kafka.clients.producer.internals.DefaultPartitioner</br>	linger.ms = 0</br></br>[DistributedHerder] INFO org.apache.kafka.clients.producer.ProducerConfig - ProducerConfig values: </br>	metric.reporters = []</br>	metadata.max.age.ms = 300000</br>	reconnect.backoff.ms = 50</br>	sasl.kerberos.ticket.renew.window.factor = 0.8</br>	bootstrap.servers = [localhost:9092]</br>	ssl.keystore.type = JKS</br>	sasl.mechanism = GSSAPI</br>	max.block.ms = 9223372036854775807</br>	interceptor.classes = null</br>	ssl.truststore.password = null</br>	client.id = producer-1</br>	ssl.endpoint.identification.algorithm = null</br>	request.timeout.ms = 2147483647</br>	acks = all</br>	receive.buffer.bytes = 32768</br>	ssl.truststore.type = JKS</br>	retries = 2147483647</br>	ssl.truststore.location = null</br>	ssl.keystore.password = null</br>	send.buffer.bytes = 131072</br>	compression.type = none</br>	metadata.fetch.timeout.ms = 60000</br>	retry.backoff.ms = 100</br>	sasl.kerberos.kinit.cmd = /usr/bin/kinit</br>	buffer.memory = 33554432</br>	timeout.ms = 30000</br>	key.serializer = class org.apache.kafka.common.serialization.ByteArraySerializer</br>	sasl.kerberos.service.name = null</br>	sasl.kerberos.ticket.renew.jitter = 0.05</br>	ssl.trustmanager.algorithm = PKIX</br>	block.on.buffer.full = false</br>	ssl.key.password = null</br>	sasl.kerberos.min.time.before.relogin = 60000</br>	connections.max.idle.ms = 540000</br>	max.in.flight.requests.per.connection = 1</br>	metrics.num.samples = 2</br>	ssl.protocol = TLS</br>	ssl.provider = null</br>	ssl.enabled.protocols = [TLSv1.2, TLSv1.1, TLSv1]</br>	batch.size = 16384</br>	ssl.keystore.location = null</br>	ssl.cipher.suites = null</br>	security.protocol = PLAINTEXT</br>	max.request.size = 1048576</br>	value.serializer = class org.apache.kafka.common.serialization.ByteArraySerializer</br>	ssl.keymanager.algorithm = SunX509</br>	metrics.sample.window.ms = 30000</br>	partitioner.class = class org.apache.kafka.clients.producer.internals.DefaultPartitioner</br>	linger.ms = 0</br></br>[DistributedHerder] INFO org.apache.kafka.common.utils.AppInfoParser - Kafka version : 0.10.0.0</br>[DistributedHerder] INFO org.apache.kafka.common.utils.AppInfoParser - Kafka commitId : b8642491e78c5a13</br>[DistributedHerder] INFO org.apache.kafka.connect.storage.KafkaOffsetBackingStore - Starting KafkaOffsetBackingStore</br>[DistributedHerder] INFO org.apache.kafka.connect.util.KafkaBasedLog - Starting KafkaBasedLog with topic connect-offsets</br>[DistributedHerder] INFO org.apache.kafka.clients.producer.ProducerConfig - ProducerConfig values: </br>	metric.reporters = []</br>	metadata.max.age.ms = 300000</br>	reconnect.backoff.ms = 50</br>	sasl.kerberos.ticket.renew.window.factor = 0.8</br>	bootstrap.servers = [localhost:9092]</br>	ssl.keystore.type = JKS</br>	sasl.mechanism = GSSAPI</br>	max.block.ms = 60000</br>	interceptor.classes = null</br>	ssl.truststore.password = null</br>	client.id = </br>	ssl.endpoint.identification.algorithm = null</br>	request.timeout.ms = 30000</br>	acks = all</br>	receive.buffer.bytes = 32768</br>	ssl.truststore.type = JKS</br>	retries = 2147483647</br>	ssl.truststore.location = null</br>	ssl.keystore.password = null</br>	send.buffer.bytes = 131072</br>	compression.type = none</br>	metadata.fetch.timeout.ms = 60000</br>	retry.backoff.ms = 100</br>	sasl.kerberos.kinit.cmd = /usr/bin/kinit</br>	buffer.memory = 33554432</br>	timeout.ms = 30000</br>	key.serializer = class org.apache.kafka.common.serialization.ByteArraySerializer</br>	sasl.kerberos.service.name = null</br>	sasl.kerberos.ticket.renew.jitter = 0.05</br>	ssl.trustmanager.algorithm = PKIX</br>	block.on.buffer.full = false</br>	ssl.key.password = null</br>	sasl.kerberos.min.time.before.relogin = 60000</br>	connections.max.idle.ms = 540000</br>	max.in.flight.requests.per.connection = 1</br>	metrics.num.samples = 2</br>	ssl.protocol = TLS</br>	ssl.provider = null</br>	ssl.enabled.protocols = [TLSv1.2, TLSv1.1, TLSv1]</br>	batch.size = 16384</br>	ssl.keystore.location = null</br>	ssl.cipher.suites = null</br>	security.protocol = PLAINTEXT</br>	max.request.size = 1048576</br>	value.serializer = class org.apache.kafka.common.serialization.ByteArraySerializer</br>	ssl.keymanager.algorithm = SunX509</br>	metrics.sample.window.ms = 30000</br>	partitioner.class = class org.apache.kafka.clients.producer.internals.DefaultPartitioner</br>	linger.ms = 0</br></br>[DistributedHerder] INFO org.apache.kafka.clients.producer.ProducerConfig - ProducerConfig values: </br>	metric.reporters = []</br>	metadata.max.age.ms = 300000</br>	reconnect.backoff.ms = 50</br>	sasl.kerberos.ticket.renew.window.factor = 0.8</br>	bootstrap.servers = [localhost:9092]</br>	ssl.keystore.type = JKS</br>	sasl.mechanism = GSSAPI</br>	max.block.ms = 60000</br>	interceptor.classes = null</br>	ssl.truststore.password = null</br>	client.id = producer-2</br>	ssl.endpoint.identification.algorithm = null</br>	request.timeout.ms = 30000</br>	acks = all</br>	receive.buffer.bytes = 32768</br>	ssl.truststore.type = JKS</br>	retries = 2147483647</br>	ssl.truststore.location = null</br>	ssl.keystore.password = null</br>	send.buffer.bytes = 131072</br>	compression.type = none</br>	metadata.fetch.timeout.ms = 60000</br>	retry.backoff.ms = 100</br>	sasl.kerberos.kinit.cmd = /usr/bin/kinit</br>	buffer.memory = 33554432</br>	timeout.ms = 30000</br>	key.serializer = class org.apache.kafka.common.serialization.ByteArraySerializer</br>	sasl.kerberos.service.name = null</br>	sasl.kerberos.ticket.renew.jitter = 0.05</br>	ssl.trustmanager.algorithm = PKIX</br>	block.on.buffer.full = false</br>	ssl.key.password = null</br>	sasl.kerberos.min.time.before.relogin = 60000</br>	connections.max.idle.ms = 540000</br>	max.in.flight.requests.per.connection = 1</br>	metrics.num.samples = 2</br>	ssl.protocol = TLS</br>	ssl.provider = null</br>	ssl.enabled.protocols = [TLSv1.2, TLSv1.1, TLSv1]</br>	batch.size = 16384</br>	ssl.keystore.location = null</br>	ssl.cipher.suites = null</br>	security.protocol = PLAINTEXT</br>	max.request.size = 1048576</br>	value.serializer = class org.apache.kafka.common.serialization.ByteArraySerializer</br>	ssl.keymanager.algorithm = SunX509</br>	metrics.sample.window.ms = 30000</br>	partitioner.class = class org.apache.kafka.clients.producer.internals.DefaultPartitioner</br>	linger.ms = 0</br></br>[DistributedHerder] WARN org.apache.kafka.clients.producer.ProducerConfig - The configuration config.storage.topic = connect-configs was supplied but isn&#39;t a known config.</br>[DistributedHerder] WARN org.apache.kafka.clients.producer.ProducerConfig - The configuration group.id = connect-cluster was supplied but isn&#39;t a known config.</br>[DistributedHerder] WARN org.apache.kafka.clients.producer.ProducerConfig - The configuration status.storage.topic = connect-statuses was supplied but isn&#39;t a known config.</br>[DistributedHerder] WARN org.apache.kafka.clients.producer.ProducerConfig - The configuration internal.key.converter.schemas.enable = false was supplied but isn&#39;t a known config.</br>[DistributedHerder] WARN org.apache.kafka.clients.producer.ProducerConfig - The configuration rest.port = 8083 was supplied but isn&#39;t a known config.</br>[DistributedHerder] WARN org.apache.kafka.clients.producer.ProducerConfig - The configuration value.converter.schema.registry.url = http://localhost:8081 was supplied but isn&#39;t a known config.</br>[DistributedHerder] WARN org.apache.kafka.clients.producer.ProducerConfig - The configuration internal.key.converter = org.apache.kafka.connect.json.JsonConverter was supplied but isn&#39;t a known config.</br>[DistributedHerder] WARN org.apache.kafka.clients.producer.ProducerConfig - The configuration internal.value.converter.schemas.enable = false was supplied but isn&#39;t a known config.</br>[DistributedHerder] WARN org.apache.kafka.clients.producer.ProducerConfig - The configuration internal.value.converter = org.apache.kafka.connect.json.JsonConverter was supplied but isn&#39;t a known config.</br>[DistributedHerder] WARN org.apache.kafka.clients.producer.ProducerConfig - The configuration offset.storage.topic = connect-offsets was supplied but isn&#39;t a known config.</br>[DistributedHerder] WARN org.apache.kafka.clients.producer.ProducerConfig - The configuration value.converter = io.confluent.connect.avro.AvroConverter was supplied but isn&#39;t a known config.</br>[DistributedHerder] WARN org.apache.kafka.clients.producer.ProducerConfig - The configuration key.converter = io.confluent.connect.avro.AvroConverter was supplied but isn&#39;t a known config.</br>[DistributedHerder] WARN org.apache.kafka.clients.producer.ProducerConfig - The configuration key.converter.schema.registry.url = http://localhost:8081 was supplied but isn&#39;t a known config.</br>[DistributedHerder] INFO org.apache.kafka.common.utils.AppInfoParser - Kafka version : 0.10.0.0</br>[DistributedHerder] INFO org.apache.kafka.common.utils.AppInfoParser - Kafka commitId : b8642491e78c5a13</br>[DistributedHerder] INFO org.apache.kafka.clients.consumer.ConsumerConfig - ConsumerConfig values: </br>	metric.reporters = []</br>	metadata.max.age.ms = 300000</br>	partition.assignment.strategy = [org.apache.kafka.clients.consumer.RangeAssignor]</br>	reconnect.backoff.ms = 50</br>	sasl.kerberos.ticket.renew.window.factor = 0.8</br>	max.partition.fetch.bytes = 1048576</br>	bootstrap.servers = [localhost:9092]</br>	ssl.keystore.type = JKS</br>	enable.auto.commit = false</br>	sasl.mechanism = GSSAPI</br>	interceptor.classes = null</br>	exclude.internal.topics = true</br>	ssl.truststore.password = null</br>	client.id = </br>	ssl.endpoint.identification.algorithm = null</br>	max.poll.records = 2147483647</br>	check.crcs = true</br>	request.timeout.ms = 40000</br>	heartbeat.interval.ms = 3000</br>	auto.commit.interval.ms = 5000</br>	receive.buffer.bytes = 65536</br>	ssl.truststore.type = JKS</br>	ssl.truststore.location = null</br>	ssl.keystore.password = null</br>	fetch.min.bytes = 1</br>	send.buffer.bytes = 131072</br>	value.deserializer = class org.apache.kafka.common.serialization.ByteArrayDeserializer</br>	group.id = connect-cluster</br>	retry.backoff.ms = 100</br>	sasl.kerberos.kinit.cmd = /usr/bin/kinit</br>	sasl.kerberos.service.name = null</br>	sasl.kerberos.ticket.renew.jitter = 0.05</br>	ssl.trustmanager.algorithm = PKIX</br>	ssl.key.password = null</br>	fetch.max.wait.ms = 500</br>	sasl.kerberos.min.time.before.relogin = 60000</br>	connections.max.idle.ms = 540000</br>	session.timeout.ms = 30000</br>	metrics.num.samples = 2</br>	key.deserializer = class org.apache.kafka.common.serialization.ByteArrayDeserializer</br>	ssl.protocol = TLS</br>	ssl.provider = null</br>	ssl.enabled.protocols = [TLSv1.2, TLSv1.1, TLSv1]</br>	ssl.keystore.location = null</br>	ssl.cipher.suites = null</br>	security.protocol = PLAINTEXT</br>	ssl.keymanager.algorithm = SunX509</br>	metrics.sample.window.ms = 30000</br>	auto.offset.reset = earliest</br></br>[DistributedHerder] INFO org.apache.kafka.clients.consumer.ConsumerConfig - ConsumerConfig values: </br>	metric.reporters = []</br>	metadata.max.age.ms = 300000</br>	partition.assignment.strategy = [org.apache.kafka.clients.consumer.RangeAssignor]</br>	reconnect.backoff.ms = 50</br>	sasl.kerberos.ticket.renew.window.factor = 0.8</br>	max.partition.fetch.bytes = 1048576</br>	bootstrap.servers = [localhost:9092]</br>	ssl.keystore.type = JKS</br>	enable.auto.commit = false</br>	sasl.mechanism = GSSAPI</br>	interceptor.classes = null</br>	exclude.internal.topics = true</br>	ssl.truststore.password = null</br>	client.id = consumer-1</br>	ssl.endpoint.identification.algorithm = null</br>	max.poll.records = 2147483647</br>	check.crcs = true</br>	request.timeout.ms = 40000</br>	heartbeat.interval.ms = 3000</br>	auto.commit.interval.ms = 5000</br>	receive.buffer.bytes = 65536</br>	ssl.truststore.type = JKS</br>	ssl.truststore.location = null</br>	ssl.keystore.password = null</br>	fetch.min.bytes = 1</br>	send.buffer.bytes = 131072</br>	value.deserializer = class org.apache.kafka.common.serialization.ByteArrayDeserializer</br>	group.id = connect-cluster</br>	retry.backoff.ms = 100</br>	sasl.kerberos.kinit.cmd = /usr/bin/kinit</br>	sasl.kerberos.service.name = null</br>	sasl.kerberos.ticket.renew.jitter = 0.05</br>	ssl.trustmanager.algorithm = PKIX</br>	ssl.key.password = null</br>	fetch.max.wait.ms = 500</br>	sasl.kerberos.min.time.before.relogin = 60000</br>	connections.max.idle.ms = 540000</br>	session.timeout.ms = 30000</br>	metrics.num.samples = 2</br>	key.deserializer = class org.apache.kafka.common.serialization.ByteArrayDeserializer</br>	ssl.protocol = TLS</br>	ssl.provider = null</br>	ssl.enabled.protocols = [TLSv1.2, TLSv1.1, TLSv1]</br>	ssl.keystore.location = null</br>	ssl.cipher.suites = null</br>	security.protocol = PLAINTEXT</br>	ssl.keymanager.algorithm = SunX509</br>	metrics.sample.window.ms = 30000</br>	auto.offset.reset = earliest</br></br>[DistributedHerder] WARN org.apache.kafka.clients.consumer.ConsumerConfig - The configuration config.storage.topic = connect-configs was supplied but isn&#39;t a known config.</br>[DistributedHerder] WARN org.apache.kafka.clients.consumer.ConsumerConfig - The configuration status.storage.topic = connect-statuses was supplied but isn&#39;t a known config.</br>[DistributedHerder] WARN org.apache.kafka.clients.consumer.ConsumerConfig - The configuration internal.key.converter.schemas.enable = false was supplied but isn&#39;t a known config.</br>[DistributedHerder] WARN org.apache.kafka.clients.consumer.ConsumerConfig - The configuration rest.port = 8083 was supplied but isn&#39;t a known config.</br>[DistributedHerder] WARN org.apache.kafka.clients.consumer.ConsumerConfig - The configuration value.converter.schema.registry.url = http://localhost:8081 was supplied but isn&#39;t a known config.</br>[DistributedHerder] WARN org.apache.kafka.clients.consumer.ConsumerConfig - The configuration internal.key.converter = org.apache.kafka.connect.json.JsonConverter was supplied but isn&#39;t a known config.</br>[DistributedHerder] WARN org.apache.kafka.clients.consumer.ConsumerConfig - The configuration internal.value.converter.schemas.enable = false was supplied but isn&#39;t a known config.</br>[DistributedHerder] WARN org.apache.kafka.clients.consumer.ConsumerConfig - The configuration internal.value.converter = org.apache.kafka.connect.json.JsonConverter was supplied but isn&#39;t a known config.</br>[DistributedHerder] WARN org.apache.kafka.clients.consumer.ConsumerConfig - The configuration offset.storage.topic = connect-offsets was supplied but isn&#39;t a known config.</br>[DistributedHerder] WARN org.apache.kafka.clients.consumer.ConsumerConfig - The configuration value.converter = io.confluent.connect.avro.AvroConverter was supplied but isn&#39;t a known config.</br>[DistributedHerder] WARN org.apache.kafka.clients.consumer.ConsumerConfig - The configuration key.converter = io.confluent.connect.avro.AvroConverter was supplied but isn&#39;t a known config.</br>[DistributedHerder] WARN org.apache.kafka.clients.consumer.ConsumerConfig - The configuration key.converter.schema.registry.url = http://localhost:8081 was supplied but isn&#39;t a known config.</br>[DistributedHerder] INFO org.apache.kafka.common.utils.AppInfoParser - Kafka version : 0.10.0.0</br>[DistributedHerder] INFO org.apache.kafka.common.utils.AppInfoParser - Kafka commitId : b8642491e78c5a13</br>[main] INFO org.eclipse.jetty.server.Server - jetty-9.2.12.v20150709</br>[2016-10-10 16:10:54,264] INFO HV000001: Hibernate Validator 5.1.2.Final (org.hibernate.validator.internal.util.Version:27)</br>Oct 10, 2016 4:10:54 PM org.glassfish.jersey.internal.Errors logErrors</br>WARNING: The following warnings have been detected: WARNING: The (sub)resource method listConnectors in org.apache.kafka.connect.runtime.rest.resources.ConnectorsResource contains empty path annotation.</br>WARNING: The (sub)resource method createConnector in org.apache.kafka.connect.runtime.rest.resources.ConnectorsResource contains empty path annotation.</br>WARNING: The (sub)resource method listConnectorPlugins in org.apache.kafka.connect.runtime.rest.resources.ConnectorPluginsResource contains empty path annotation.</br>WARNING: The (sub)resource method serverInfo in org.apache.kafka.connect.runtime.rest.resources.RootResource contains empty path annotation.</br></br>[main] INFO org.eclipse.jetty.server.handler.ContextHandler - Started o.e.j.s.ServletContextHandler@7479b626{/,null,AVAILABLE}</br>[main] INFO org.eclipse.jetty.server.ServerConnector - Started ServerConnector@59e43e8c{HTTP/1.1}{0.0.0.0:8083}</br>[main] INFO org.eclipse.jetty.server.Server - Started @3639ms</br>[main] INFO org.apache.kafka.connect.runtime.rest.RestServer - REST server listening at http://172.18.0.3:8083/, advertising URL http://172.18.0.3:8083/</br>[main] INFO org.apache.kafka.connect.runtime.Connect - Kafka Connect started</br>[DistributedHerder] INFO org.apache.kafka.clients.consumer.internals.AbstractCoordinator - Discovered coordinator fast-data-dev:9092 (id: 2147483647 rack: null) for group connect-cluster.</br>[DistributedHerder] INFO org.apache.kafka.clients.consumer.internals.AbstractCoordinator - Marking the coordinator fast-data-dev:9092 (id: 2147483647 rack: null) dead for group connect-cluster</br>[DistributedHerder] INFO org.apache.kafka.clients.consumer.internals.AbstractCoordinator - Discovered coordinator fast-data-dev:9092 (id: 2147483647 rack: null) for group connect-cluster.</br>[DistributedHerder] INFO org.apache.kafka.connect.util.KafkaBasedLog - Finished reading KafkaBasedLog for topic connect-offsets</br>[DistributedHerder] INFO org.apache.kafka.connect.util.KafkaBasedLog - Started KafkaBasedLog for topic connect-offsets</br>[DistributedHerder] INFO org.apache.kafka.connect.storage.KafkaOffsetBackingStore - Finished reading offsets topic and starting KafkaOffsetBackingStore</br>[DistributedHerder] INFO org.apache.kafka.connect.runtime.Worker - Worker started</br>[DistributedHerder] INFO org.apache.kafka.connect.util.KafkaBasedLog - Starting KafkaBasedLog with topic connect-statuses</br>[DistributedHerder] INFO org.apache.kafka.clients.producer.ProducerConfig - ProducerConfig values: </br>	metric.reporters = []</br>	metadata.max.age.ms = 300000</br>	reconnect.backoff.ms = 50</br>	sasl.kerberos.ticket.renew.window.factor = 0.8</br>	bootstrap.servers = [localhost:9092]</br>	ssl.keystore.type = JKS</br>	sasl.mechanism = GSSAPI</br>	max.block.ms = 60000</br>	interceptor.classes = null</br>	ssl.truststore.password = null</br>	client.id = </br>	ssl.endpoint.identification.algorithm = null</br>	request.timeout.ms = 30000</br>	acks = all</br>	receive.buffer.bytes = 32768</br>	ssl.truststore.type = JKS</br>	retries = 0</br>	ssl.truststore.location = null</br>	ssl.keystore.password = null</br>	send.buffer.bytes = 131072</br>	compression.type = none</br>	metadata.fetch.timeout.ms = 60000</br>	retry.backoff.ms = 100</br>	sasl.kerberos.kinit.cmd = /usr/bin/kinit</br>	buffer.memory = 33554432</br>	timeout.ms = 30000</br>	key.serializer = class org.apache.kafka.common.serialization.StringSerializer</br>	sasl.kerberos.service.name = null</br>	sasl.kerberos.ticket.renew.jitter = 0.05</br>	ssl.trustmanager.algorithm = PKIX</br>	block.on.buffer.full = false</br>	ssl.key.password = null</br>	sasl.kerberos.min.time.before.relogin = 60000</br>	connections.max.idle.ms = 540000</br>	max.in.flight.requests.per.connection = 1</br>	metrics.num.samples = 2</br>	ssl.protocol = TLS</br>	ssl.provider = null</br>	ssl.enabled.protocols = [TLSv1.2, TLSv1.1, TLSv1]</br>	batch.size = 16384</br>	ssl.keystore.location = null</br>	ssl.cipher.suites = null</br>	security.protocol = PLAINTEXT</br>	max.request.size = 1048576</br>	value.serializer = class org.apache.kafka.common.serialization.ByteArraySerializer</br>	ssl.keymanager.algorithm = SunX509</br>	metrics.sample.window.ms = 30000</br>	partitioner.class = class org.apache.kafka.clients.producer.internals.DefaultPartitioner</br>	linger.ms = 0</br></br>[DistributedHerder] INFO org.apache.kafka.clients.producer.ProducerConfig - ProducerConfig values: </br>	metric.reporters = []</br>	metadata.max.age.ms = 300000</br>	reconnect.backoff.ms = 50</br>	sasl.kerberos.ticket.renew.window.factor = 0.8</br>	bootstrap.servers = [localhost:9092]</br>	ssl.keystore.type = JKS</br>	sasl.mechanism = GSSAPI</br>	max.block.ms = 60000</br>	interceptor.classes = null</br>	ssl.truststore.password = null</br>	client.id = producer-3</br>	ssl.endpoint.identification.algorithm = null</br>	request.timeout.ms = 30000</br>	acks = all</br>	receive.buffer.bytes = 32768</br>	ssl.truststore.type = JKS</br>	retries = 0</br>	ssl.truststore.location = null</br>	ssl.keystore.password = null</br>	send.buffer.bytes = 131072</br>	compression.type = none</br>	metadata.fetch.timeout.ms = 60000</br>	retry.backoff.ms = 100</br>	sasl.kerberos.kinit.cmd = /usr/bin/kinit</br>	buffer.memory = 33554432</br>	timeout.ms = 30000</br>	key.serializer = class org.apache.kafka.common.serialization.StringSerializer</br>	sasl.kerberos.service.name = null</br>	sasl.kerberos.ticket.renew.jitter = 0.05</br>	ssl.trustmanager.algorithm = PKIX</br>	block.on.buffer.full = false</br>	ssl.key.password = null</br>	sasl.kerberos.min.time.before.relogin = 60000</br>	connections.max.idle.ms = 540000</br>	max.in.flight.requests.per.connection = 1</br>	metrics.num.samples = 2</br>	ssl.protocol = TLS</br>	ssl.provider = null</br>	ssl.enabled.protocols = [TLSv1.2, TLSv1.1, TLSv1]</br>	batch.size = 16384</br>	ssl.keystore.location = null</br>	ssl.cipher.suites = null</br>	security.protocol = PLAINTEXT</br>	max.request.size = 1048576</br>	value.serializer = class org.apache.kafka.common.serialization.ByteArraySerializer</br>	ssl.keymanager.algorithm = SunX509</br>	metrics.sample.window.ms = 30000</br>	partitioner.class = class org.apache.kafka.clients.producer.internals.DefaultPartitioner</br>	linger.ms = 0</br></br>[DistributedHerder] WARN org.apache.kafka.clients.producer.ProducerConfig - The configuration config.storage.topic = connect-configs was supplied but isn&#39;t a known config.</br>[DistributedHerder] WARN org.apache.kafka.clients.producer.ProducerConfig - The configuration group.id = connect-cluster was supplied but isn&#39;t a known config.</br>[DistributedHerder] WARN org.apache.kafka.clients.producer.ProducerConfig - The configuration status.storage.topic = connect-statuses was supplied but isn&#39;t a known config.</br>[DistributedHerder] WARN org.apache.kafka.clients.producer.ProducerConfig - The configuration internal.key.converter.schemas.enable = false was supplied but isn&#39;t a known config.</br>[DistributedHerder] WARN org.apache.kafka.clients.producer.ProducerConfig - The configuration rest.port = 8083 was supplied but isn&#39;t a known config.</br>[DistributedHerder] WARN org.apache.kafka.clients.producer.ProducerConfig - The configuration value.converter.schema.registry.url = http://localhost:8081 was supplied but isn&#39;t a known config.</br>[DistributedHerder] WARN org.apache.kafka.clients.producer.ProducerConfig - The configuration internal.key.converter = org.apache.kafka.connect.json.JsonConverter was supplied but isn&#39;t a known config.</br>[DistributedHerder] WARN org.apache.kafka.clients.producer.ProducerConfig - The configuration internal.value.converter.schemas.enable = false was supplied but isn&#39;t a known config.</br>[DistributedHerder] WARN org.apache.kafka.clients.producer.ProducerConfig - The configuration internal.value.converter = org.apache.kafka.connect.json.JsonConverter was supplied but isn&#39;t a known config.</br>[DistributedHerder] WARN org.apache.kafka.clients.producer.ProducerConfig - The configuration offset.storage.topic = connect-offsets was supplied but isn&#39;t a known config.</br>[DistributedHerder] WARN org.apache.kafka.clients.producer.ProducerConfig - The configuration value.converter = io.confluent.connect.avro.AvroConverter was supplied but isn&#39;t a known config.</br>[DistributedHerder] WARN org.apache.kafka.clients.producer.ProducerConfig - The configuration key.converter = io.confluent.connect.avro.AvroConverter was supplied but isn&#39;t a known config.</br>[DistributedHerder] WARN org.apache.kafka.clients.producer.ProducerConfig - The configuration key.converter.schema.registry.url = http://localhost:8081 was supplied but isn&#39;t a known config.</br>[DistributedHerder] INFO org.apache.kafka.common.utils.AppInfoParser - Kafka version : 0.10.0.0</br>[DistributedHerder] INFO org.apache.kafka.common.utils.AppInfoParser - Kafka commitId : b8642491e78c5a13</br>[DistributedHerder] INFO org.apache.kafka.clients.consumer.ConsumerConfig - ConsumerConfig values: </br>	metric.reporters = []</br>	metadata.max.age.ms = 300000</br>	partition.assignment.strategy = [org.apache.kafka.clients.consumer.RangeAssignor]</br>	reconnect.backoff.ms = 50</br>	sasl.kerberos.ticket.renew.window.factor = 0.8</br>	max.partition.fetch.bytes = 1048576</br>	bootstrap.servers = [localhost:9092]</br>	ssl.keystore.type = JKS</br>	enable.auto.commit = false</br>	sasl.mechanism = GSSAPI</br>	interceptor.classes = null</br>	exclude.internal.topics = true</br>	ssl.truststore.password = null</br>	client.id = </br>	ssl.endpoint.identification.algorithm = null</br>	max.poll.records = 2147483647</br>	check.crcs = true</br>	request.timeout.ms = 40000</br>	heartbeat.interval.ms = 3000</br>	auto.commit.interval.ms = 5000</br>	receive.buffer.bytes = 65536</br>	ssl.truststore.type = JKS</br>	ssl.truststore.location = null</br>	ssl.keystore.password = null</br>	fetch.min.bytes = 1</br>	send.buffer.bytes = 131072</br>	value.deserializer = class org.apache.kafka.common.serialization.ByteArrayDeserializer</br>	group.id = connect-cluster</br>	retry.backoff.ms = 100</br>	sasl.kerberos.kinit.cmd = /usr/bin/kinit</br>	sasl.kerberos.service.name = null</br>	sasl.kerberos.ticket.renew.jitter = 0.05</br>	ssl.trustmanager.algorithm = PKIX</br>	ssl.key.password = null</br>	fetch.max.wait.ms = 500</br>	sasl.kerberos.min.time.before.relogin = 60000</br>	connections.max.idle.ms = 540000</br>	session.timeout.ms = 30000</br>	metrics.num.samples = 2</br>	key.deserializer = class org.apache.kafka.common.serialization.StringDeserializer</br>	ssl.protocol = TLS</br>	ssl.provider = null</br>	ssl.enabled.protocols = [TLSv1.2, TLSv1.1, TLSv1]</br>	ssl.keystore.location = null</br>	ssl.cipher.suites = null</br>	security.protocol = PLAINTEXT</br>	ssl.keymanager.algorithm = SunX509</br>	metrics.sample.window.ms = 30000</br>	auto.offset.reset = earliest</br></br>[DistributedHerder] INFO org.apache.kafka.clients.consumer.ConsumerConfig - ConsumerConfig values: </br>	metric.reporters = []</br>	metadata.max.age.ms = 300000</br>	partition.assignment.strategy = [org.apache.kafka.clients.consumer.RangeAssignor]</br>	reconnect.backoff.ms = 50</br>	sasl.kerberos.ticket.renew.window.factor = 0.8</br>	max.partition.fetch.bytes = 1048576</br>	bootstrap.servers = [localhost:9092]</br>	ssl.keystore.type = JKS</br>	enable.auto.commit = false</br>	sasl.mechanism = GSSAPI</br>	interceptor.classes = null</br>	exclude.internal.topics = true</br>	ssl.truststore.password = null</br>	client.id = consumer-2</br>	ssl.endpoint.identification.algorithm = null</br>	max.poll.records = 2147483647</br>	check.crcs = true</br>	request.timeout.ms = 40000</br>	heartbeat.interval.ms = 3000</br>	auto.commit.interval.ms = 5000</br>	receive.buffer.bytes = 65536</br>	ssl.truststore.type = JKS</br>	ssl.truststore.location = null</br>	ssl.keystore.password = null</br>	fetch.min.bytes = 1</br>	send.buffer.bytes = 131072</br>	value.deserializer = class org.apache.kafka.common.serialization.ByteArrayDeserializer</br>	group.id = connect-cluster</br>	retry.backoff.ms = 100</br>	sasl.kerberos.kinit.cmd = /usr/bin/kinit</br>	sasl.kerberos.service.name = null</br>	sasl.kerberos.ticket.renew.jitter = 0.05</br>	ssl.trustmanager.algorithm = PKIX</br>	ssl.key.password = null</br>	fetch.max.wait.ms = 500</br>	sasl.kerberos.min.time.before.relogin = 60000</br>	connections.max.idle.ms = 540000</br>	session.timeout.ms = 30000</br>	metrics.num.samples = 2</br>	key.deserializer = class org.apache.kafka.common.serialization.StringDeserializer</br>	ssl.protocol = TLS</br>	ssl.provider = null</br>	ssl.enabled.protocols = [TLSv1.2, TLSv1.1, TLSv1]</br>	ssl.keystore.location = null</br>	ssl.cipher.suites = null</br>	security.protocol = PLAINTEXT</br>	ssl.keymanager.algorithm = SunX509</br>	metrics.sample.window.ms = 30000</br>	auto.offset.reset = earliest</br></br>[DistributedHerder] WARN org.apache.kafka.clients.consumer.ConsumerConfig - The configuration config.storage.topic = connect-configs was supplied but isn&#39;t a known config.</br>[DistributedHerder] WARN org.apache.kafka.clients.consumer.ConsumerConfig - The configuration status.storage.topic = connect-statuses was supplied but isn&#39;t a known config.</br>[DistributedHerder] WARN org.apache.kafka.clients.consumer.ConsumerConfig - The configuration internal.key.converter.schemas.enable = false was supplied but isn&#39;t a known config.</br>[DistributedHerder] WARN org.apache.kafka.clients.consumer.ConsumerConfig - The configuration rest.port = 8083 was supplied but isn&#39;t a known config.</br>[DistributedHerder] WARN org.apache.kafka.clients.consumer.ConsumerConfig - The configuration value.converter.schema.registry.url = http://localhost:8081 was supplied but isn&#39;t a known config.</br>[DistributedHerder] WARN org.apache.kafka.clients.consumer.ConsumerConfig - The configuration internal.key.converter = org.apache.kafka.connect.json.JsonConverter was supplied but isn&#39;t a known config.</br>[DistributedHerder] WARN org.apache.kafka.clients.consumer.ConsumerConfig - The configuration internal.value.converter.schemas.enable = false was supplied but isn&#39;t a known config.</br>[DistributedHerder] WARN org.apache.kafka.clients.consumer.ConsumerConfig - The configuration internal.value.converter = org.apache.kafka.connect.json.JsonConverter was supplied but isn&#39;t a known config.</br>[DistributedHerder] WARN org.apache.kafka.clients.consumer.ConsumerConfig - The configuration offset.storage.topic = connect-offsets was supplied but isn&#39;t a known config.</br>[DistributedHerder] WARN org.apache.kafka.clients.consumer.ConsumerConfig - The configuration value.converter = io.confluent.connect.avro.AvroConverter was supplied but isn&#39;t a known config.</br>[DistributedHerder] WARN org.apache.kafka.clients.consumer.ConsumerConfig - The configuration key.converter = io.confluent.connect.avro.AvroConverter was supplied but isn&#39;t a known config.</br>[DistributedHerder] WARN org.apache.kafka.clients.consumer.ConsumerConfig - The configuration key.converter.schema.registry.url = http://localhost:8081 was supplied but isn&#39;t a known config.</br>[DistributedHerder] INFO org.apache.kafka.common.utils.AppInfoParser - Kafka version : 0.10.0.0</br>[DistributedHerder] INFO org.apache.kafka.common.utils.AppInfoParser - Kafka commitId : b8642491e78c5a13</br>[DistributedHerder] INFO org.apache.kafka.clients.consumer.internals.AbstractCoordinator - Discovered coordinator fast-data-dev:9092 (id: 2147483647 rack: null) for group connect-cluster.</br>[DistributedHerder] INFO org.apache.kafka.connect.util.KafkaBasedLog - Finished reading KafkaBasedLog for topic connect-statuses</br>[DistributedHerder] INFO org.apache.kafka.connect.util.KafkaBasedLog - Started KafkaBasedLog for topic connect-statuses</br>[DistributedHerder] INFO org.apache.kafka.connect.storage.KafkaConfigBackingStore - Starting KafkaConfigBackingStore</br>[DistributedHerder] INFO org.apache.kafka.connect.util.KafkaBasedLog - Starting KafkaBasedLog with topic connect-configs</br>[DistributedHerder] INFO org.apache.kafka.clients.producer.ProducerConfig - ProducerConfig values: </br>	metric.reporters = []</br>	metadata.max.age.ms = 300000</br>	reconnect.backoff.ms = 50</br>	sasl.kerberos.ticket.renew.window.factor = 0.8</br>	bootstrap.servers = [localhost:9092]</br>	ssl.keystore.type = JKS</br>	sasl.mechanism = GSSAPI</br>	max.block.ms = 60000</br>	interceptor.classes = null</br>	ssl.truststore.password = null</br>	client.id = </br>	ssl.endpoint.identification.algorithm = null</br>	request.timeout.ms = 30000</br>	acks = all</br>	receive.buffer.bytes = 32768</br>	ssl.truststore.type = JKS</br>	retries = 2147483647</br>	ssl.truststore.location = null</br>	ssl.keystore.password = null</br>	send.buffer.bytes = 131072</br>	compression.type = none</br>	metadata.fetch.timeout.ms = 60000</br>	retry.backoff.ms = 100</br>	sasl.kerberos.kinit.cmd = /usr/bin/kinit</br>	buffer.memory = 33554432</br>	timeout.ms = 30000</br>	key.serializer = class org.apache.kafka.common.serialization.StringSerializer</br>	sasl.kerberos.service.name = null</br>	sasl.kerberos.ticket.renew.jitter = 0.05</br>	ssl.trustmanager.algorithm = PKIX</br>	block.on.buffer.full = false</br>	ssl.key.password = null</br>	sasl.kerberos.min.time.before.relogin = 60000</br>	connections.max.idle.ms = 540000</br>	max.in.flight.requests.per.connection = 1</br>	metrics.num.samples = 2</br>	ssl.protocol = TLS</br>	ssl.provider = null</br>	ssl.enabled.protocols = [TLSv1.2, TLSv1.1, TLSv1]</br>	batch.size = 16384</br>	ssl.keystore.location = null</br>	ssl.cipher.suites = null</br>	security.protocol = PLAINTEXT</br>	max.request.size = 1048576</br>	value.serializer = class org.apache.kafka.common.serialization.ByteArraySerializer</br>	ssl.keymanager.algorithm = SunX509</br>	metrics.sample.window.ms = 30000</br>	partitioner.class = class org.apache.kafka.clients.producer.internals.DefaultPartitioner</br>	linger.ms = 0</br></br>[DistributedHerder] INFO org.apache.kafka.clients.producer.ProducerConfig - ProducerConfig values: </br>	metric.reporters = []</br>	metadata.max.age.ms = 300000</br>	reconnect.backoff.ms = 50</br>	sasl.kerberos.ticket.renew.window.factor = 0.8</br>	bootstrap.servers = [localhost:9092]</br>	ssl.keystore.type = JKS</br>	sasl.mechanism = GSSAPI</br>	max.block.ms = 60000</br>	interceptor.classes = null</br>	ssl.truststore.password = null</br>	client.id = producer-4</br>	ssl.endpoint.identification.algorithm = null</br>	request.timeout.ms = 30000</br>	acks = all</br>	receive.buffer.bytes = 32768</br>	ssl.truststore.type = JKS</br>	retries = 2147483647</br>	ssl.truststore.location = null</br>	ssl.keystore.password = null</br>	send.buffer.bytes = 131072</br>	compression.type = none</br>	metadata.fetch.timeout.ms = 60000</br>	retry.backoff.ms = 100</br>	sasl.kerberos.kinit.cmd = /usr/bin/kinit</br>	buffer.memory = 33554432</br>	timeout.ms = 30000</br>	key.serializer = class org.apache.kafka.common.serialization.StringSerializer</br>	sasl.kerberos.service.name = null</br>	sasl.kerberos.ticket.renew.jitter = 0.05</br>	ssl.trustmanager.algorithm = PKIX</br>	block.on.buffer.full = false</br>	ssl.key.password = null</br>	sasl.kerberos.min.time.before.relogin = 60000</br>	connections.max.idle.ms = 540000</br>	max.in.flight.requests.per.connection = 1</br>	metrics.num.samples = 2</br>	ssl.protocol = TLS</br>	ssl.provider = null</br>	ssl.enabled.protocols = [TLSv1.2, TLSv1.1, TLSv1]</br>	batch.size = 16384</br>	ssl.keystore.location = null</br>	ssl.cipher.suites = null</br>	security.protocol = PLAINTEXT</br>	max.request.size = 1048576</br>	value.serializer = class org.apache.kafka.common.serialization.ByteArraySerializer</br>	ssl.keymanager.algorithm = SunX509</br>	metrics.sample.window.ms = 30000</br>	partitioner.class = class org.apache.kafka.clients.producer.internals.DefaultPartitioner</br>	linger.ms = 0</br></br>[DistributedHerder] WARN org.apache.kafka.clients.producer.ProducerConfig - The configuration config.storage.topic = connect-configs was supplied but isn&#39;t a known config.</br>[DistributedHerder] WARN org.apache.kafka.clients.producer.ProducerConfig - The configuration group.id = connect-cluster was supplied but isn&#39;t a known config.</br>[DistributedHerder] WARN org.apache.kafka.clients.producer.ProducerConfig - The configuration status.storage.topic = connect-statuses was supplied but isn&#39;t a known config.</br>[DistributedHerder] WARN org.apache.kafka.clients.producer.ProducerConfig - The configuration internal.key.converter.schemas.enable = false was supplied but isn&#39;t a known config.</br>[DistributedHerder] WARN org.apache.kafka.clients.producer.ProducerConfig - The configuration rest.port = 8083 was supplied but isn&#39;t a known config.</br>[DistributedHerder] WARN org.apache.kafka.clients.producer.ProducerConfig - The configuration value.converter.schema.registry.url = http://localhost:8081 was supplied but isn&#39;t a known config.</br>[DistributedHerder] WARN org.apache.kafka.clients.producer.ProducerConfig - The configuration internal.key.converter = org.apache.kafka.connect.json.JsonConverter was supplied but isn&#39;t a known config.</br>[DistributedHerder] WARN org.apache.kafka.clients.producer.ProducerConfig - The configuration internal.value.converter.schemas.enable = false was supplied but isn&#39;t a known config.</br>[DistributedHerder] WARN org.apache.kafka.clients.producer.ProducerConfig - The configuration internal.value.converter = org.apache.kafka.connect.json.JsonConverter was supplied but isn&#39;t a known config.</br>[DistributedHerder] WARN org.apache.kafka.clients.producer.ProducerConfig - The configuration offset.storage.topic = connect-offsets was supplied but isn&#39;t a known config.</br>[DistributedHerder] WARN org.apache.kafka.clients.producer.ProducerConfig - The configuration value.converter = io.confluent.connect.avro.AvroConverter was supplied but isn&#39;t a known config.</br>[DistributedHerder] WARN org.apache.kafka.clients.producer.ProducerConfig - The configuration key.converter = io.confluent.connect.avro.AvroConverter was supplied but isn&#39;t a known config.</br>[DistributedHerder] WARN org.apache.kafka.clients.producer.ProducerConfig - The configuration key.converter.schema.registry.url = http://localhost:8081 was supplied but isn&#39;t a known config.</br>[DistributedHerder] INFO org.apache.kafka.common.utils.AppInfoParser - Kafka version : 0.10.0.0</br>[DistributedHerder] INFO org.apache.kafka.common.utils.AppInfoParser - Kafka commitId : b8642491e78c5a13</br>[DistributedHerder] INFO org.apache.kafka.clients.consumer.ConsumerConfig - ConsumerConfig values: </br>	metric.reporters = []</br>	metadata.max.age.ms = 300000</br>	partition.assignment.strategy = [org.apache.kafka.clients.consumer.RangeAssignor]</br>	reconnect.backoff.ms = 50</br>	sasl.kerberos.ticket.renew.window.factor = 0.8</br>	max.partition.fetch.bytes = 1048576</br>	bootstrap.servers = [localhost:9092]</br>	ssl.keystore.type = JKS</br>	enable.auto.commit = false</br>	sasl.mechanism = GSSAPI</br>	interceptor.classes = null</br>	exclude.internal.topics = true</br>	ssl.truststore.password = null</br>	client.id = </br>	ssl.endpoint.identification.algorithm = null</br>	max.poll.records = 2147483647</br>	check.crcs = true</br>	request.timeout.ms = 40000</br>	heartbeat.interval.ms = 3000</br>	auto.commit.interval.ms = 5000</br>	receive.buffer.bytes = 65536</br>	ssl.truststore.type = JKS</br>	ssl.truststore.location = null</br>	ssl.keystore.password = null</br>	fetch.min.bytes = 1</br>	send.buffer.bytes = 131072</br>	value.deserializer = class org.apache.kafka.common.serialization.ByteArrayDeserializer</br>	group.id = connect-cluster</br>	retry.backoff.ms = 100</br>	sasl.kerberos.kinit.cmd = /usr/bin/kinit</br>	sasl.kerberos.service.name = null</br>	sasl.kerberos.ticket.renew.jitter = 0.05</br>	ssl.trustmanager.algorithm = PKIX</br>	ssl.key.password = null</br>	fetch.max.wait.ms = 500</br>	sasl.kerberos.min.time.before.relogin = 60000</br>	connections.max.idle.ms = 540000</br>	session.timeout.ms = 30000</br>	metrics.num.samples = 2</br>	key.deserializer = class org.apache.kafka.common.serialization.StringDeserializer</br>	ssl.protocol = TLS</br>	ssl.provider = null</br>	ssl.enabled.protocols = [TLSv1.2, TLSv1.1, TLSv1]</br>	ssl.keystore.location = null</br>	ssl.cipher.suites = null</br>	security.protocol = PLAINTEXT</br>	ssl.keymanager.algorithm = SunX509</br>	metrics.sample.window.ms = 30000</br>	auto.offset.reset = earliest</br></br>[DistributedHerder] INFO org.apache.kafka.clients.consumer.ConsumerConfig - ConsumerConfig values: </br>	metric.reporters = []</br>	metadata.max.age.ms = 300000</br>	partition.assignment.strategy = [org.apache.kafka.clients.consumer.RangeAssignor]</br>	reconnect.backoff.ms = 50</br>	sasl.kerberos.ticket.renew.window.factor = 0.8</br>	max.partition.fetch.bytes = 1048576</br>	bootstrap.servers = [localhost:9092]</br>	ssl.keystore.type = JKS</br>	enable.auto.commit = false</br>	sasl.mechanism = GSSAPI</br>	interceptor.classes = null</br>	exclude.internal.topics = true</br>	ssl.truststore.password = null</br>	client.id = consumer-3</br>	ssl.endpoint.identification.algorithm = null</br>	max.poll.records = 2147483647</br>	check.crcs = true</br>	request.timeout.ms = 40000</br>	heartbeat.interval.ms = 3000</br>	auto.commit.interval.ms = 5000</br>	receive.buffer.bytes = 65536</br>	ssl.truststore.type = JKS</br>	ssl.truststore.location = null</br>	ssl.keystore.password = null</br>	fetch.min.bytes = 1</br>	send.buffer.bytes = 131072</br>	value.deserializer = class org.apache.kafka.common.serialization.ByteArrayDeserializer</br>	group.id = connect-cluster</br>	retry.backoff.ms = 100</br>	sasl.kerberos.kinit.cmd = /usr/bin/kinit</br>	sasl.kerberos.service.name = null</br>	sasl.kerberos.ticket.renew.jitter = 0.05</br>	ssl.trustmanager.algorithm = PKIX</br>	ssl.key.password = null</br>	fetch.max.wait.ms = 500</br>	sasl.kerberos.min.time.before.relogin = 60000</br>	connections.max.idle.ms = 540000</br>	session.timeout.ms = 30000</br>	metrics.num.samples = 2</br>	key.deserializer = class org.apache.kafka.common.serialization.StringDeserializer</br>	ssl.protocol = TLS</br>	ssl.provider = null</br>	ssl.enabled.protocols = [TLSv1.2, TLSv1.1, TLSv1]</br>	ssl.keystore.location = null</br>	ssl.cipher.suites = null</br>	security.protocol = PLAINTEXT</br>	ssl.keymanager.algorithm = SunX509</br>	metrics.sample.window.ms = 30000</br>	auto.offset.reset = earliest</br></br>[DistributedHerder] WARN org.apache.kafka.clients.consumer.ConsumerConfig - The configuration config.storage.topic = connect-configs was supplied but isn&#39;t a known config.</br>[DistributedHerder] WARN org.apache.kafka.clients.consumer.ConsumerConfig - The configuration status.storage.topic = connect-statuses was supplied but isn&#39;t a known config.</br>[DistributedHerder] WARN org.apache.kafka.clients.consumer.ConsumerConfig - The configuration internal.key.converter.schemas.enable = false was supplied but isn&#39;t a known config.</br>[DistributedHerder] WARN org.apache.kafka.clients.consumer.ConsumerConfig - The configuration rest.port = 8083 was supplied but isn&#39;t a known config.</br>[DistributedHerder] WARN org.apache.kafka.clients.consumer.ConsumerConfig - The configuration value.converter.schema.registry.url = http://localhost:8081 was supplied but isn&#39;t a known config.</br>[DistributedHerder] WARN org.apache.kafka.clients.consumer.ConsumerConfig - The configuration internal.key.converter = org.apache.kafka.connect.json.JsonConverter was supplied but isn&#39;t a known config.</br>[DistributedHerder] WARN org.apache.kafka.clients.consumer.ConsumerConfig - The configuration internal.value.converter.schemas.enable = false was supplied but isn&#39;t a known config.</br>[DistributedHerder] WARN org.apache.kafka.clients.consumer.ConsumerConfig - The configuration internal.value.converter = org.apache.kafka.connect.json.JsonConverter was supplied but isn&#39;t a known config.</br>[DistributedHerder] WARN org.apache.kafka.clients.consumer.ConsumerConfig - The configuration offset.storage.topic = connect-offsets was supplied but isn&#39;t a known config.</br>[DistributedHerder] WARN org.apache.kafka.clients.consumer.ConsumerConfig - The configuration value.converter = io.confluent.connect.avro.AvroConverter was supplied but isn&#39;t a known config.</br>[DistributedHerder] WARN org.apache.kafka.clients.consumer.ConsumerConfig - The configuration key.converter = io.confluent.connect.avro.AvroConverter was supplied but isn&#39;t a known config.</br>[DistributedHerder] WARN org.apache.kafka.clients.consumer.ConsumerConfig - The configuration key.converter.schema.registry.url = http://localhost:8081 was supplied but isn&#39;t a known config.</br>[DistributedHerder] INFO org.apache.kafka.common.utils.AppInfoParser - Kafka version : 0.10.0.0</br>[DistributedHerder] INFO org.apache.kafka.common.utils.AppInfoParser - Kafka commitId : b8642491e78c5a13</br>[DistributedHerder] INFO org.apache.kafka.clients.consumer.internals.AbstractCoordinator - Discovered coordinator fast-data-dev:9092 (id: 2147483647 rack: null) for group connect-cluster.</br>[DistributedHerder] INFO org.apache.kafka.connect.util.KafkaBasedLog - Finished reading KafkaBasedLog for topic connect-configs</br>[DistributedHerder] INFO org.apache.kafka.connect.util.KafkaBasedLog - Started KafkaBasedLog for topic connect-configs</br>[DistributedHerder] INFO org.apache.kafka.connect.storage.KafkaConfigBackingStore - Started KafkaConfigBackingStore</br>[DistributedHerder] INFO org.apache.kafka.connect.runtime.distributed.DistributedHerder - Herder started</br>[DistributedHerder] INFO org.apache.kafka.clients.consumer.internals.AbstractCoordinator - Discovered coordinator fast-data-dev:9092 (id: 2147483647 rack: null) for group connect-cluster.</br>[DistributedHerder] INFO org.apache.kafka.clients.consumer.internals.AbstractCoordinator - (Re-)joining group connect-cluster</br>[DistributedHerder] INFO org.apache.kafka.clients.consumer.internals.AbstractCoordinator - Successfully joined group connect-cluster with generation 1</br>[DistributedHerder] INFO org.apache.kafka.connect.runtime.distributed.DistributedHerder - Joined group and got assignment: Assignment{error=0, leader=&#39;connect-1-d5d7d801-30e4-4f60-bf28-52d1f88429fa&#39;, leaderUrl=&#39;http://172.18.0.3:8083/&#39;, offset=-1, connectorIds=[], taskIds=[]}</br>[DistributedHerder] INFO org.apache.kafka.connect.runtime.distributed.DistributedHerder - Starting connectors and tasks using config offset -1</br>[DistributedHerder] INFO org.apache.kafka.connect.runtime.distributed.DistributedHerder - Finished starting connectors and tasks</br>[CLASSPATH traversal thread.] INFO org.reflections.Reflections - Reflections took 38967 ms to scan 1694 urls, producing 24119 keys and 197448 values </br>[KafkaBasedLog Work Thread - connect-configs] INFO org.apache.kafka.connect.runtime.distributed.DistributedHerder - Connector cassandra-source config updated</br>[DistributedHerder] INFO org.apache.kafka.connect.runtime.distributed.DistributedHerder - Rebalance started</br>[DistributedHerder] INFO org.apache.kafka.connect.runtime.distributed.DistributedHerder - Finished stopping tasks in preparation for rebalance</br>[DistributedHerder] INFO org.apache.kafka.clients.consumer.internals.AbstractCoordinator - (Re-)joining group connect-cluster</br>[DistributedHerder] INFO org.apache.kafka.clients.consumer.internals.AbstractCoordinator - Successfully joined group connect-cluster with generation 2</br>[DistributedHerder] INFO org.apache.kafka.connect.runtime.distributed.DistributedHerder - Joined group and got assignment: Assignment{error=0, leader=&#39;connect-1-d5d7d801-30e4-4f60-bf28-52d1f88429fa&#39;, leaderUrl=&#39;http://172.18.0.3:8083/&#39;, offset=1, connectorIds=[cassandra-source], taskIds=[]}</br>[DistributedHerder] INFO org.apache.kafka.connect.runtime.distributed.DistributedHerder - Starting connectors and tasks using config offset 1</br>[DistributedHerder] INFO org.apache.kafka.connect.runtime.distributed.DistributedHerder - Starting connector cassandra-source</br>[DistributedHerder] INFO org.apache.kafka.connect.runtime.ConnectorConfig - ConnectorConfig values: </br>	connector.class = com.datamountaineer.streamreactor.connect.cassandra.source.CassandraSourceConnector</br>	tasks.max = 1</br>	name = cassandra-source</br></br>[DistributedHerder] INFO org.apache.kafka.connect.runtime.Worker - Creating connector cassandra-source of type com.datamountaineer.streamreactor.connect.cassandra.source.CassandraSourceConnector</br>[qtp795326519-27] INFO org.apache.kafka.connect.runtime.rest.RestServer - 172.18.0.4 - - [10/Oct/2016:16:11:55 +0000] &#34;POST /connectors HTTP/1.1&#34; 201 511  786</br>[DistributedHerder] INFO org.apache.kafka.connect.runtime.Worker - Instantiated connector cassandra-source with version null of type com.datamountaineer.streamreactor.connect.cassandra.source.CassandraSourceConnector</br>[DistributedHerder] INFO com.datamountaineer.streamreactor.connect.cassandra.source.CassandraSourceConnector - Starting Cassandra source task with {connector.class=com.datamountaineer.streamreactor.connect.cassandra.source.CassandraSourceConnector, connect.cassandra.import.mode=incremental, connect.cassandra.key.space=source, connect.cassandra.contact.points=cassandra, tasks.max=1, name=cassandra-source, connect.cassandra.import.route.query=INSERT INTO cassandra-source SELECT * FROM orders PK created, connect.cassandra.password=cassandra, connect.cassandra.username=cassandra}.</br>[DistributedHerder] INFO org.apache.kafka.connect.runtime.Worker - Finished creating connector cassandra-source</br>[DistributedHerder] INFO org.apache.kafka.connect.runtime.SourceConnectorConfig - SourceConnectorConfig values: </br>	connector.class = com.datamountaineer.streamreactor.connect.cassandra.source.CassandraSourceConnector</br>	tasks.max = 1</br>	name = cassandra-source</br></br>[DistributedHerder] INFO com.datamountaineer.streamreactor.connect.cassandra.source.CassandraSourceConnector - Setting task configurations for 1 workers.</br>[KafkaBasedLog Work Thread - connect-configs] INFO org.apache.kafka.connect.runtime.distributed.DistributedHerder - Tasks [cassandra-source-0] configs updated</br>[DistributedHerder] INFO org.apache.kafka.connect.runtime.distributed.DistributedHerder - Finished starting connectors and tasks</br>[DistributedHerder] INFO org.apache.kafka.connect.runtime.distributed.DistributedHerder - Rebalance started</br>[DistributedHerder] INFO org.apache.kafka.connect.runtime.Worker - Stopping connector cassandra-source</br>[DistributedHerder] INFO org.apache.kafka.connect.runtime.Worker - Stopped connector cassandra-source</br>[DistributedHerder] INFO org.apache.kafka.connect.runtime.distributed.DistributedHerder - Finished stopping tasks in preparation for rebalance</br>[DistributedHerder] INFO org.apache.kafka.clients.consumer.internals.AbstractCoordinator - (Re-)joining group connect-cluster</br>[DistributedHerder] INFO org.apache.kafka.clients.consumer.internals.AbstractCoordinator - Successfully joined group connect-cluster with generation 3</br>[DistributedHerder] INFO org.apache.kafka.connect.runtime.distributed.DistributedHerder - Joined group and got assignment: Assignment{error=0, leader=&#39;connect-1-d5d7d801-30e4-4f60-bf28-52d1f88429fa&#39;, leaderUrl=&#39;http://172.18.0.3:8083/&#39;, offset=3, connectorIds=[cassandra-source], taskIds=[cassandra-source-0]}</br>[DistributedHerder] INFO org.apache.kafka.connect.runtime.distributed.DistributedHerder - Starting connectors and tasks using config offset 3</br>[DistributedHerder] INFO org.apache.kafka.connect.runtime.distributed.DistributedHerder - Starting connector cassandra-source</br>[DistributedHerder] INFO org.apache.kafka.connect.runtime.ConnectorConfig - ConnectorConfig values: </br>	connector.class = com.datamountaineer.streamreactor.connect.cassandra.source.CassandraSourceConnector</br>	tasks.max = 1</br>	name = cassandra-source</br></br>[DistributedHerder] INFO org.apache.kafka.connect.runtime.Worker - Creating connector cassandra-source of type com.datamountaineer.streamreactor.connect.cassandra.source.CassandraSourceConnector</br>[DistributedHerder] INFO org.apache.kafka.connect.runtime.Worker - Instantiated connector cassandra-source with version null of type com.datamountaineer.streamreactor.connect.cassandra.source.CassandraSourceConnector</br>[DistributedHerder] INFO com.datamountaineer.streamreactor.connect.cassandra.source.CassandraSourceConnector - Starting Cassandra source task with {connector.class=com.datamountaineer.streamreactor.connect.cassandra.source.CassandraSourceConnector, connect.cassandra.import.mode=incremental, connect.cassandra.key.space=source, connect.cassandra.contact.points=cassandra, tasks.max=1, name=cassandra-source, connect.cassandra.import.route.query=INSERT INTO cassandra-source SELECT * FROM orders PK created, connect.cassandra.password=cassandra, connect.cassandra.username=cassandra}.</br>[DistributedHerder] INFO org.apache.kafka.connect.runtime.Worker - Finished creating connector cassandra-source</br>[DistributedHerder] INFO org.apache.kafka.connect.runtime.SourceConnectorConfig - SourceConnectorConfig values: </br>	connector.class = com.datamountaineer.streamreactor.connect.cassandra.source.CassandraSourceConnector</br>	tasks.max = 1</br>	name = cassandra-source</br></br>[DistributedHerder] INFO com.datamountaineer.streamreactor.connect.cassandra.source.CassandraSourceConnector - Setting task configurations for 1 workers.</br>[DistributedHerder] INFO org.apache.kafka.connect.runtime.distributed.DistributedHerder - Starting task cassandra-source-0</br>[DistributedHerder] INFO org.apache.kafka.connect.runtime.TaskConfig - TaskConfig values: </br>	task.class = class com.datamountaineer.streamreactor.connect.cassandra.source.CassandraSourceTask</br></br>[DistributedHerder] INFO org.apache.kafka.connect.runtime.Worker - Creating task cassandra-source-0</br>[DistributedHerder] INFO org.apache.kafka.connect.runtime.Worker - Instantiated task cassandra-source-0 with version null of type com.datamountaineer.streamreactor.connect.cassandra.source.CassandraSourceTask</br>[DistributedHerder] INFO org.apache.kafka.connect.runtime.distributed.DistributedHerder - Finished starting connectors and tasks</br>[pool-1-thread-1] INFO com.datamountaineer.streamreactor.connect.cassandra.config.CassandraConfigSource - CassandraConfigSource values: </br>	connect.cassandra.import.mode = incremental</br>	connect.cassandra.key.space = source</br>	connect.cassandra.import.source.allow.filtering = true</br>	connect.cassandra.trust.store.path = </br>	connect.cassandra.import.route.query = INSERT INTO cassandra-source SELECT * FROM orders PK created</br>	connect.cassandra.ssl.client.cert.auth = false</br>	connect.cassandra.password = [hidden]</br>	connect.cassandra.key.store.password = [hidden]</br>	connect.cassandra.import.poll.interval = 60000</br>	connect.cassandra.username = cassandra</br>	connect.cassandra.error.policy = THROW</br>	connect.cassandra.contact.points = cassandra</br>	connect.cassandra.ssl.enabled = false</br>	connect.cassandra.source.task.batch.size = 100</br>	connect.cassandra.trust.store.password = [hidden]</br>	connect.cassandra.port = 9042</br>	connect.cassandra.source.task.buffer.size = 10000</br>	connect.cassandra.key.store.path = </br>	connect.cassandra.retry.interval = 60000</br>	connect.cassandra.assigned.tables = orders</br>	connect.cassandra.max.retires = 20</br></br>[pool-1-thread-1] INFO com.datamountaineer.streamreactor.connect.cassandra.source.CassandraSourceTask - </br></br>    ____        __        __  ___                  __        _</br>   / __ \____ _/ /_____ _/  |/  /___  __  ______  / /_____ _(_)___  ___  ___  _____</br>  / / / / __ `/ __/ __ `/ /|_/ / __ \/ / / / __ \/ __/ __ `/ / __ \/ _ \/ _ \/ ___/</br> / /_/ / /_/ / /_/ /_/ / /  / / /_/ / /_/ / / / / /_/ /_/ / / / / /  __/  __/ /</br>/_____/\__,_/\__/\__,_/_/  /_/\____/\__,_/_/ /_/\__/\__,_/_/_/ /_/\___/\___/_/</br>       ______                                __           _____</br>      / ____/___ _______________ _____  ____/ /________ _/ ___/____  __  _______________</br>     / /   / __ `/ ___/ ___/ __ `/ __ \/ __  / ___/ __ `/\__ \/ __ \/ / / / ___/ ___/ _ \</br>    / /___/ /_/ (__  |__  ) /_/ / / / / /_/ / /  / /_/ /___/ / /_/ / /_/ / /  / /__/  __/</br>    \____/\__,_/____/____/\__,_/_/ /_/\__,_/_/   \__,_//____/\____/\__,_/_/   \___/\___/</br></br> By Andrew Stevenson.</br>[pool-1-thread-1] INFO com.datastax.driver.core.NettyUtil - Found Netty&#39;s native epoll transport in the classpath, using it</br>[pool-1-thread-1] INFO com.datastax.driver.core.policies.DCAwareRoundRobinPolicy - Using data-center name &#39;datacenter1&#39; for DCAwareRoundRobinPolicy (if this is incorrect, please provide the correct datacenter name with DCAwareRoundRobinPolicy constructor)</br>[pool-1-thread-1] INFO com.datastax.driver.core.Cluster - New Cassandra host cassandra/172.18.0.2:9042 added</br>[pool-1-thread-1] INFO com.datamountaineer.streamreactor.connect.cassandra.source.CassandraSourceTask - Connection to Cassandra established.</br>[pool-1-thread-1] INFO com.datamountaineer.streamreactor.connect.cassandra.source.CassandraTableReader - Received setting:</br> CassandraSourceSetting(com.datamountaineer.connector.config.Config@45e4dc2a,source,false,Some(created),60000,CassandraConfigSource({connect.cassandra.import.mode=incremental, connector.class=com.datamountaineer.streamreactor.connect.cassandra.source.CassandraSourceConnector, connect.cassandra.key.space=source, connect.cassandra.contact.points=cassandra, task.class=com.datamountaineer.streamreactor.connect.cassandra.source.CassandraSourceTask, tasks.max=1, name=cassandra-source, connect.cassandra.import.route.query=INSERT INTO cassandra-source SELECT * FROM orders PK created, connect.cassandra.password=cassandra, connect.cassandra.assigned.tables=orders, connect.cassandra.username=cassandra}),ThrowErrorPolicy(),20)</br>[pool-1-thread-1] INFO org.apache.kafka.connect.runtime.WorkerSourceTask - Source task WorkerSourceTask{id=cassandra-source-0} finished initialization and start</br>[pool-1-thread-1] INFO com.datamountaineer.streamreactor.connect.cassandra.source.CassandraTableReader - Query SELECT * FROM source.orders WHERE created &gt; maxTimeuuid(?) AND created &lt;= minTimeuuid(?)  ALLOW FILTERING executing with bindings (1900-01-01 00:00:00.000Z, 2016-10-10 16:11:59.161Z).</br>[ForkJoinPool-1-worker-29] INFO com.datamountaineer.streamreactor.connect.cassandra.source.CassandraTableReader - Querying returning results for source.orders.</br>[ForkJoinPool-1-worker-29] INFO com.datamountaineer.streamreactor.connect.cassandra.source.CassandraTableReader - Storing offset 2016-10-10 16:11:54.379Z</br>[ForkJoinPool-1-worker-29] INFO com.datamountaineer.streamreactor.connect.cassandra.source.CassandraTableReader - Storing offset 2016-10-10 16:11:54.382Z</br>[ForkJoinPool-1-worker-29] INFO com.datamountaineer.streamreactor.connect.cassandra.source.CassandraTableReader - Storing offset 2016-10-10 16:11:54.384Z</br>[ForkJoinPool-1-worker-29] INFO com.datamountaineer.streamreactor.connect.cassandra.source.CassandraTableReader - Processed 3 rows for table cassandra-source.orders</br>[pool-1-thread-1] INFO com.datamountaineer.streamreactor.connect.queues.QueueHelpers$ - Found 3. Draining entries to batchSize 100.</br>[KafkaBasedLog Work Thread - connect-configs] INFO org.apache.kafka.connect.runtime.distributed.DistributedHerder - Connector cassandra-sink config updated</br>[DistributedHerder] INFO org.apache.kafka.connect.runtime.distributed.DistributedHerder - Rebalance started</br>[DistributedHerder] INFO org.apache.kafka.connect.runtime.Worker - Stopping connector cassandra-source</br>[DistributedHerder] INFO org.apache.kafka.connect.runtime.Worker - Stopped connector cassandra-source</br>[DistributedHerder] INFO org.apache.kafka.connect.runtime.Worker - Stopping task cassandra-source-0</br>[DistributedHerder] INFO com.datamountaineer.streamreactor.connect.cassandra.source.CassandraSourceTask - Stopping Cassandra source.</br>[qtp795326519-44] INFO org.apache.kafka.connect.runtime.rest.RestServer - 172.18.0.4 - - [10/Oct/2016:16:12:01 +0000] &#34;POST /connectors HTTP/1.1&#34; 201 468  514</br>[DistributedHerder] INFO com.datamountaineer.streamreactor.connect.cassandra.source.CassandraTableReader - Shutting down Queries.</br>[DistributedHerder] INFO com.datamountaineer.streamreactor.connect.cassandra.source.CassandraTableReader - Querying stopped for source.cassandra-source.</br>[DistributedHerder] INFO com.datamountaineer.streamreactor.connect.cassandra.source.CassandraTableReader - All stopped.</br>[DistributedHerder] INFO com.datamountaineer.streamreactor.connect.cassandra.source.CassandraSourceTask - Shutting down Cassandra driver connections.</br>[pool-1-thread-1] INFO org.apache.kafka.connect.runtime.WorkerSourceTask - Finished WorkerSourceTask{id=cassandra-source-0} commitOffsets successfully in 2256 ms</br>[DistributedHerder] INFO org.apache.kafka.connect.runtime.distributed.DistributedHerder - Finished stopping tasks in preparation for rebalance</br>[DistributedHerder] INFO org.apache.kafka.clients.consumer.internals.AbstractCoordinator - (Re-)joining group connect-cluster</br>[DistributedHerder] INFO org.apache.kafka.clients.consumer.internals.AbstractCoordinator - Successfully joined group connect-cluster with generation 4</br>[DistributedHerder] INFO org.apache.kafka.connect.runtime.distributed.DistributedHerder - Joined group and got assignment: Assignment{error=0, leader=&#39;connect-1-d5d7d801-30e4-4f60-bf28-52d1f88429fa&#39;, leaderUrl=&#39;http://172.18.0.3:8083/&#39;, offset=4, connectorIds=[cassandra-source, cassandra-sink], taskIds=[cassandra-source-0]}</br>[DistributedHerder] INFO org.apache.kafka.connect.runtime.distributed.DistributedHerder - Starting connectors and tasks using config offset 4</br>[DistributedHerder] INFO org.apache.kafka.connect.runtime.distributed.DistributedHerder - Starting connector cassandra-source</br>[DistributedHerder] INFO org.apache.kafka.connect.runtime.ConnectorConfig - ConnectorConfig values: </br>	connector.class = com.datamountaineer.streamreactor.connect.cassandra.source.CassandraSourceConnector</br>	tasks.max = 1</br>	name = cassandra-source</br></br>[DistributedHerder] INFO org.apache.kafka.connect.runtime.Worker - Creating connector cassandra-source of type com.datamountaineer.streamreactor.connect.cassandra.source.CassandraSourceConnector</br>[DistributedHerder] INFO org.apache.kafka.connect.runtime.Worker - Instantiated connector cassandra-source with version null of type com.datamountaineer.streamreactor.connect.cassandra.source.CassandraSourceConnector</br>[DistributedHerder] INFO com.datamountaineer.streamreactor.connect.cassandra.source.CassandraSourceConnector - Starting Cassandra source task with {connector.class=com.datamountaineer.streamreactor.connect.cassandra.source.CassandraSourceConnector, connect.cassandra.import.mode=incremental, connect.cassandra.key.space=source, connect.cassandra.contact.points=cassandra, tasks.max=1, name=cassandra-source, connect.cassandra.import.route.query=INSERT INTO cassandra-source SELECT * FROM orders PK created, connect.cassandra.password=cassandra, connect.cassandra.username=cassandra}.</br>[DistributedHerder] INFO org.apache.kafka.connect.runtime.Worker - Finished creating connector cassandra-source</br>[DistributedHerder] INFO org.apache.kafka.connect.runtime.SourceConnectorConfig - SourceConnectorConfig values: </br>	connector.class = com.datamountaineer.streamreactor.connect.cassandra.source.CassandraSourceConnector</br>	tasks.max = 1</br>	name = cassandra-source</br></br>[DistributedHerder] INFO com.datamountaineer.streamreactor.connect.cassandra.source.CassandraSourceConnector - Setting task configurations for 1 workers.</br>[DistributedHerder] INFO org.apache.kafka.connect.runtime.distributed.DistributedHerder - Starting connector cassandra-sink</br>[DistributedHerder] INFO org.apache.kafka.connect.runtime.ConnectorConfig - ConnectorConfig values: </br>	connector.class = com.datamountaineer.streamreactor.connect.cassandra.sink.CassandraSinkConnector</br>	tasks.max = 1</br>	name = cassandra-sink</br></br>[DistributedHerder] INFO org.apache.kafka.connect.runtime.Worker - Creating connector cassandra-sink of type com.datamountaineer.streamreactor.connect.cassandra.sink.CassandraSinkConnector</br>[DistributedHerder] INFO org.apache.kafka.connect.runtime.Worker - Instantiated connector cassandra-sink with version 1 of type com.datamountaineer.streamreactor.connect.cassandra.sink.CassandraSinkConnector</br>[DistributedHerder] INFO com.datamountaineer.streamreactor.connect.cassandra.config.CassandraConfigSink - CassandraConfigSink values: </br>	connect.cassandra.key.space = sink</br>	connect.cassandra.export.route.query = INSERT INTO orders SELECT * FROM cassandra-sink</br>	connect.cassandra.trust.store.path = </br>	connect.cassandra.ssl.client.cert.auth = false</br>	connect.cassandra.password = [hidden]</br>	connect.cassandra.key.store.password = [hidden]</br>	connect.cassandra.username = cassandra</br>	connect.cassandra.error.policy = THROW</br>	connect.cassandra.contact.points = cassandra</br>	connect.cassandra.ssl.enabled = false</br>	connect.cassandra.trust.store.password = [hidden]</br>	connect.cassandra.port = 9042</br>	connect.cassandra.key.store.path = </br>	connect.cassandra.retry.interval = 60000</br>	connect.cassandra.max.retires = 20</br></br>[DistributedHerder] INFO org.apache.kafka.connect.runtime.Worker - Finished creating connector cassandra-sink</br>[DistributedHerder] INFO org.apache.kafka.connect.runtime.SourceConnectorConfig - SourceConnectorConfig values: </br>	connector.class = com.datamountaineer.streamreactor.connect.cassandra.sink.CassandraSinkConnector</br>	tasks.max = 1</br>	name = cassandra-sink</br></br>[DistributedHerder] INFO com.datamountaineer.streamreactor.connect.cassandra.sink.CassandraSinkConnector - Setting task configurations for 1 workers.</br>[KafkaBasedLog Work Thread - connect-configs] INFO org.apache.kafka.connect.runtime.distributed.DistributedHerder - Tasks [cassandra-source-0, cassandra-sink-0] configs updated</br>[DistributedHerder] INFO org.apache.kafka.connect.runtime.distributed.DistributedHerder - Starting task cassandra-source-0</br>[DistributedHerder] INFO org.apache.kafka.connect.runtime.TaskConfig - TaskConfig values: </br>	task.class = class com.datamountaineer.streamreactor.connect.cassandra.source.CassandraSourceTask</br></br>[DistributedHerder] INFO org.apache.kafka.connect.runtime.Worker - Creating task cassandra-source-0</br>[DistributedHerder] INFO org.apache.kafka.connect.runtime.Worker - Instantiated task cassandra-source-0 with version null of type com.datamountaineer.streamreactor.connect.cassandra.source.CassandraSourceTask</br>[DistributedHerder] INFO org.apache.kafka.connect.runtime.distributed.DistributedHerder - Finished starting connectors and tasks</br>[DistributedHerder] INFO org.apache.kafka.connect.runtime.distributed.DistributedHerder - Rebalance started</br>[DistributedHerder] INFO org.apache.kafka.connect.runtime.Worker - Stopping connector cassandra-source</br>[DistributedHerder] INFO org.apache.kafka.connect.runtime.Worker - Stopped connector cassandra-source</br>[DistributedHerder] INFO org.apache.kafka.connect.runtime.Worker - Stopping connector cassandra-sink</br>[pool-1-thread-1] INFO com.datamountaineer.streamreactor.connect.cassandra.config.CassandraConfigSource - CassandraConfigSource values: </br>	connect.cassandra.import.mode = incremental</br>	connect.cassandra.key.space = source</br>	connect.cassandra.import.source.allow.filtering = true</br>	connect.cassandra.trust.store.path = </br>	connect.cassandra.import.route.query = INSERT INTO cassandra-source SELECT * FROM orders PK created</br>	connect.cassandra.ssl.client.cert.auth = false</br>	connect.cassandra.password = [hidden]</br>	connect.cassandra.key.store.password = [hidden]</br>	connect.cassandra.import.poll.interval = 60000</br>	connect.cassandra.username = cassandra</br>	connect.cassandra.error.policy = THROW</br>	connect.cassandra.contact.points = cassandra</br>	connect.cassandra.ssl.enabled = false</br>	connect.cassandra.source.task.batch.size = 100</br>	connect.cassandra.trust.store.password = [hidden]</br>	connect.cassandra.port = 9042</br>	connect.cassandra.source.task.buffer.size = 10000</br>	connect.cassandra.key.store.path = </br>	connect.cassandra.retry.interval = 60000</br>	connect.cassandra.assigned.tables = orders</br>	connect.cassandra.max.retires = 20</br></br>[DistributedHerder] INFO org.apache.kafka.connect.runtime.Worker - Stopped connector cassandra-sink</br>[DistributedHerder] INFO org.apache.kafka.connect.runtime.Worker - Stopping task cassandra-source-0</br>[pool-1-thread-1] INFO com.datamountaineer.streamreactor.connect.cassandra.source.CassandraSourceTask - </br></br>    ____        __        __  ___                  __        _</br>   / __ \____ _/ /_____ _/  |/  /___  __  ______  / /_____ _(_)___  ___  ___  _____</br>  / / / / __ `/ __/ __ `/ /|_/ / __ \/ / / / __ \/ __/ __ `/ / __ \/ _ \/ _ \/ ___/</br> / /_/ / /_/ / /_/ /_/ / /  / / /_/ / /_/ / / / / /_/ /_/ / / / / /  __/  __/ /</br>/_____/\__,_/\__/\__,_/_/  /_/\____/\__,_/_/ /_/\__/\__,_/_/_/ /_/\___/\___/_/</br>       ______                                __           _____</br>      / ____/___ _______________ _____  ____/ /________ _/ ___/____  __  _______________</br>     / /   / __ `/ ___/ ___/ __ `/ __ \/ __  / ___/ __ `/\__ \/ __ \/ / / / ___/ ___/ _ \</br>    / /___/ /_/ (__  |__  ) /_/ / / / / /_/ / /  / /_/ /___/ / /_/ / /_/ / /  / /__/  __/</br>    \____/\__,_/____/____/\__,_/_/ /_/\__,_/_/   \__,_//____/\____/\__,_/_/   \___/\___/</br></br> By Andrew Stevenson.</br>[pool-1-thread-1] INFO com.datastax.driver.core.policies.DCAwareRoundRobinPolicy - Using data-center name &#39;datacenter1&#39; for DCAwareRoundRobinPolicy (if this is incorrect, please provide the correct datacenter name with DCAwareRoundRobinPolicy constructor)</br>[pool-1-thread-1] INFO com.datastax.driver.core.Cluster - New Cassandra host cassandra/172.18.0.2:9042 added</br>[pool-1-thread-1] INFO com.datamountaineer.streamreactor.connect.cassandra.source.CassandraSourceTask - Connection to Cassandra established.</br>[pool-1-thread-1] INFO com.datamountaineer.streamreactor.connect.cassandra.source.CassandraTableReader - Received setting:</br> CassandraSourceSetting(com.datamountaineer.connector.config.Config@1a33887a,source,false,Some(created),60000,CassandraConfigSource({connect.cassandra.import.mode=incremental, connector.class=com.datamountaineer.streamreactor.connect.cassandra.source.CassandraSourceConnector, connect.cassandra.key.space=source, connect.cassandra.contact.points=cassandra, task.class=com.datamountaineer.streamreactor.connect.cassandra.source.CassandraSourceTask, tasks.max=1, name=cassandra-source, connect.cassandra.import.route.query=INSERT INTO cassandra-source SELECT * FROM orders PK created, connect.cassandra.password=cassandra, connect.cassandra.assigned.tables=orders, connect.cassandra.username=cassandra}),ThrowErrorPolicy(),20)</br>[pool-1-thread-1] INFO org.apache.kafka.connect.runtime.WorkerSourceTask - Source task WorkerSourceTask{id=cassandra-source-0} finished initialization and start</br>[pool-1-thread-1] INFO com.datamountaineer.streamreactor.connect.cassandra.source.CassandraSourceTask - Stopping Cassandra source.</br>[pool-1-thread-1] INFO com.datamountaineer.streamreactor.connect.cassandra.source.CassandraTableReader - Shutting down Queries.</br>[pool-1-thread-1] INFO com.datamountaineer.streamreactor.connect.cassandra.source.CassandraTableReader - Querying stopped for source.cassandra-source.</br>[pool-1-thread-1] INFO com.datamountaineer.streamreactor.connect.cassandra.source.CassandraTableReader - All stopped.</br>[pool-1-thread-1] INFO com.datamountaineer.streamreactor.connect.cassandra.source.CassandraSourceTask - Shutting down Cassandra driver connections.</br>[DistributedHerder] INFO org.apache.kafka.connect.runtime.distributed.DistributedHerder - Finished stopping tasks in preparation for rebalance</br>[DistributedHerder] INFO org.apache.kafka.clients.consumer.internals.AbstractCoordinator - (Re-)joining group connect-cluster</br>[DistributedHerder] INFO org.apache.kafka.clients.consumer.internals.AbstractCoordinator - Successfully joined group connect-cluster with generation 5</br>[DistributedHerder] INFO org.apache.kafka.connect.runtime.distributed.DistributedHerder - Joined group and got assignment: Assignment{error=0, leader=&#39;connect-1-d5d7d801-30e4-4f60-bf28-52d1f88429fa&#39;, leaderUrl=&#39;http://172.18.0.3:8083/&#39;, offset=6, connectorIds=[cassandra-source, cassandra-sink], taskIds=[cassandra-source-0, cassandra-sink-0]}</br>[DistributedHerder] INFO org.apache.kafka.connect.runtime.distributed.DistributedHerder - Starting connectors and tasks using config offset 6</br>[DistributedHerder] INFO org.apache.kafka.connect.runtime.distributed.DistributedHerder - Starting connector cassandra-source</br>[DistributedHerder] INFO org.apache.kafka.connect.runtime.ConnectorConfig - ConnectorConfig values: </br>	connector.class = com.datamountaineer.streamreactor.connect.cassandra.source.CassandraSourceConnector</br>	tasks.max = 1</br>	name = cassandra-source</br></br>[DistributedHerder] INFO org.apache.kafka.connect.runtime.Worker - Creating connector cassandra-source of type com.datamountaineer.streamreactor.connect.cassandra.source.CassandraSourceConnector</br>[DistributedHerder] INFO org.apache.kafka.connect.runtime.Worker - Instantiated connector cassandra-source with version null of type com.datamountaineer.streamreactor.connect.cassandra.source.CassandraSourceConnector</br>[DistributedHerder] INFO com.datamountaineer.streamreactor.connect.cassandra.source.CassandraSourceConnector - Starting Cassandra source task with {connector.class=com.datamountaineer.streamreactor.connect.cassandra.source.CassandraSourceConnector, connect.cassandra.import.mode=incremental, connect.cassandra.key.space=source, connect.cassandra.contact.points=cassandra, tasks.max=1, name=cassandra-source, connect.cassandra.import.route.query=INSERT INTO cassandra-source SELECT * FROM orders PK created, connect.cassandra.password=cassandra, connect.cassandra.username=cassandra}.</br>[DistributedHerder] INFO org.apache.kafka.connect.runtime.Worker - Finished creating connector cassandra-source</br>[DistributedHerder] INFO org.apache.kafka.connect.runtime.SourceConnectorConfig - SourceConnectorConfig values: </br>	connector.class = com.datamountaineer.streamreactor.connect.cassandra.source.CassandraSourceConnector</br>	tasks.max = 1</br>	name = cassandra-source</br></br>[DistributedHerder] INFO com.datamountaineer.streamreactor.connect.cassandra.source.CassandraSourceConnector - Setting task configurations for 1 workers.</br>[DistributedHerder] INFO org.apache.kafka.connect.runtime.distributed.DistributedHerder - Starting connector cassandra-sink</br>[DistributedHerder] INFO org.apache.kafka.connect.runtime.ConnectorConfig - ConnectorConfig values: </br>	connector.class = com.datamountaineer.streamreactor.connect.cassandra.sink.CassandraSinkConnector</br>	tasks.max = 1</br>	name = cassandra-sink</br></br>[DistributedHerder] INFO org.apache.kafka.connect.runtime.Worker - Creating connector cassandra-sink of type com.datamountaineer.streamreactor.connect.cassandra.sink.CassandraSinkConnector</br>[DistributedHerder] INFO org.apache.kafka.connect.runtime.Worker - Instantiated connector cassandra-sink with version 1 of type com.datamountaineer.streamreactor.connect.cassandra.sink.CassandraSinkConnector</br>[DistributedHerder] INFO com.datamountaineer.streamreactor.connect.cassandra.config.CassandraConfigSink - CassandraConfigSink values: </br>	connect.cassandra.key.space = sink</br>	connect.cassandra.export.route.query = INSERT INTO orders SELECT * FROM cassandra-sink</br>	connect.cassandra.trust.store.path = </br>	connect.cassandra.ssl.client.cert.auth = false</br>	connect.cassandra.password = [hidden]</br>	connect.cassandra.key.store.password = [hidden]</br>	connect.cassandra.username = cassandra</br>	connect.cassandra.error.policy = THROW</br>	connect.cassandra.contact.points = cassandra</br>	connect.cassandra.ssl.enabled = false</br>	connect.cassandra.trust.store.password = [hidden]</br>	connect.cassandra.port = 9042</br>	connect.cassandra.key.store.path = </br>	connect.cassandra.retry.interval = 60000</br>	connect.cassandra.max.retires = 20</br></br>[DistributedHerder] INFO org.apache.kafka.connect.runtime.Worker - Finished creating connector cassandra-sink</br>[DistributedHerder] INFO org.apache.kafka.connect.runtime.SourceConnectorConfig - SourceConnectorConfig values: </br>	connector.class = com.datamountaineer.streamreactor.connect.cassandra.sink.CassandraSinkConnector</br>	tasks.max = 1</br>	name = cassandra-sink</br></br>[DistributedHerder] INFO com.datamountaineer.streamreactor.connect.cassandra.sink.CassandraSinkConnector - Setting task configurations for 1 workers.</br>[DistributedHerder] INFO org.apache.kafka.connect.runtime.distributed.DistributedHerder - Starting task cassandra-source-0</br>[DistributedHerder] INFO org.apache.kafka.connect.runtime.TaskConfig - TaskConfig values: </br>	task.class = class com.datamountaineer.streamreactor.connect.cassandra.source.CassandraSourceTask</br></br>[DistributedHerder] INFO org.apache.kafka.connect.runtime.Worker - Creating task cassandra-source-0</br>[DistributedHerder] INFO org.apache.kafka.connect.runtime.Worker - Instantiated task cassandra-source-0 with version null of type com.datamountaineer.streamreactor.connect.cassandra.source.CassandraSourceTask</br>[DistributedHerder] INFO org.apache.kafka.connect.runtime.distributed.DistributedHerder - Starting task cassandra-sink-0</br>[DistributedHerder] INFO org.apache.kafka.connect.runtime.TaskConfig - TaskConfig values: </br>	task.class = class com.datamountaineer.streamreactor.connect.cassandra.sink.CassandraSinkTask</br></br>[DistributedHerder] INFO org.apache.kafka.connect.runtime.Worker - Creating task cassandra-sink-0</br>[pool-1-thread-1] INFO com.datamountaineer.streamreactor.connect.cassandra.config.CassandraConfigSource - CassandraConfigSource values: </br>	connect.cassandra.import.mode = incremental</br>	connect.cassandra.key.space = source</br>	connect.cassandra.import.source.allow.filtering = true</br>	connect.cassandra.trust.store.path = </br>	connect.cassandra.import.route.query = INSERT INTO cassandra-source SELECT * FROM orders PK created</br>	connect.cassandra.ssl.client.cert.auth = false</br>	connect.cassandra.password = [hidden]</br>	connect.cassandra.key.store.password = [hidden]</br>	connect.cassandra.import.poll.interval = 60000</br>	connect.cassandra.username = cassandra</br>	connect.cassandra.error.policy = THROW</br>	connect.cassandra.contact.points = cassandra</br>	connect.cassandra.ssl.enabled = false</br>	connect.cassandra.source.task.batch.size = 100</br>	connect.cassandra.trust.store.password = [hidden]</br>	connect.cassandra.port = 9042</br>	connect.cassandra.source.task.buffer.size = 10000</br>	connect.cassandra.key.store.path = </br>	connect.cassandra.retry.interval = 60000</br>	connect.cassandra.assigned.tables = orders</br>	connect.cassandra.max.retires = 20</br></br>[DistributedHerder] INFO com.datamountaineer.streamreactor.connect.cassandra.sink.CassandraSinkTask - Task initialising</br>[DistributedHerder] INFO org.apache.kafka.connect.runtime.Worker - Instantiated task cassandra-sink-0 with version 1 of type com.datamountaineer.streamreactor.connect.cassandra.sink.CassandraSinkTask</br>[pool-1-thread-1] INFO com.datamountaineer.streamreactor.connect.cassandra.source.CassandraSourceTask - </br></br>    ____        __        __  ___                  __        _</br>   / __ \____ _/ /_____ _/  |/  /___  __  ______  / /_____ _(_)___  ___  ___  _____</br>  / / / / __ `/ __/ __ `/ /|_/ / __ \/ / / / __ \/ __/ __ `/ / __ \/ _ \/ _ \/ ___/</br> / /_/ / /_/ / /_/ /_/ / /  / / /_/ / /_/ / / / / /_/ /_/ / / / / /  __/  __/ /</br>/_____/\__,_/\__/\__,_/_/  /_/\____/\__,_/_/ /_/\__/\__,_/_/_/ /_/\___/\___/_/</br>       ______                                __           _____</br>      / ____/___ _______________ _____  ____/ /________ _/ ___/____  __  _______________</br>     / /   / __ `/ ___/ ___/ __ `/ __ \/ __  / ___/ __ `/\__ \/ __ \/ / / / ___/ ___/ _ \</br>    / /___/ /_/ (__  |__  ) /_/ / / / / /_/ / /  / /_/ /___/ / /_/ / /_/ / /  / /__/  __/</br>    \____/\__,_/____/____/\__,_/_/ /_/\__,_/_/   \__,_//____/\____/\__,_/_/   \___/\___/</br></br> By Andrew Stevenson.</br>[DistributedHerder] INFO org.apache.kafka.clients.consumer.ConsumerConfig - ConsumerConfig values: </br>	metric.reporters = []</br>	metadata.max.age.ms = 300000</br>	partition.assignment.strategy = [org.apache.kafka.clients.consumer.RangeAssignor]</br>	reconnect.backoff.ms = 50</br>	sasl.kerberos.ticket.renew.window.factor = 0.8</br>	max.partition.fetch.bytes = 1048576</br>	bootstrap.servers = [localhost:9092]</br>	ssl.keystore.type = JKS</br>	enable.auto.commit = false</br>	sasl.mechanism = GSSAPI</br>	interceptor.classes = null</br>	exclude.internal.topics = true</br>	ssl.truststore.password = null</br>	client.id = </br>	ssl.endpoint.identification.algorithm = null</br>	max.poll.records = 2147483647</br>	check.crcs = true</br>	request.timeout.ms = 40000</br>	heartbeat.interval.ms = 3000</br>	auto.commit.interval.ms = 5000</br>	receive.buffer.bytes = 65536</br>	ssl.truststore.type = JKS</br>	ssl.truststore.location = null</br>	ssl.keystore.password = null</br>	fetch.min.bytes = 1</br>	send.buffer.bytes = 131072</br>	value.deserializer = class org.apache.kafka.common.serialization.ByteArrayDeserializer</br>	group.id = connect-cassandra-sink</br>	retry.backoff.ms = 100</br>	sasl.kerberos.kinit.cmd = /usr/bin/kinit</br>	sasl.kerberos.service.name = null</br>	sasl.kerberos.ticket.renew.jitter = 0.05</br>	ssl.trustmanager.algorithm = PKIX</br>	ssl.key.password = null</br>	fetch.max.wait.ms = 500</br>	sasl.kerberos.min.time.before.relogin = 60000</br>	connections.max.idle.ms = 540000</br>	session.timeout.ms = 30000</br>	metrics.num.samples = 2</br>	key.deserializer = class org.apache.kafka.common.serialization.ByteArrayDeserializer</br>	ssl.protocol = TLS</br>	ssl.provider = null</br>	ssl.enabled.protocols = [TLSv1.2, TLSv1.1, TLSv1]</br>	ssl.keystore.location = null</br>	ssl.cipher.suites = null</br>	security.protocol = PLAINTEXT</br>	ssl.keymanager.algorithm = SunX509</br>	metrics.sample.window.ms = 30000</br>	auto.offset.reset = earliest</br></br>[DistributedHerder] INFO org.apache.kafka.clients.consumer.ConsumerConfig - ConsumerConfig values: </br>	metric.reporters = []</br>	metadata.max.age.ms = 300000</br>	partition.assignment.strategy = [org.apache.kafka.clients.consumer.RangeAssignor]</br>	reconnect.backoff.ms = 50</br>	sasl.kerberos.ticket.renew.window.factor = 0.8</br>	max.partition.fetch.bytes = 1048576</br>	bootstrap.servers = [localhost:9092]</br>	ssl.keystore.type = JKS</br>	enable.auto.commit = false</br>	sasl.mechanism = GSSAPI</br>	interceptor.classes = null</br>	exclude.internal.topics = true</br>	ssl.truststore.password = null</br>	client.id = consumer-4</br>	ssl.endpoint.identification.algorithm = null</br>	max.poll.records = 2147483647</br>	check.crcs = true</br>	request.timeout.ms = 40000</br>	heartbeat.interval.ms = 3000</br>	auto.commit.interval.ms = 5000</br>	receive.buffer.bytes = 65536</br>	ssl.truststore.type = JKS</br>	ssl.truststore.location = null</br>	ssl.keystore.password = null</br>	fetch.min.bytes = 1</br>	send.buffer.bytes = 131072</br>	value.deserializer = class org.apache.kafka.common.serialization.ByteArrayDeserializer</br>	group.id = connect-cassandra-sink</br>	retry.backoff.ms = 100</br>	sasl.kerberos.kinit.cmd = /usr/bin/kinit</br>	sasl.kerberos.service.name = null</br>	sasl.kerberos.ticket.renew.jitter = 0.05</br>	ssl.trustmanager.algorithm = PKIX</br>	ssl.key.password = null</br>	fetch.max.wait.ms = 500</br>	sasl.kerberos.min.time.before.relogin = 60000</br>	connections.max.idle.ms = 540000</br>	session.timeout.ms = 30000</br>	metrics.num.samples = 2</br>	key.deserializer = class org.apache.kafka.common.serialization.ByteArrayDeserializer</br>	ssl.protocol = TLS</br>	ssl.provider = null</br>	ssl.enabled.protocols = [TLSv1.2, TLSv1.1, TLSv1]</br>	ssl.keystore.location = null</br>	ssl.cipher.suites = null</br>	security.protocol = PLAINTEXT</br>	ssl.keymanager.algorithm = SunX509</br>	metrics.sample.window.ms = 30000</br>	auto.offset.reset = earliest</br></br>[DistributedHerder] INFO org.apache.kafka.common.utils.AppInfoParser - Kafka version : 0.10.0.0</br>[DistributedHerder] INFO org.apache.kafka.common.utils.AppInfoParser - Kafka commitId : b8642491e78c5a13</br>[DistributedHerder] INFO org.apache.kafka.connect.runtime.distributed.DistributedHerder - Finished starting connectors and tasks</br>[pool-1-thread-2] INFO com.datamountaineer.streamreactor.connect.cassandra.config.CassandraConfigSink - CassandraConfigSink values: </br>	connect.cassandra.key.space = sink</br>	connect.cassandra.export.route.query = INSERT INTO orders SELECT * FROM cassandra-sink</br>	connect.cassandra.trust.store.path = </br>	connect.cassandra.ssl.client.cert.auth = false</br>	connect.cassandra.password = [hidden]</br>	connect.cassandra.key.store.password = [hidden]</br>	connect.cassandra.username = cassandra</br>	connect.cassandra.error.policy = THROW</br>	connect.cassandra.contact.points = cassandra</br>	connect.cassandra.ssl.enabled = false</br>	connect.cassandra.trust.store.password = [hidden]</br>	connect.cassandra.port = 9042</br>	connect.cassandra.key.store.path = </br>	connect.cassandra.retry.interval = 60000</br>	connect.cassandra.max.retires = 20</br></br>[pool-1-thread-2] INFO com.datamountaineer.streamreactor.connect.cassandra.sink.CassandraSinkTask - </br>    ____        __        __  ___                  __        _</br>   / __ \____ _/ /_____ _/  |/  /___  __  ______  / /_____ _(_)___  ___  ___  _____</br>  / / / / __ `/ __/ __ `/ /|_/ / __ \/ / / / __ \/ __/ __ `/ / __ \/ _ \/ _ \/ ___/</br> / /_/ / /_/ / /_/ /_/ / /  / / /_/ / /_/ / / / / /_/ /_/ / / / / /  __/  __/ /</br>/_____/\__,_/\__/\__,_/_/  /_/\____/\__,_/_/ /_/\__/\__,_/_/_/ /_/\___/\___/_/</br>       ______                                __           _____ _       __</br>      / ____/___ _______________ _____  ____/ /________ _/ ___/(_)___  / /__</br>     / /   / __ `/ ___/ ___/ __ `/ __ \/ __  / ___/ __ `/\__ \/ / __ \/ //_/</br>    / /___/ /_/ (__  |__  ) /_/ / / / / /_/ / /  / /_/ /___/ / / / / / ,&lt;</br>    \____/\__,_/____/____/\__,_/_/ /_/\__,_/_/   \__,_//____/_/_/ /_/_/|_|</br></br> By Andrew Stevenson.</br>[pool-1-thread-2] INFO com.datastax.driver.core.policies.DCAwareRoundRobinPolicy - Using data-center name &#39;datacenter1&#39; for DCAwareRoundRobinPolicy (if this is incorrect, please provide the correct datacenter name with DCAwareRoundRobinPolicy constructor)</br>[pool-1-thread-2] INFO com.datastax.driver.core.Cluster - New Cassandra host cassandra/172.18.0.2:9042 added</br>[pool-1-thread-1] INFO com.datastax.driver.core.policies.DCAwareRoundRobinPolicy - Using data-center name &#39;datacenter1&#39; for DCAwareRoundRobinPolicy (if this is incorrect, please provide the correct datacenter name with DCAwareRoundRobinPolicy constructor)</br>[pool-1-thread-1] INFO com.datastax.driver.core.Cluster - New Cassandra host cassandra/172.18.0.2:9042 added</br>[pool-1-thread-1] INFO com.datamountaineer.streamreactor.connect.cassandra.source.CassandraSourceTask - Connection to Cassandra established.</br>[pool-1-thread-1] INFO com.datamountaineer.streamreactor.connect.cassandra.source.CassandraTableReader - Received setting:</br> CassandraSourceSetting(com.datamountaineer.connector.config.Config@77d5f950,source,false,Some(created),60000,CassandraConfigSource({connect.cassandra.import.mode=incremental, connector.class=com.datamountaineer.streamreactor.connect.cassandra.source.CassandraSourceConnector, connect.cassandra.key.space=source, connect.cassandra.contact.points=cassandra, task.class=com.datamountaineer.streamreactor.connect.cassandra.source.CassandraSourceTask, tasks.max=1, name=cassandra-source, connect.cassandra.import.route.query=INSERT INTO cassandra-source SELECT * FROM orders PK created, connect.cassandra.password=cassandra, connect.cassandra.assigned.tables=orders, connect.cassandra.username=cassandra}),ThrowErrorPolicy(),20)</br>[pool-1-thread-2] INFO com.datamountaineer.streamreactor.connect.cassandra.sink.CassandraJsonWriter - Initialising Cassandra writer.</br>[pool-1-thread-2] INFO com.datamountaineer.streamreactor.connect.cassandra.sink.CassandraJsonWriter - Preparing statements for cassandra-sink.</br>[pool-1-thread-2] INFO org.apache.kafka.connect.runtime.WorkerSinkTask - Sink task WorkerSinkTask{id=cassandra-sink-0} finished initialization and start</br>[pool-1-thread-2] INFO org.apache.kafka.clients.consumer.internals.AbstractCoordinator - Discovered coordinator fast-data-dev:9092 (id: 2147483647 rack: null) for group connect-cassandra-sink.</br>[pool-1-thread-2] INFO org.apache.kafka.clients.consumer.internals.ConsumerCoordinator - Revoking previously assigned partitions [] for group connect-cassandra-sink</br>[pool-1-thread-2] INFO org.apache.kafka.clients.consumer.internals.AbstractCoordinator - (Re-)joining group connect-cassandra-sink</br>[pool-1-thread-2] INFO org.apache.kafka.clients.consumer.internals.AbstractCoordinator - Successfully joined group connect-cassandra-sink with generation 1</br>[pool-1-thread-2] INFO org.apache.kafka.clients.consumer.internals.ConsumerCoordinator - Setting newly assigned partitions [cassandra-sink-0] for group connect-cassandra-sink</br>[pool-1-thread-1] INFO org.apache.kafka.connect.runtime.WorkerSourceTask - Source task WorkerSourceTask{id=cassandra-source-0} finished initialization and start</br>[pool-1-thread-1] INFO com.datamountaineer.streamreactor.connect.cassandra.source.CassandraTableReader - Query SELECT * FROM source.orders WHERE created &gt; maxTimeuuid(?) AND created &lt;= minTimeuuid(?)  ALLOW FILTERING executing with bindings (1900-01-01 00:00:00.000Z, 2016-10-10 16:12:09.381Z).</br>[ForkJoinPool-1-worker-43] INFO com.datamountaineer.streamreactor.connect.cassandra.source.CassandraTableReader - Querying returning results for source.orders.</br>[ForkJoinPool-1-worker-43] INFO com.datamountaineer.streamreactor.connect.cassandra.source.CassandraTableReader - Storing offset 2016-10-10 16:11:54.379Z</br>[pool-1-thread-1] INFO com.datamountaineer.streamreactor.connect.queues.QueueHelpers$ - Found 1. Draining entries to batchSize 100.</br>[ForkJoinPool-1-worker-43] INFO com.datamountaineer.streamreactor.connect.cassandra.source.CassandraTableReader - Storing offset 2016-10-10 16:11:54.382Z</br>[ForkJoinPool-1-worker-43] INFO com.datamountaineer.streamreactor.connect.cassandra.source.CassandraTableReader - Storing offset 2016-10-10 16:11:54.384Z</br>[pool-1-thread-1] INFO com.datamountaineer.streamreactor.connect.queues.QueueHelpers$ - Found 2. Draining entries to batchSize 100.</br>[ForkJoinPool-1-worker-43] INFO com.datamountaineer.streamreactor.connect.cassandra.source.CassandraTableReader - Processed 3 rows for table cassandra-source.orders</br>[pool-1-thread-2] INFO com.datamountaineer.streamreactor.connect.cassandra.sink.CassandraJsonWriter - Received 4 records.</br>[pool-1-thread-2] INFO com.datamountaineer.streamreactor.connect.cassandra.sink.CassandraJsonWriter - Processed 4 records.</br>[pool-1-thread-2] INFO org.apache.kafka.connect.runtime.WorkerSinkTask - WorkerSinkTask{id=cassandra-sink-0} Committing offsets</br>[pool-4-thread-1] INFO org.apache.kafka.connect.runtime.WorkerSourceTask - Finished WorkerSourceTask{id=cassandra-source-0} commitOffsets successfully in 5 ms</br>[pool-1-thread-1] INFO com.datamountaineer.streamreactor.connect.cassandra.source.CassandraTableReader - Query SELECT * FROM source.orders WHERE created &gt; maxTimeuuid(?) AND created &lt;= minTimeuuid(?)  ALLOW FILTERING executing with bindings (2016-10-10 16:11:54.384Z, 2016-10-10 16:13:09.382Z).</br>[ForkJoinPool-1-worker-55] INFO com.datamountaineer.streamreactor.connect.cassandra.source.CassandraTableReader - Querying returning results for source.orders.</br>[ForkJoinPool-1-worker-55] INFO com.datamountaineer.streamreactor.connect.cassandra.source.CassandraTableReader - Processed 0 rows for table cassandra-source.orders</br></br>">view</button>
+
+            </div>
+            <div class="cell" style="overflow:hidden;">
+
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="cell skip"></div>
+            <div class="cell skip"></div>
+            <div class="cell skip"></div>
+            <div class="cell skip"></div>
+            <div class="cell skip"></div>
+            <div class="cell" style="font-weight: bold;">
+                Passed 1 out of 1
+            </div>
+            <div class="cell" style="font-weight: bold;">
+                0.09 seconds
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="cell skip"></div>
+            <div class="cell skip"></div>
+            <div class="cell skip"></div>
+            <div class="cell skip"></div>
+            <div class="cell skip"></div>
+            <div class="cell skip"></div>
+            <div class="cell skip"></div>
+        </div><div class="row header orange">
+        <div class="cell">
+            Clean-up Containers
+        </div>
+        <div class="cell">
+            <!--                         Status -->
+        </div>
+        <div class="cell">
+            Time (sec)
+        </div>
+        <div class="cell">
+            Exit Code
+        </div>
+        <div class="cell">
+            Command
+        </div>
+        <div class="cell width12">
+            StdOutput
+        </div>
+        <div class="cell width12">
+            StdError
+        </div>
+    </div>
+
+        <div class="row">
+            <div class="cell">
+                Docker Compose Down
+            </div>
+            <div class="cell  center">
+                &#10004;
+            </div>
+            <div class="cell">
+                11.94
+            </div>
+            <div class="cell">
+                0
+            </div>
+            <!-- <div class="cell" style="overflow:hidden;">
+
+
+                 docker-compose down</br>
+
+
+                 </div> -->
+            <div class="cell">
+                docker-compose down
+            </div>
+            <div class="cell" style="overflow:hidden;">
+
+            </div>
+            <div class="cell" style="overflow:hidden;">
+                <button id="trigger_6_0" class="trigger" data-tooltip-id="6_0" title="Stopping kafkaconnectcassandra_fast-data-dev_1 ...
+</br>Stopping kafkaconnectcassandra_cassandra_1 ...
+</br>[2A[2K
+Stopping kafkaconnectcassandra_fast-data-dev_1 ... done
+[2B[1A[2K
+Stopping kafkaconnectcassandra_cassandra_1 ... done
+[1BRemoving kafkaconnectcassandra_fast-data-dev_1 ...
+</br>Removing kafkaconnectcassandra_cassandra_1 ...
+</br>[2A[2K
+Removing kafkaconnectcassandra_fast-data-dev_1 ... done
+[2B[1A[2K
+Removing kafkaconnectcassandra_cassandra_1 ... done
+[1BRemoving network kafkaconnectcassandra_default</br></br>">view</button>
+
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="cell skip"></div>
+            <div class="cell skip"></div>
+            <div class="cell skip"></div>
+            <div class="cell skip"></div>
+            <div class="cell skip"></div>
+            <div class="cell" style="font-weight: bold;">
+                Passed 1 out of 1
+            </div>
+            <div class="cell" style="font-weight: bold;">
+                11.94 seconds
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="cell skip"></div>
+            <div class="cell skip"></div>
+            <div class="cell skip"></div>
+            <div class="cell skip"></div>
+            <div class="cell skip"></div>
+            <div class="cell skip"></div>
+            <div class="cell skip"></div>
+        </div>
+    </div>
+
+</div>
+
+<script src="https://code.jquery.com/jquery-1.12.2.min.js"></script>
+<script src="https://code.jquery.com/ui/1.11.4/jquery-ui.min.js"></script>
+<link rel="stylesheet" href="https://code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
+
+<script>
+         $(function () {
+             //show
+             $(document).on('click', '.trigger', function () {
+                 $(this).addClass("on");
+                 $(this).tooltip({
+                     items: '.trigger.on',
+                     position: {
+                         my: "left+30 center",
+                         at: "right center",
+                         collision: "flip"
+                     },
+                     content: function(){
+                         var element = $( this );
+                         return element.attr('title')
+                     }
+                 });
+                 $(this).trigger('mouseenter');
+             });
+             //hide
+             $(document).on('click', '.trigger.on', function () {
+                 $(this).tooltip('close');
+                 $(this).removeClass("on");
+             });
+             //prevent mouseout and other related events from firing their handlers
+             $(".trigger").on('mouseout', function (e) {
+                 e.stopImmediatePropagation();
+             });
+         });
+        </script>
+</body>
+</html>

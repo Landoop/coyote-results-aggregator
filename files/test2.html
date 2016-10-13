@@ -1,0 +1,941 @@
+
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Coyote Tester | Kafka-connect-elastic Tests | Results</title>
+
+</head>
+<body>
+
+<div id="testResults" style="display:inline;width:33%"></div>
+<div id="testTimes" style="display:inline;width:66%"></div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.4.4/d3.min.js"></script>
+<script src="https://storage.googleapis.com/artifacts-landoop/d3pie.min.js"></script>
+<script>
+         var pie = new d3pie("testResults", {
+             "header": {
+                 "title": {
+                     "text": "3 failed",
+                     "color": "#fffefe",
+                     "fontSize": 34,
+                     "font": "sans"
+                 },
+                 "subtitle": {
+                     "text": "Kafka-connect-elastic Tests",
+                     "color": "#E8E6E6",
+                     "fontSize": 14,
+                     "font": "sans"
+                 },
+                 "location": "pie-center",
+                 "titleSubtitlePadding": 10
+             },
+             "footer": {
+                "text": "Coyote-tester, part of Landoop™ test-suite. 2016 Oct 08, Sat, 21:24 UTC",
+                "color": "#E8E6E6",
+                "fontSize": 14,
+                "font": "open sans",
+                "location": "bottom-left"
+             },
+             "size": {
+                 "canvasHeight": 375,
+                 "canvasWidth": 500,
+                 "pieInnerRadius": "72%",
+                 "pieOuterRadius": "92%"
+             },
+             "data": {
+                 "sortOrder": "label-desc",
+                 "content": [
+                     {
+                         "label": "failed",
+                         "value": 3,
+                         "color": "#e21515"
+                     },
+                     {
+                         "label": "passed",
+                         "value": 7,
+                         "color": "#64a61f"
+                     }
+                 ]
+             },
+             "labels": {
+                 "outer": {
+                     "format": "label-percentage1",
+                     "pieDistance": 25
+                 },
+                 "inner": {
+                     "format": "none"
+                 },
+                 "mainLabel": {
+                     "color": "#ffffff",
+                     "fontSize": 16
+                 },
+                 "percentage": {
+                     "color": "#919191",
+                     "fontSize": 16,
+                     "decimalPlaces": 1
+                 },
+                 "value": {
+                     "color": "#cccc43",
+                     "fontSize": 16
+                 },
+                 "lines": {
+                     "enabled": true,
+                     "color": "#777777"
+                 },
+                 "truncation": {
+                     "enabled": true
+                 }
+             },
+             "effects": {
+                 "pullOutSegmentOnClick": {
+                     "effect": "linear",
+                     "speed": 400,
+                     "size": 8
+                 }
+             },
+             "misc": {
+                 "colors": {
+                     "background": "#2b2b2b",
+                     "segmentStroke": "#f6f6f6"
+                 }
+             }
+         });
+        </script>
+<script>
+         var pie = new d3pie("testTimes", {
+             "header": {
+                 "title": {
+                     "text": "31 s",
+                     "color": "#fffefe",
+                     "fontSize": 34,
+                     "font": "sans"
+             },
+                 "subtitle": {
+                     "text": "total time",
+                     "color": "#999999",
+                     "fontSize": 14,
+                     "font": "sans"
+                 },
+                 "location": "pie-center",
+                 "titleSubtitlePadding": 10
+             },
+             "footer": {
+                "text": "",
+                "color": "#999999",
+                "fontSize": 10,
+                "font": "open sans",
+                "location": "bottom-left"
+             },
+             "size": {
+                 "canvasHeight": 375,
+                 "canvasWidth": 700,
+                 "pieInnerRadius": "72%",
+                 "pieOuterRadius": "85%"
+             },
+             "data": {
+                 "sortOrder": "label-desc",
+                 "smallSegmentGrouping": {
+                     "enabled": true,
+                     "value": 3
+                 },
+                 "content": [
+                     {
+                         "label": "Setup Containers, Docker Compose Pull",
+                         "value": 12.237328614,
+                         "color": "#2383c1"
+                     },{
+                         "label": "Setup Containers, Docker Compose Up",
+                         "value": 1.219269294,
+                         "color": "#64a61f"
+                     },{
+                         "label": "Setup Containers, Check docker compose log",
+                         "value": 0.519436675,
+                         "color": "#7b6788"
+                     },{
+                         "label": "Setup ElasticSearch Connector, Create Topic",
+                         "value": 2.6854773620000003,
+                         "color": "#a05c56"
+                     },{
+                         "label": "Setup ElasticSearch Connector, Create an ElasticSearch Distributed Connector",
+                         "value": 1.544961572,
+                         "color": "#961919"
+                     },{
+                         "label": "Test Connector, Write Entries into Topic",
+                         "value": 3.243896642,
+                         "color": "#d8d239"
+                     },{
+                         "label": "Test Connector, Verify entry 1",
+                         "value": 0.7081657840000001,
+                         "color": "#e98125"
+                     },{
+                         "label": "Test Connector, Verify entry 2",
+                         "value": 0.7562138580000001,
+                         "color": "#d0743c"
+                     },{
+                         "label": "Test Connector, Read First 2000 Lines of Connect Logs",
+                         "value": 0.070545541,
+                         "color": "#635122"
+                     },{
+                         "label": "Clean-up Containers, Docker Compose Down",
+                         "value": 7.840944609,
+                         "color": "#6ada6a"
+                     },
+                 ]
+             },
+             "labels": {
+                 "outer": {
+                     "format": "label-percentage1",
+                     "pieDistance": 25
+                 },
+                 "inner": {
+                     "format": "none"
+                 },
+                 "mainLabel": {
+                     "color": "#ffffff",
+                     "fontSize": 12
+                 },
+                 "percentage": {
+                     "color": "#919191",
+                     "fontSize": 12,
+                     "decimalPlaces": 1
+                 },
+                 "value": {
+                     "color": "#cccc43",
+                     "fontSize": 12
+                 },
+                 "lines": {
+                     "enabled": true,
+                     "color": "#777777"
+                 },
+                 "truncation": {
+                     "enabled": true
+                 }
+             },
+             "effects": {
+                 "pullOutSegmentOnClick": {
+                     "effect": "linear",
+                     "speed": 400,
+                     "size": 8
+                 }
+             },
+             "misc": {
+                 "colors": {
+                     "background": "#2b2b2b",
+                     "segmentStroke": "#f6f6f6"
+                 }
+             }
+         });
+        </script>
+
+<style type="text/css">
+    body {
+    font-family: "Open Sans", "Helvetica Neue", Helvetica, Arial;
+    font-size: 14px;
+    line-height: 20px;
+    font-weight: 400;
+    color: #3b3b3b;
+    -webkit-font-smoothing: antialiased;
+    font-smoothing: antialiased;
+    background: #2b2b2b;
+    }
+
+    .wrapper {
+    margin: 0 auto;
+    padding: 40px;
+    /*max-width: 800px;*/
+    }
+
+    div.ui-tooltip {
+    color: red;
+    border-radius: 20px;
+    /*font: bold 12px "Helvetica Neue", Sans-Serif;*/
+    /*text-transform: uppercase;*/
+    box-shadow: 0 0 7px black;
+    /*width: 400px;*/
+    word-wrap: "normal";
+    max-width: 900px;
+    }
+
+    .ui-tooltip-content {
+    color: black;
+    font: 11px Consolas, "Liberation Mono", Menlo, Courier, monospace;
+    word-wrap: "normal";
+    /*max-width: 900px;*/
+    }
+
+    .table {
+    margin: 0 0 40px 0;
+    width: 100%;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+    display: table;
+    }
+
+    @media screen and (max-width: 90%) {
+    .table {
+    display: block;
+    }
+    }
+
+    .row {
+    display: table-row;
+    background: #f6f6f6;
+    }
+
+    .row:nth-of-type(odd) {
+    background: #e9e9e9;
+    }
+
+    .row.header {
+    font-weight: 900;
+    color: #ffffff;
+    background: #ea6153;
+    }
+    .row.green {
+    background: #27ae60;
+    }
+    .row.blue {
+    background: #2980b9;
+    }
+    .row.purple {
+    background: #8e44ad;
+    }
+    .row.gray {
+    background: #2c3e50;
+    }
+    .row.yellow {
+    background: #f1c40f;
+    }
+    .row.orange {
+    background: #d35400;
+    }
+    .row.turquoise {
+    background: #1abc9c;
+    }
+
+    @media screen and (max-width: 90%) {
+    .row {
+    padding: 8px 0;
+    display: block;
+    }
+    }
+
+    .cell {
+    padding: 6px 12px;
+    display: table-cell;
+    }
+
+    .cell.red {
+    background: #ea6153;
+    }
+
+    .cell.green {
+    background: #27ae60;
+    }
+
+    .cell.skip {
+    background: #2b2b2b;
+    }
+
+    .cell.center {
+    text-align: center;
+    }
+
+    .cell.width12 {
+    width: 12%;
+    max-width: 10px;
+    }
+    @media screen and (max-width: 90%) {
+    .cell {
+    padding: 2px 12px;
+    display: block;
+    }
+    }
+    /* .hideContent {overflow:hidden;line-height:1em;height:2em;}
+    .showContent {line-height:1em;height:auto;}
+    */
+</style>
+
+<div class="wrapper">
+
+    <div class="table">
+        <div class="row header">
+            <div class="cell">
+                Setup Containers
+            </div>
+            <div class="cell">
+                <!--                         Status -->
+            </div>
+            <div class="cell">
+                Time (sec)
+            </div>
+            <div class="cell">
+                Exit Code
+            </div>
+            <div class="cell">
+                Command
+            </div>
+            <div class="cell width12">
+                StdOutput
+            </div>
+            <div class="cell width12">
+                StdError
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="cell">
+                Docker Compose Pull
+            </div>
+            <div class="cell  center">
+                &#10004;
+            </div>
+            <div class="cell">
+                12.24
+            </div>
+            <div class="cell">
+                0
+            </div>
+            <!-- <div class="cell" style="overflow:hidden;">
+
+
+                 docker-compose pull</br>
+
+
+                 </div> -->
+            <div class="cell">
+                docker-compose pull
+            </div>
+            <div class="cell" style="overflow:hidden;">
+                <button id="trigger_0_0" class="trigger" data-tooltip-id="0_0" title="latest: Pulling from library/elasticsearch</br>Digest: sha256:1cf939cc50d4fac9f39447bb5ad796940a0a837aecbbd236923ea86741ec6fd4</br>Status: Downloaded newer image for elasticsearch:latest</br>latest: Pulling from landoop/fast-data-dev</br>Digest: sha256:0d9511d45134d07b9e3e2b09c5fa9bf8466f8df4a82bccffa8f1ae28902ecd45</br>Status: Image is up to date for landoop/fast-data-dev:latest</br></br>">view</button>
+
+            </div>
+            <div class="cell" style="overflow:hidden;">
+                <button id="trigger_0_0" class="trigger" data-tooltip-id="0_0" title="Pulling elasticsearch (elasticsearch:latest)...</br>Pulling fast-data-dev (landoop/fast-data-dev:latest)...</br></br>">view</button>
+
+            </div>
+        </div><div class="row">
+        <div class="cell">
+            Docker Compose Up
+        </div>
+        <div class="cell  center">
+            &#10004;
+        </div>
+        <div class="cell">
+            1.22
+        </div>
+        <div class="cell">
+            0
+        </div>
+        <!-- <div class="cell" style="overflow:hidden;">
+
+
+             docker-compose up -d</br>
+
+
+             </div> -->
+        <div class="cell">
+            docker-compose up -d
+        </div>
+        <div class="cell" style="overflow:hidden;">
+
+        </div>
+        <div class="cell" style="overflow:hidden;">
+            <button id="trigger_0_1" class="trigger" data-tooltip-id="0_1" title="Creating network &#34;kafkaconnectelastic_default&#34; with the default driver</br>Creating kafkaconnectelastic_elasticsearch_1</br>Creating kafkaconnectelastic_fast-data-dev_1</br></br>">view</button>
+
+        </div>
+    </div><div class="row">
+        <div class="cell">
+            Check docker compose log
+        </div>
+        <div class="cell  center">
+            &#10004;
+        </div>
+        <div class="cell">
+            0.52
+        </div>
+        <div class="cell">
+            0
+        </div>
+        <!-- <div class="cell" style="overflow:hidden;">
+
+
+             docker-compose logs</br>
+
+
+             </div> -->
+        <div class="cell">
+            docker-compose logs
+        </div>
+        <div class="cell" style="overflow:hidden;">
+            <button id="trigger_0_2" class="trigger" data-tooltip-id="0_2" title="Attaching to kafkaconnectelastic_fast-data-dev_1, kafkaconnectelastic_elasticsearch_1</br>[36mfast-data-dev_1  |[0m [92mSetting advertised host to [96mfast-data-dev[34m[92m.[34m</br>[36mfast-data-dev_1  |[0m [92mStarting services.[39m</br>[36mfast-data-dev_1  |[0m [34mYou may visit [96mhttp://fast-data-dev:3030[34m in about a minute.[39m</br>[36mfast-data-dev_1  |[0m 2016-10-08 21:21:45,552 CRIT Supervisor running as root (no user in config file)</br>[36mfast-data-dev_1  |[0m 2016-10-08 21:21:45,553 INFO supervisord started with pid 7</br>[36mfast-data-dev_1  |[0m 2016-10-08 21:21:46,555 INFO spawned: &#39;zookeeper&#39; with pid 51</br>[36mfast-data-dev_1  |[0m 2016-10-08 21:21:46,557 INFO spawned: &#39;caddy&#39; with pid 52</br>[36mfast-data-dev_1  |[0m 2016-10-08 21:21:46,559 INFO spawned: &#39;broker&#39; with pid 53</br>[36mfast-data-dev_1  |[0m 2016-10-08 21:21:46,561 INFO spawned: &#39;smoke-tests&#39; with pid 54</br>[36mfast-data-dev_1  |[0m 2016-10-08 21:21:46,563 INFO spawned: &#39;connect-distributed&#39; with pid 56</br>[36mfast-data-dev_1  |[0m 2016-10-08 21:21:46,565 INFO spawned: &#39;logs-to-kafka&#39; with pid 57</br>[36mfast-data-dev_1  |[0m 2016-10-08 21:21:46,567 INFO spawned: &#39;schema-registry&#39; with pid 60</br>[36mfast-data-dev_1  |[0m 2016-10-08 21:21:46,568 INFO spawned: &#39;rest-proxy&#39; with pid 62</br>[36mfast-data-dev_1  |[0m 2016-10-08 21:21:47,556 INFO success: zookeeper entered RUNNING state, process has stayed up for &gt; than 1 seconds (startsecs)</br>[36mfast-data-dev_1  |[0m 2016-10-08 21:21:47,556 INFO success: caddy entered RUNNING state, process has stayed up for &gt; than 1 seconds (startsecs)</br>[36mfast-data-dev_1  |[0m 2016-10-08 21:21:47,583 INFO success: broker entered RUNNING state, process has stayed up for &gt; than 1 seconds (startsecs)</br>[36mfast-data-dev_1  |[0m 2016-10-08 21:21:47,583 INFO success: smoke-tests entered RUNNING state, process has stayed up for &gt; than 1 seconds (startsecs)</br>[36mfast-data-dev_1  |[0m 2016-10-08 21:21:47,583 INFO success: connect-distributed entered RUNNING state, process has stayed up for &gt; than 1 seconds (startsecs)</br>[36mfast-data-dev_1  |[0m 2016-10-08 21:21:47,583 INFO success: logs-to-kafka entered RUNNING state, process has stayed up for &gt; than 1 seconds (startsecs)</br>[36mfast-data-dev_1  |[0m 2016-10-08 21:21:47,583 INFO success: schema-registry entered RUNNING state, process has stayed up for &gt; than 1 seconds (startsecs)</br>[36mfast-data-dev_1  |[0m 2016-10-08 21:21:47,583 INFO success: rest-proxy entered RUNNING state, process has stayed up for &gt; than 1 seconds (startsecs)</br>[36mfast-data-dev_1  |[0m 2016-10-08 21:21:48,214 INFO exited: schema-registry (exit status 1; not expected)</br>[36mfast-data-dev_1  |[0m 2016-10-08 21:21:48,215 INFO spawned: &#39;schema-registry&#39; with pid 446</br>[33melasticsearch_1  |[0m [2016-10-08 21:21:45,879][WARN ][bootstrap                ] unable to install syscall filter: seccomp unavailable: your kernel is buggy and you should upgrade</br>[33melasticsearch_1  |[0m [2016-10-08 21:21:46,026][INFO ][node                     ] [Apocalypse] version[2.4.1], pid[1], build[c67dc32/2016-09-27T18:57:55Z]</br>[33melasticsearch_1  |[0m [2016-10-08 21:21:46,026][INFO ][node                     ] [Apocalypse] initializing ...</br>[33melasticsearch_1  |[0m [2016-10-08 21:21:46,503][INFO ][plugins                  ] [Apocalypse] modules [reindex, lang-expression, lang-groovy], plugins [], sites []</br>[33melasticsearch_1  |[0m [2016-10-08 21:21:46,526][INFO ][env                      ] [Apocalypse] using [1] data paths, mounts [[/usr/share/elasticsearch/data (/dev/mapper/vg--landoop-docker)]], net usable_space [96.6gb], net total_space [100gb], spins? [possibly], types [btrfs]</br>[33melasticsearch_1  |[0m [2016-10-08 21:21:46,526][INFO ][env                      ] [Apocalypse] heap size [989.8mb], compressed ordinary object pointers [true]</br>[33melasticsearch_1  |[0m [2016-10-08 21:21:47,980][INFO ][node                     ] [Apocalypse] initialized</br>[36mfast-data-dev_1  |[0m 2016-10-08 21:21:48,266 INFO exited: rest-proxy (exit status 1; not expected)</br>[33melasticsearch_1  |[0m [2016-10-08 21:21:47,980][INFO ][node                     ] [Apocalypse] starting ...</br>[36mfast-data-dev_1  |[0m 2016-10-08 21:21:48,267 INFO spawned: &#39;rest-proxy&#39; with pid 497</br>[33melasticsearch_1  |[0m [2016-10-08 21:21:48,044][INFO ][transport                ] [Apocalypse] publish_address {172.18.0.2:9300}, bound_addresses {[::]:9300}</br>[36mfast-data-dev_1  |[0m 2016-10-08 21:21:49,269 INFO success: schema-registry entered RUNNING state, process has stayed up for &gt; than 1 seconds (startsecs)</br>[33melasticsearch_1  |[0m [2016-10-08 21:21:48,048][INFO ][discovery                ] [Apocalypse] landoop/Xqt0UH7NSp-KPLxHxuQWaQ</br>[36mfast-data-dev_1  |[0m 2016-10-08 21:21:49,269 INFO success: rest-proxy entered RUNNING state, process has stayed up for &gt; than 1 seconds (startsecs)</br>[33melasticsearch_1  |[0m [2016-10-08 21:21:51,109][INFO ][cluster.service          ] [Apocalypse] new_master {Apocalypse}{Xqt0UH7NSp-KPLxHxuQWaQ}{172.18.0.2}{172.18.0.2:9300}, reason: zen-disco-join(elected_as_master, [0] joins received)</br>[33melasticsearch_1  |[0m [2016-10-08 21:21:51,173][INFO ][http                     ] [Apocalypse] publish_address {172.18.0.2:9200}, bound_addresses {[::]:9200}</br>[33melasticsearch_1  |[0m [2016-10-08 21:21:51,173][INFO ][node                     ] [Apocalypse] started</br>[33melasticsearch_1  |[0m [2016-10-08 21:21:51,196][INFO ][gateway                  ] [Apocalypse] recovered [0] indices into cluster_state</br></br>">view</button>
+
+        </div>
+        <div class="cell" style="overflow:hidden;">
+
+        </div>
+    </div>
+
+        <div class="row">
+            <div class="cell skip"></div>
+            <div class="cell skip"></div>
+            <div class="cell skip"></div>
+            <div class="cell skip"></div>
+            <div class="cell skip"></div>
+            <div class="cell" style="font-weight: bold;">
+                Passed 3 out of 3
+            </div>
+            <div class="cell" style="font-weight: bold;">
+                13.98 seconds
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="cell skip"></div>
+            <div class="cell skip"></div>
+            <div class="cell skip"></div>
+            <div class="cell skip"></div>
+            <div class="cell skip"></div>
+            <div class="cell skip"></div>
+            <div class="cell skip"></div>
+        </div><div class="row header green">
+        <div class="cell">
+            Setup ElasticSearch Connector
+        </div>
+        <div class="cell">
+            <!--                         Status -->
+        </div>
+        <div class="cell">
+            Time (sec)
+        </div>
+        <div class="cell">
+            Exit Code
+        </div>
+        <div class="cell">
+            Command
+        </div>
+        <div class="cell width12">
+            StdOutput
+        </div>
+        <div class="cell width12">
+            StdError
+        </div>
+    </div>
+
+        <div class="row">
+            <div class="cell">
+                Create Topic
+            </div>
+            <div class="cell  center">
+                &#10004;
+            </div>
+            <div class="cell">
+                2.69
+            </div>
+            <div class="cell">
+                0
+            </div>
+            <!-- <div class="cell" style="overflow:hidden;">
+
+
+                 <a href="" title='docker run --rm --network=kafkaconnectelastic_default landoop/fast-data-dev</br>  kafka-topics --zookeeper fast-data-dev:2181 --topic elastic-sink --partition 1 --replication 1 --create</br></br>'>docker run --rm --network=kafkaconnectelastic_default landoop/fast-data-dev</a>
+
+
+                 </div> -->
+            <div class="cell">
+                docker run --rm --network=kafkaconnectelastic_default landoop/fast-data-dev
+                kafka-topics --zookeeper fast-data-dev:2181 --topic elastic-sink --partition 1 --replication 1 --create
+
+            </div>
+            <div class="cell" style="overflow:hidden;">
+
+                Created topic &#34;elastic-sink&#34;.
+            </div>
+            <div class="cell" style="overflow:hidden;">
+
+            </div>
+        </div><div class="row">
+        <div class="cell">
+            Create an ElasticSearch Distributed Connector
+        </div>
+        <div class="cell  center">
+            &#10004;
+        </div>
+        <div class="cell">
+            1.54
+        </div>
+        <div class="cell">
+            0
+        </div>
+        <!-- <div class="cell" style="overflow:hidden;">
+
+
+             <a href="" title='docker run --rm --network=kafkaconnectelastic_default -i landoop/fast-data-dev</br>  curl -vs --stderr - -X POST -H &#34;Content-Type: application/json&#34;</br>       --data @-</br>       &#34;http://fast-data-dev:8083/connectors&#34;</br></br>'>docker run --rm --network=kafkaconnectelastic_default -i landoop/fast-data-dev</a>
+
+
+             </div> -->
+        <div class="cell">
+            docker run --rm --network=kafkaconnectelastic_default -i landoop/fast-data-dev
+            curl -vs --stderr - -X POST -H &#34;Content-Type: application/json&#34;
+            --data @-
+            &#34;http://fast-data-dev:8083/connectors&#34;
+
+        </div>
+        <div class="cell" style="overflow:hidden;">
+            <button id="trigger_1_1" class="trigger" data-tooltip-id="1_1" title="*   Trying 172.18.0.3...</br>* TCP_NODELAY set</br>* Connected to fast-data-dev (172.18.0.3) port 8083 (#0)</br>&gt; POST /connectors HTTP/1.1
+</br>&gt; Host: fast-data-dev:8083
+</br>&gt; User-Agent: curl/7.50.3
+</br>&gt; Accept: */*
+</br>&gt; Content-Type: application/json
+</br>&gt; Content-Length: 386
+</br>&gt;
+</br>} [386 bytes data]</br>* upload completely sent off: 386 out of 386 bytes</br>&lt; HTTP/1.1 201 Created
+</br>&lt; Date: Sat, 08 Oct 2016 21:22:18 GMT
+</br>&lt; Location: http://fast-data-dev:8083/connectors/elastic-sink
+</br>&lt; Content-Type: application/json
+</br>&lt; Content-Length: 381
+</br>&lt; Server: Jetty(9.2.12.v20150709)
+</br>&lt;
+</br>{ [381 bytes data]</br>{&#34;name&#34;:&#34;elastic-sink&#34;,&#34;config&#34;:{&#34;connector.class&#34;:&#34;com.datamountaineer.streamreactor.connect.elastic.ElasticSinkConnector&#34;,&#34;tasks.max&#34;:&#34;1&#34;,&#34;topics&#34;:&#34;elastic-sink&#34;,&#34;connect.elastic.url&#34;:&#34;elasticsearch:9300&#34;,&#34;connect.elastic.cluster.name&#34;:&#34;landoop&#34;,&#34;connect.elastic.export.route.query&#34;:&#34;INSERT INTO INDEX_1 SELECT field1, field2 FROM elastic-sink&#34;,&#34;name&#34;:&#34;elastic-sink&#34;},&#34;tasks&#34;:[]}* Curl_http_done: called premature == 0</br>* Connection #0 to host fast-data-dev left intact</br></br>">view</button>
+
+        </div>
+        <div class="cell" style="overflow:hidden;">
+
+        </div>
+    </div>
+
+        <div class="row">
+            <div class="cell skip"></div>
+            <div class="cell skip"></div>
+            <div class="cell skip"></div>
+            <div class="cell skip"></div>
+            <div class="cell skip"></div>
+            <div class="cell" style="font-weight: bold;">
+                Passed 2 out of 2
+            </div>
+            <div class="cell" style="font-weight: bold;">
+                4.23 seconds
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="cell skip"></div>
+            <div class="cell skip"></div>
+            <div class="cell skip"></div>
+            <div class="cell skip"></div>
+            <div class="cell skip"></div>
+            <div class="cell skip"></div>
+            <div class="cell skip"></div>
+        </div><div class="row header blue">
+        <div class="cell">
+            Test Connector
+        </div>
+        <div class="cell">
+            <!--                         Status -->
+        </div>
+        <div class="cell">
+            Time (sec)
+        </div>
+        <div class="cell">
+            Exit Code
+        </div>
+        <div class="cell">
+            Command
+        </div>
+        <div class="cell width12">
+            StdOutput
+        </div>
+        <div class="cell width12">
+            StdError
+        </div>
+    </div>
+
+        <div class="row">
+            <div class="cell">
+                Write Entries into Topic
+            </div>
+            <div class="cell  center">
+                &#10004;
+            </div>
+            <div class="cell">
+                3.24
+            </div>
+            <div class="cell">
+                0
+            </div>
+            <!-- <div class="cell" style="overflow:hidden;">
+
+
+                 <a href="" title='docker run --rm -i --network=kafkaconnectelastic_default landoop/fast-data-dev</br>  kafka-avro-console-producer --broker-list fast-data-dev:9092</br>    --topic elastic-sink --property schema.registry.url=&#34;http://fast-data-dev:8081&#34;</br>    --property</br>    value.schema=&#39;{&#34;type&#34;:&#34;record&#34;,&#34;name&#34;:&#34;myrecord&#34;,&#34;fields&#34;:[{&#34;name&#34;:&#34;id&#34;,&#34;type&#34;:&#34;int&#34;},{&#34;name&#34;:&#34;random_field&#34;, &#34;type&#34;: &#34;string&#34;}]}&#39;</br></br>'>docker run --rm -i --network=kafkaconnectelastic_default landoop/fast-data-dev</a>
+
+
+                 </div> -->
+            <div class="cell">
+                docker run --rm -i --network=kafkaconnectelastic_default landoop/fast-data-dev
+                kafka-avro-console-producer --broker-list fast-data-dev:9092
+                --topic elastic-sink --property schema.registry.url=&#34;http://fast-data-dev:8081&#34;
+                --property
+                value.schema=&#39;{&#34;type&#34;:&#34;record&#34;,&#34;name&#34;:&#34;myrecord&#34;,&#34;fields&#34;:[{&#34;name&#34;:&#34;id&#34;,&#34;type&#34;:&#34;int&#34;},{&#34;name&#34;:&#34;random_field&#34;, &#34;type&#34;: &#34;string&#34;}]}&#39;
+
+            </div>
+            <div class="cell" style="overflow:hidden;">
+
+            </div>
+            <div class="cell" style="overflow:hidden;">
+                <button id="trigger_2_0" class="trigger" data-tooltip-id="2_0" title="SLF4J: Class path contains multiple SLF4J bindings.</br>SLF4J: Found binding in [jar:file:/opt/confluent-3.0.1/share/java/kafka-serde-tools/slf4j-log4j12-1.7.6.jar!/org/slf4j/impl/StaticLoggerBinder.class]</br>SLF4J: Found binding in [jar:file:/opt/confluent-3.0.1/share/java/confluent-common/slf4j-log4j12-1.7.6.jar!/org/slf4j/impl/StaticLoggerBinder.class]</br>SLF4J: Found binding in [jar:file:/opt/confluent-3.0.1/share/java/schema-registry/slf4j-log4j12-1.7.6.jar!/org/slf4j/impl/StaticLoggerBinder.class]</br>SLF4J: See http://www.slf4j.org/codes.html#multiple_bindings for an explanation.</br>SLF4J: Actual binding is of type [org.slf4j.impl.Log4jLoggerFactory]</br></br>">view</button>
+
+            </div>
+        </div><div class="row">
+        <div class="cell">
+            Verify entry 1
+        </div>
+        <div class="cell red center">
+            &#10006;
+        </div>
+        <div class="cell">
+            0.71
+        </div>
+        <div class="cell">
+            text
+        </div>
+        <!-- <div class="cell" style="overflow:hidden;">
+
+
+             <a href="" title='docker run --rm --network=kafkaconnectelastic_default landoop/fast-data-dev</br>  curl -XGET &#39;http://elasticsearch:9200/INDEX_1/_search?q=id:999&#39;</br></br>'>docker run --rm --network=kafkaconnectelastic_default landoop/fast-data-dev</a>
+
+
+             </div> -->
+        <div class="cell">
+            docker run --rm --network=kafkaconnectelastic_default landoop/fast-data-dev
+            curl -XGET &#39;http://elasticsearch:9200/INDEX_1/_search?q=id:999&#39;
+
+        </div>
+        <div class="cell" style="overflow:hidden;">
+
+        </div>
+        <div class="cell" style="overflow:hidden;">
+            <button id="trigger_2_1" class="trigger" data-tooltip-id="2_1" title="  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current</br>                                 Dload  Upload   Total   Spent    Left  Speed</br>
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0
+100   311  100   311    0     0   3745      0 --:--:-- --:--:-- --:--:--  3792</br></br>Stdout_has not matched expected &#39;random_field&#39;.</br>Stdout_has not matched expected &#39;foo&#39;.</br></br>">view</button>
+
+        </div>
+    </div><div class="row">
+        <div class="cell">
+            Verify entry 2
+        </div>
+        <div class="cell red center">
+            &#10006;
+        </div>
+        <div class="cell">
+            0.76
+        </div>
+        <div class="cell">
+            text
+        </div>
+        <!-- <div class="cell" style="overflow:hidden;">
+
+
+             <a href="" title='docker run --rm --network=kafkaconnectelastic_default landoop/fast-data-dev</br>  curl -XGET &#39;http://elasticsearch:9200/INDEX_1/_search?q=id:888&#39;</br></br>'>docker run --rm --network=kafkaconnectelastic_default landoop/fast-data-dev</a>
+
+
+             </div> -->
+        <div class="cell">
+            docker run --rm --network=kafkaconnectelastic_default landoop/fast-data-dev
+            curl -XGET &#39;http://elasticsearch:9200/INDEX_1/_search?q=id:888&#39;
+
+        </div>
+        <div class="cell" style="overflow:hidden;">
+
+        </div>
+        <div class="cell" style="overflow:hidden;">
+            <button id="trigger_2_2" class="trigger" data-tooltip-id="2_2" title="  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current</br>                                 Dload  Upload   Total   Spent    Left  Speed</br>
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0
+100   311  100   311    0     0  58745      0 --:--:-- --:--:-- --:--:-- 77750</br></br>Stdout_has not matched expected &#39;random_field&#39;.</br>Stdout_has not matched expected &#39;bar&#39;.</br></br>">view</button>
+
+        </div>
+    </div><div class="row">
+        <div class="cell">
+            Read First 2000 Lines of Connect Logs
+        </div>
+        <div class="cell red center">
+            &#10006;
+        </div>
+        <div class="cell">
+            0.07
+        </div>
+        <div class="cell">
+            text
+        </div>
+        <!-- <div class="cell" style="overflow:hidden;">
+
+
+             <a href="" title='docker exec kafkaconnectelastic_fast-data-dev_1 head -n2000 /var/log/connect-distributed.log</br></br>'>docker exec kafkaconnectelastic_fast-data-dev_1 head -n2000 /var/log/connect-distributed.log</a>
+
+
+             </div> -->
+        <div class="cell">
+            docker exec kafkaconnectelastic_fast-data-dev_1 head -n2000 /var/log/connect-distributed.log
+
+        </div>
+        <div class="cell" style="overflow:hidden;">
+            <button id="trigger_2_3" class="trigger" data-tooltip-id="2_3" title="SLF4J: Class path contains multiple SLF4J bindings.</br>SLF4J: Found binding in [jar:file:/connectors/kafka-connect-twitter-0.1-develop-8624fbe-jar-with-dependencies.jar!/org/slf4j/impl/StaticLoggerBinder.class]</br>SLF4J: Found binding in [jar:file:/opt/confluent-3.0.1/share/java/confluent-common/slf4j-log4j12-1.7.6.jar!/org/slf4j/impl/StaticLoggerBinder.class]</br>SLF4J: Found binding in [jar:file:/opt/confluent-3.0.1/share/java/kafka-serde-tools/slf4j-log4j12-1.7.6.jar!/org/slf4j/impl/StaticLoggerBinder.class]</br>SLF4J: Found binding in [jar:file:/opt/confluent-3.0.1/share/java/kafka-connect-blockchain/slf4j-log4j12-1.7.21.jar!/org/slf4j/impl/StaticLoggerBinder.class]</br>SLF4J: Found binding in [jar:file:/opt/confluent-3.0.1/share/java/kafka-connect-bloomberg/slf4j-log4j12-1.7.21.jar!/org/slf4j/impl/StaticLoggerBinder.class]</br>SLF4J: Found binding in [jar:file:/opt/confluent-3.0.1/share/java/kafka-connect-cassandra/slf4j-log4j12-1.7.21.jar!/org/slf4j/impl/StaticLoggerBinder.class]</br>SLF4J: Found binding in [jar:file:/opt/confluent-3.0.1/share/java/kafka-connect-druid/slf4j-log4j12-1.7.21.jar!/org/slf4j/impl/StaticLoggerBinder.class]</br>SLF4J: Found binding in [jar:file:/opt/confluent-3.0.1/share/java/kafka-connect-elastic/slf4j-log4j12-1.7.21.jar!/org/slf4j/impl/StaticLoggerBinder.class]</br>SLF4J: Found binding in [jar:file:/opt/confluent-3.0.1/share/java/kafka-connect-hazelcast/slf4j-log4j12-1.7.21.jar!/org/slf4j/impl/StaticLoggerBinder.class]</br>SLF4J: Found binding in [jar:file:/opt/confluent-3.0.1/share/java/kafka-connect-hbase/slf4j-log4j12-1.7.21.jar!/org/slf4j/impl/StaticLoggerBinder.class]</br>SLF4J: Found binding in [jar:file:/opt/confluent-3.0.1/share/java/kafka-connect-hdfs/slf4j-log4j12-1.7.5.jar!/org/slf4j/impl/StaticLoggerBinder.class]</br>SLF4J: Found binding in [jar:file:/opt/confluent-3.0.1/share/java/kafka-connect-influxdb/slf4j-log4j12-1.7.21.jar!/org/slf4j/impl/StaticLoggerBinder.class]</br>SLF4J: Found binding in [jar:file:/opt/confluent-3.0.1/share/java/kafka-connect-jms/slf4j-log4j12-1.7.21.jar!/org/slf4j/impl/StaticLoggerBinder.class]</br>SLF4J: Found binding in [jar:file:/opt/confluent-3.0.1/share/java/kafka-connect-kudu/slf4j-log4j12-1.7.21.jar!/org/slf4j/impl/StaticLoggerBinder.class]</br>SLF4J: Found binding in [jar:file:/opt/confluent-3.0.1/share/java/kafka-connect-redis/slf4j-log4j12-1.7.21.jar!/org/slf4j/impl/StaticLoggerBinder.class]</br>SLF4J: Found binding in [jar:file:/opt/confluent-3.0.1/share/java/kafka-connect-rethink/slf4j-log4j12-1.7.21.jar!/org/slf4j/impl/StaticLoggerBinder.class]</br>SLF4J: Found binding in [jar:file:/opt/confluent-3.0.1/share/java/kafka-connect-voltdb/slf4j-log4j12-1.7.21.jar!/org/slf4j/impl/StaticLoggerBinder.class]</br>SLF4J: Found binding in [jar:file:/opt/confluent-3.0.1/share/java/kafka-connect-yahoo/slf4j-log4j12-1.7.21.jar!/org/slf4j/impl/StaticLoggerBinder.class]</br>SLF4J: Found binding in [jar:file:/opt/confluent-3.0.1/share/java/kafka/slf4j-log4j12-1.7.21.jar!/org/slf4j/impl/StaticLoggerBinder.class]</br>SLF4J: See http://www.slf4j.org/codes.html#multiple_bindings for an explanation.</br>[main] INFO org.apache.kafka.connect.runtime.distributed.DistributedConfig - DistributedConfig values: </br>	cluster = connect</br>	metric.reporters = []</br>	metadata.max.age.ms = 300000</br>	reconnect.backoff.ms = 50</br>	sasl.kerberos.ticket.renew.window.factor = 0.8</br>	bootstrap.servers = [localhost:9092]</br>	ssl.keystore.type = JKS</br>	sasl.mechanism = GSSAPI</br>	offset.storage.topic = connect-offsets</br>	ssl.truststore.password = null</br>	key.converter = class io.confluent.connect.avro.AvroConverter</br>	client.id = </br>	ssl.endpoint.identification.algorithm = null</br>	config.storage.topic = connect-configs</br>	request.timeout.ms = 40000</br>	rest.advertised.host.name = null</br>	heartbeat.interval.ms = 3000</br>	receive.buffer.bytes = 32768</br>	ssl.truststore.type = JKS</br>	rest.port = 8083</br>	access.control.allow.origin = </br>	ssl.truststore.location = null</br>	ssl.keystore.password = null</br>	worker.unsync.backoff.ms = 300000</br>	internal.value.converter = class org.apache.kafka.connect.json.JsonConverter</br>	send.buffer.bytes = 131072</br>	group.id = connect-cluster</br>	task.shutdown.graceful.timeout.ms = 5000</br>	rest.advertised.port = null</br>	retry.backoff.ms = 100</br>	sasl.kerberos.kinit.cmd = /usr/bin/kinit</br>	sasl.kerberos.service.name = null</br>	sasl.kerberos.ticket.renew.jitter = 0.05</br>	ssl.trustmanager.algorithm = PKIX</br>	ssl.key.password = null</br>	sasl.kerberos.min.time.before.relogin = 60000</br>	value.converter = class io.confluent.connect.avro.AvroConverter</br>	connections.max.idle.ms = 540000</br>	session.timeout.ms = 30000</br>	metrics.num.samples = 2</br>	worker.sync.timeout.ms = 3000</br>	ssl.protocol = TLS</br>	ssl.provider = null</br>	ssl.enabled.protocols = [TLSv1.2, TLSv1.1, TLSv1]</br>	status.storage.topic = connect-statuses</br>	rest.host.name = null</br>	ssl.keystore.location = null</br>	offset.flush.timeout.ms = 5000</br>	ssl.cipher.suites = null</br>	offset.flush.interval.ms = 60000</br>	security.protocol = PLAINTEXT</br>	internal.key.converter = class org.apache.kafka.connect.json.JsonConverter</br>	access.control.allow.methods = </br>	ssl.keymanager.algorithm = SunX509</br>	metrics.sample.window.ms = 30000</br></br>[main] INFO org.eclipse.jetty.util.log - Logging initialized @1732ms</br>[main] INFO org.apache.kafka.common.utils.AppInfoParser - Kafka version : 0.10.0.0</br>[main] INFO org.apache.kafka.common.utils.AppInfoParser - Kafka commitId : b8642491e78c5a13</br>[main] INFO org.apache.kafka.connect.runtime.Connect - Kafka Connect starting</br>[main] INFO org.apache.kafka.connect.runtime.rest.RestServer - Starting REST server</br>[DistributedHerder] INFO org.apache.kafka.connect.runtime.distributed.DistributedHerder - Herder starting</br>[DistributedHerder] INFO org.apache.kafka.connect.runtime.Worker - Worker starting</br>[DistributedHerder] INFO org.apache.kafka.clients.producer.ProducerConfig - ProducerConfig values: </br>	metric.reporters = []</br>	metadata.max.age.ms = 300000</br>	reconnect.backoff.ms = 50</br>	sasl.kerberos.ticket.renew.window.factor = 0.8</br>	bootstrap.servers = [localhost:9092]</br>	ssl.keystore.type = JKS</br>	sasl.mechanism = GSSAPI</br>	max.block.ms = 9223372036854775807</br>	interceptor.classes = null</br>	ssl.truststore.password = null</br>	client.id = </br>	ssl.endpoint.identification.algorithm = null</br>	request.timeout.ms = 2147483647</br>	acks = all</br>	receive.buffer.bytes = 32768</br>	ssl.truststore.type = JKS</br>	retries = 2147483647</br>	ssl.truststore.location = null</br>	ssl.keystore.password = null</br>	send.buffer.bytes = 131072</br>	compression.type = none</br>	metadata.fetch.timeout.ms = 60000</br>	retry.backoff.ms = 100</br>	sasl.kerberos.kinit.cmd = /usr/bin/kinit</br>	buffer.memory = 33554432</br>	timeout.ms = 30000</br>	key.serializer = class org.apache.kafka.common.serialization.ByteArraySerializer</br>	sasl.kerberos.service.name = null</br>	sasl.kerberos.ticket.renew.jitter = 0.05</br>	ssl.trustmanager.algorithm = PKIX</br>	block.on.buffer.full = false</br>	ssl.key.password = null</br>	sasl.kerberos.min.time.before.relogin = 60000</br>	connections.max.idle.ms = 540000</br>	max.in.flight.requests.per.connection = 1</br>	metrics.num.samples = 2</br>	ssl.protocol = TLS</br>	ssl.provider = null</br>	ssl.enabled.protocols = [TLSv1.2, TLSv1.1, TLSv1]</br>	batch.size = 16384</br>	ssl.keystore.location = null</br>	ssl.cipher.suites = null</br>	security.protocol = PLAINTEXT</br>	max.request.size = 1048576</br>	value.serializer = class org.apache.kafka.common.serialization.ByteArraySerializer</br>	ssl.keymanager.algorithm = SunX509</br>	metrics.sample.window.ms = 30000</br>	partitioner.class = class org.apache.kafka.clients.producer.internals.DefaultPartitioner</br>	linger.ms = 0</br></br>[DistributedHerder] INFO org.apache.kafka.clients.producer.ProducerConfig - ProducerConfig values: </br>	metric.reporters = []</br>	metadata.max.age.ms = 300000</br>	reconnect.backoff.ms = 50</br>	sasl.kerberos.ticket.renew.window.factor = 0.8</br>	bootstrap.servers = [localhost:9092]</br>	ssl.keystore.type = JKS</br>	sasl.mechanism = GSSAPI</br>	max.block.ms = 9223372036854775807</br>	interceptor.classes = null</br>	ssl.truststore.password = null</br>	client.id = producer-1</br>	ssl.endpoint.identification.algorithm = null</br>	request.timeout.ms = 2147483647</br>	acks = all</br>	receive.buffer.bytes = 32768</br>	ssl.truststore.type = JKS</br>	retries = 2147483647</br>	ssl.truststore.location = null</br>	ssl.keystore.password = null</br>	send.buffer.bytes = 131072</br>	compression.type = none</br>	metadata.fetch.timeout.ms = 60000</br>	retry.backoff.ms = 100</br>	sasl.kerberos.kinit.cmd = /usr/bin/kinit</br>	buffer.memory = 33554432</br>	timeout.ms = 30000</br>	key.serializer = class org.apache.kafka.common.serialization.ByteArraySerializer</br>	sasl.kerberos.service.name = null</br>	sasl.kerberos.ticket.renew.jitter = 0.05</br>	ssl.trustmanager.algorithm = PKIX</br>	block.on.buffer.full = false</br>	ssl.key.password = null</br>	sasl.kerberos.min.time.before.relogin = 60000</br>	connections.max.idle.ms = 540000</br>	max.in.flight.requests.per.connection = 1</br>	metrics.num.samples = 2</br>	ssl.protocol = TLS</br>	ssl.provider = null</br>	ssl.enabled.protocols = [TLSv1.2, TLSv1.1, TLSv1]</br>	batch.size = 16384</br>	ssl.keystore.location = null</br>	ssl.cipher.suites = null</br>	security.protocol = PLAINTEXT</br>	max.request.size = 1048576</br>	value.serializer = class org.apache.kafka.common.serialization.ByteArraySerializer</br>	ssl.keymanager.algorithm = SunX509</br>	metrics.sample.window.ms = 30000</br>	partitioner.class = class org.apache.kafka.clients.producer.internals.DefaultPartitioner</br>	linger.ms = 0</br></br>[DistributedHerder] INFO org.apache.kafka.common.utils.AppInfoParser - Kafka version : 0.10.0.0</br>[DistributedHerder] INFO org.apache.kafka.common.utils.AppInfoParser - Kafka commitId : b8642491e78c5a13</br>[DistributedHerder] INFO org.apache.kafka.connect.storage.KafkaOffsetBackingStore - Starting KafkaOffsetBackingStore</br>[DistributedHerder] INFO org.apache.kafka.connect.util.KafkaBasedLog - Starting KafkaBasedLog with topic connect-offsets</br>[DistributedHerder] INFO org.apache.kafka.clients.producer.ProducerConfig - ProducerConfig values: </br>	metric.reporters = []</br>	metadata.max.age.ms = 300000</br>	reconnect.backoff.ms = 50</br>	sasl.kerberos.ticket.renew.window.factor = 0.8</br>	bootstrap.servers = [localhost:9092]</br>	ssl.keystore.type = JKS</br>	sasl.mechanism = GSSAPI</br>	max.block.ms = 60000</br>	interceptor.classes = null</br>	ssl.truststore.password = null</br>	client.id = </br>	ssl.endpoint.identification.algorithm = null</br>	request.timeout.ms = 30000</br>	acks = all</br>	receive.buffer.bytes = 32768</br>	ssl.truststore.type = JKS</br>	retries = 2147483647</br>	ssl.truststore.location = null</br>	ssl.keystore.password = null</br>	send.buffer.bytes = 131072</br>	compression.type = none</br>	metadata.fetch.timeout.ms = 60000</br>	retry.backoff.ms = 100</br>	sasl.kerberos.kinit.cmd = /usr/bin/kinit</br>	buffer.memory = 33554432</br>	timeout.ms = 30000</br>	key.serializer = class org.apache.kafka.common.serialization.ByteArraySerializer</br>	sasl.kerberos.service.name = null</br>	sasl.kerberos.ticket.renew.jitter = 0.05</br>	ssl.trustmanager.algorithm = PKIX</br>	block.on.buffer.full = false</br>	ssl.key.password = null</br>	sasl.kerberos.min.time.before.relogin = 60000</br>	connections.max.idle.ms = 540000</br>	max.in.flight.requests.per.connection = 1</br>	metrics.num.samples = 2</br>	ssl.protocol = TLS</br>	ssl.provider = null</br>	ssl.enabled.protocols = [TLSv1.2, TLSv1.1, TLSv1]</br>	batch.size = 16384</br>	ssl.keystore.location = null</br>	ssl.cipher.suites = null</br>	security.protocol = PLAINTEXT</br>	max.request.size = 1048576</br>	value.serializer = class org.apache.kafka.common.serialization.ByteArraySerializer</br>	ssl.keymanager.algorithm = SunX509</br>	metrics.sample.window.ms = 30000</br>	partitioner.class = class org.apache.kafka.clients.producer.internals.DefaultPartitioner</br>	linger.ms = 0</br></br>[DistributedHerder] INFO org.apache.kafka.clients.producer.ProducerConfig - ProducerConfig values: </br>	metric.reporters = []</br>	metadata.max.age.ms = 300000</br>	reconnect.backoff.ms = 50</br>	sasl.kerberos.ticket.renew.window.factor = 0.8</br>	bootstrap.servers = [localhost:9092]</br>	ssl.keystore.type = JKS</br>	sasl.mechanism = GSSAPI</br>	max.block.ms = 60000</br>	interceptor.classes = null</br>	ssl.truststore.password = null</br>	client.id = producer-2</br>	ssl.endpoint.identification.algorithm = null</br>	request.timeout.ms = 30000</br>	acks = all</br>	receive.buffer.bytes = 32768</br>	ssl.truststore.type = JKS</br>	retries = 2147483647</br>	ssl.truststore.location = null</br>	ssl.keystore.password = null</br>	send.buffer.bytes = 131072</br>	compression.type = none</br>	metadata.fetch.timeout.ms = 60000</br>	retry.backoff.ms = 100</br>	sasl.kerberos.kinit.cmd = /usr/bin/kinit</br>	buffer.memory = 33554432</br>	timeout.ms = 30000</br>	key.serializer = class org.apache.kafka.common.serialization.ByteArraySerializer</br>	sasl.kerberos.service.name = null</br>	sasl.kerberos.ticket.renew.jitter = 0.05</br>	ssl.trustmanager.algorithm = PKIX</br>	block.on.buffer.full = false</br>	ssl.key.password = null</br>	sasl.kerberos.min.time.before.relogin = 60000</br>	connections.max.idle.ms = 540000</br>	max.in.flight.requests.per.connection = 1</br>	metrics.num.samples = 2</br>	ssl.protocol = TLS</br>	ssl.provider = null</br>	ssl.enabled.protocols = [TLSv1.2, TLSv1.1, TLSv1]</br>	batch.size = 16384</br>	ssl.keystore.location = null</br>	ssl.cipher.suites = null</br>	security.protocol = PLAINTEXT</br>	max.request.size = 1048576</br>	value.serializer = class org.apache.kafka.common.serialization.ByteArraySerializer</br>	ssl.keymanager.algorithm = SunX509</br>	metrics.sample.window.ms = 30000</br>	partitioner.class = class org.apache.kafka.clients.producer.internals.DefaultPartitioner</br>	linger.ms = 0</br></br>[DistributedHerder] WARN org.apache.kafka.clients.producer.ProducerConfig - The configuration config.storage.topic = connect-configs was supplied but isn&#39;t a known config.</br>[DistributedHerder] WARN org.apache.kafka.clients.producer.ProducerConfig - The configuration group.id = connect-cluster was supplied but isn&#39;t a known config.</br>[DistributedHerder] WARN org.apache.kafka.clients.producer.ProducerConfig - The configuration status.storage.topic = connect-statuses was supplied but isn&#39;t a known config.</br>[DistributedHerder] WARN org.apache.kafka.clients.producer.ProducerConfig - The configuration internal.key.converter.schemas.enable = false was supplied but isn&#39;t a known config.</br>[DistributedHerder] WARN org.apache.kafka.clients.producer.ProducerConfig - The configuration rest.port = 8083 was supplied but isn&#39;t a known config.</br>[DistributedHerder] WARN org.apache.kafka.clients.producer.ProducerConfig - The configuration value.converter.schema.registry.url = http://localhost:8081 was supplied but isn&#39;t a known config.</br>[DistributedHerder] WARN org.apache.kafka.clients.producer.ProducerConfig - The configuration internal.key.converter = org.apache.kafka.connect.json.JsonConverter was supplied but isn&#39;t a known config.</br>[DistributedHerder] WARN org.apache.kafka.clients.producer.ProducerConfig - The configuration internal.value.converter.schemas.enable = false was supplied but isn&#39;t a known config.</br>[DistributedHerder] WARN org.apache.kafka.clients.producer.ProducerConfig - The configuration internal.value.converter = org.apache.kafka.connect.json.JsonConverter was supplied but isn&#39;t a known config.</br>[DistributedHerder] WARN org.apache.kafka.clients.producer.ProducerConfig - The configuration offset.storage.topic = connect-offsets was supplied but isn&#39;t a known config.</br>[DistributedHerder] WARN org.apache.kafka.clients.producer.ProducerConfig - The configuration value.converter = io.confluent.connect.avro.AvroConverter was supplied but isn&#39;t a known config.</br>[DistributedHerder] WARN org.apache.kafka.clients.producer.ProducerConfig - The configuration key.converter = io.confluent.connect.avro.AvroConverter was supplied but isn&#39;t a known config.</br>[DistributedHerder] WARN org.apache.kafka.clients.producer.ProducerConfig - The configuration key.converter.schema.registry.url = http://localhost:8081 was supplied but isn&#39;t a known config.</br>[DistributedHerder] INFO org.apache.kafka.common.utils.AppInfoParser - Kafka version : 0.10.0.0</br>[DistributedHerder] INFO org.apache.kafka.common.utils.AppInfoParser - Kafka commitId : b8642491e78c5a13</br>[DistributedHerder] INFO org.apache.kafka.clients.consumer.ConsumerConfig - ConsumerConfig values: </br>	metric.reporters = []</br>	metadata.max.age.ms = 300000</br>	partition.assignment.strategy = [org.apache.kafka.clients.consumer.RangeAssignor]</br>	reconnect.backoff.ms = 50</br>	sasl.kerberos.ticket.renew.window.factor = 0.8</br>	max.partition.fetch.bytes = 1048576</br>	bootstrap.servers = [localhost:9092]</br>	ssl.keystore.type = JKS</br>	enable.auto.commit = false</br>	sasl.mechanism = GSSAPI</br>	interceptor.classes = null</br>	exclude.internal.topics = true</br>	ssl.truststore.password = null</br>	client.id = </br>	ssl.endpoint.identification.algorithm = null</br>	max.poll.records = 2147483647</br>	check.crcs = true</br>	request.timeout.ms = 40000</br>	heartbeat.interval.ms = 3000</br>	auto.commit.interval.ms = 5000</br>	receive.buffer.bytes = 65536</br>	ssl.truststore.type = JKS</br>	ssl.truststore.location = null</br>	ssl.keystore.password = null</br>	fetch.min.bytes = 1</br>	send.buffer.bytes = 131072</br>	value.deserializer = class org.apache.kafka.common.serialization.ByteArrayDeserializer</br>	group.id = connect-cluster</br>	retry.backoff.ms = 100</br>	sasl.kerberos.kinit.cmd = /usr/bin/kinit</br>	sasl.kerberos.service.name = null</br>	sasl.kerberos.ticket.renew.jitter = 0.05</br>	ssl.trustmanager.algorithm = PKIX</br>	ssl.key.password = null</br>	fetch.max.wait.ms = 500</br>	sasl.kerberos.min.time.before.relogin = 60000</br>	connections.max.idle.ms = 540000</br>	session.timeout.ms = 30000</br>	metrics.num.samples = 2</br>	key.deserializer = class org.apache.kafka.common.serialization.ByteArrayDeserializer</br>	ssl.protocol = TLS</br>	ssl.provider = null</br>	ssl.enabled.protocols = [TLSv1.2, TLSv1.1, TLSv1]</br>	ssl.keystore.location = null</br>	ssl.cipher.suites = null</br>	security.protocol = PLAINTEXT</br>	ssl.keymanager.algorithm = SunX509</br>	metrics.sample.window.ms = 30000</br>	auto.offset.reset = earliest</br></br>[DistributedHerder] INFO org.apache.kafka.clients.consumer.ConsumerConfig - ConsumerConfig values: </br>	metric.reporters = []</br>	metadata.max.age.ms = 300000</br>	partition.assignment.strategy = [org.apache.kafka.clients.consumer.RangeAssignor]</br>	reconnect.backoff.ms = 50</br>	sasl.kerberos.ticket.renew.window.factor = 0.8</br>	max.partition.fetch.bytes = 1048576</br>	bootstrap.servers = [localhost:9092]</br>	ssl.keystore.type = JKS</br>	enable.auto.commit = false</br>	sasl.mechanism = GSSAPI</br>	interceptor.classes = null</br>	exclude.internal.topics = true</br>	ssl.truststore.password = null</br>	client.id = consumer-1</br>	ssl.endpoint.identification.algorithm = null</br>	max.poll.records = 2147483647</br>	check.crcs = true</br>	request.timeout.ms = 40000</br>	heartbeat.interval.ms = 3000</br>	auto.commit.interval.ms = 5000</br>	receive.buffer.bytes = 65536</br>	ssl.truststore.type = JKS</br>	ssl.truststore.location = null</br>	ssl.keystore.password = null</br>	fetch.min.bytes = 1</br>	send.buffer.bytes = 131072</br>	value.deserializer = class org.apache.kafka.common.serialization.ByteArrayDeserializer</br>	group.id = connect-cluster</br>	retry.backoff.ms = 100</br>	sasl.kerberos.kinit.cmd = /usr/bin/kinit</br>	sasl.kerberos.service.name = null</br>	sasl.kerberos.ticket.renew.jitter = 0.05</br>	ssl.trustmanager.algorithm = PKIX</br>	ssl.key.password = null</br>	fetch.max.wait.ms = 500</br>	sasl.kerberos.min.time.before.relogin = 60000</br>	connections.max.idle.ms = 540000</br>	session.timeout.ms = 30000</br>	metrics.num.samples = 2</br>	key.deserializer = class org.apache.kafka.common.serialization.ByteArrayDeserializer</br>	ssl.protocol = TLS</br>	ssl.provider = null</br>	ssl.enabled.protocols = [TLSv1.2, TLSv1.1, TLSv1]</br>	ssl.keystore.location = null</br>	ssl.cipher.suites = null</br>	security.protocol = PLAINTEXT</br>	ssl.keymanager.algorithm = SunX509</br>	metrics.sample.window.ms = 30000</br>	auto.offset.reset = earliest</br></br>[DistributedHerder] WARN org.apache.kafka.clients.consumer.ConsumerConfig - The configuration config.storage.topic = connect-configs was supplied but isn&#39;t a known config.</br>[DistributedHerder] WARN org.apache.kafka.clients.consumer.ConsumerConfig - The configuration status.storage.topic = connect-statuses was supplied but isn&#39;t a known config.</br>[DistributedHerder] WARN org.apache.kafka.clients.consumer.ConsumerConfig - The configuration internal.key.converter.schemas.enable = false was supplied but isn&#39;t a known config.</br>[DistributedHerder] WARN org.apache.kafka.clients.consumer.ConsumerConfig - The configuration rest.port = 8083 was supplied but isn&#39;t a known config.</br>[DistributedHerder] WARN org.apache.kafka.clients.consumer.ConsumerConfig - The configuration value.converter.schema.registry.url = http://localhost:8081 was supplied but isn&#39;t a known config.</br>[DistributedHerder] WARN org.apache.kafka.clients.consumer.ConsumerConfig - The configuration internal.key.converter = org.apache.kafka.connect.json.JsonConverter was supplied but isn&#39;t a known config.</br>[DistributedHerder] WARN org.apache.kafka.clients.consumer.ConsumerConfig - The configuration internal.value.converter.schemas.enable = false was supplied but isn&#39;t a known config.</br>[DistributedHerder] WARN org.apache.kafka.clients.consumer.ConsumerConfig - The configuration internal.value.converter = org.apache.kafka.connect.json.JsonConverter was supplied but isn&#39;t a known config.</br>[DistributedHerder] WARN org.apache.kafka.clients.consumer.ConsumerConfig - The configuration offset.storage.topic = connect-offsets was supplied but isn&#39;t a known config.</br>[DistributedHerder] WARN org.apache.kafka.clients.consumer.ConsumerConfig - The configuration value.converter = io.confluent.connect.avro.AvroConverter was supplied but isn&#39;t a known config.</br>[DistributedHerder] WARN org.apache.kafka.clients.consumer.ConsumerConfig - The configuration key.converter = io.confluent.connect.avro.AvroConverter was supplied but isn&#39;t a known config.</br>[DistributedHerder] WARN org.apache.kafka.clients.consumer.ConsumerConfig - The configuration key.converter.schema.registry.url = http://localhost:8081 was supplied but isn&#39;t a known config.</br>[DistributedHerder] INFO org.apache.kafka.common.utils.AppInfoParser - Kafka version : 0.10.0.0</br>[DistributedHerder] INFO org.apache.kafka.common.utils.AppInfoParser - Kafka commitId : b8642491e78c5a13</br>[main] INFO org.eclipse.jetty.server.Server - jetty-9.2.12.v20150709</br>[2016-10-08 21:21:49,838] INFO HV000001: Hibernate Validator 5.1.2.Final (org.hibernate.validator.internal.util.Version:27)</br>Oct 08, 2016 9:21:50 PM org.glassfish.jersey.internal.Errors logErrors</br>WARNING: The following warnings have been detected: WARNING: The (sub)resource method listConnectors in org.apache.kafka.connect.runtime.rest.resources.ConnectorsResource contains empty path annotation.</br>WARNING: The (sub)resource method createConnector in org.apache.kafka.connect.runtime.rest.resources.ConnectorsResource contains empty path annotation.</br>WARNING: The (sub)resource method listConnectorPlugins in org.apache.kafka.connect.runtime.rest.resources.ConnectorPluginsResource contains empty path annotation.</br>WARNING: The (sub)resource method serverInfo in org.apache.kafka.connect.runtime.rest.resources.RootResource contains empty path annotation.</br></br>[main] INFO org.eclipse.jetty.server.handler.ContextHandler - Started o.e.j.s.ServletContextHandler@7479b626{/,null,AVAILABLE}</br>[main] INFO org.eclipse.jetty.server.ServerConnector - Started ServerConnector@59e43e8c{HTTP/1.1}{0.0.0.0:8083}</br>[main] INFO org.eclipse.jetty.server.Server - Started @3513ms</br>[main] INFO org.apache.kafka.connect.runtime.rest.RestServer - REST server listening at http://172.18.0.3:8083/, advertising URL http://172.18.0.3:8083/</br>[main] INFO org.apache.kafka.connect.runtime.Connect - Kafka Connect started</br>[DistributedHerder] INFO org.apache.kafka.clients.consumer.internals.AbstractCoordinator - Discovered coordinator fast-data-dev:9092 (id: 2147483647 rack: null) for group connect-cluster.</br>[DistributedHerder] INFO org.apache.kafka.clients.consumer.internals.AbstractCoordinator - Marking the coordinator fast-data-dev:9092 (id: 2147483647 rack: null) dead for group connect-cluster</br>[DistributedHerder] INFO org.apache.kafka.clients.consumer.internals.AbstractCoordinator - Discovered coordinator fast-data-dev:9092 (id: 2147483647 rack: null) for group connect-cluster.</br>[DistributedHerder] INFO org.apache.kafka.connect.util.KafkaBasedLog - Finished reading KafkaBasedLog for topic connect-offsets</br>[DistributedHerder] INFO org.apache.kafka.connect.util.KafkaBasedLog - Started KafkaBasedLog for topic connect-offsets</br>[DistributedHerder] INFO org.apache.kafka.connect.storage.KafkaOffsetBackingStore - Finished reading offsets topic and starting KafkaOffsetBackingStore</br>[DistributedHerder] INFO org.apache.kafka.connect.runtime.Worker - Worker started</br>[DistributedHerder] INFO org.apache.kafka.connect.util.KafkaBasedLog - Starting KafkaBasedLog with topic connect-statuses</br>[DistributedHerder] INFO org.apache.kafka.clients.producer.ProducerConfig - ProducerConfig values: </br>	metric.reporters = []</br>	metadata.max.age.ms = 300000</br>	reconnect.backoff.ms = 50</br>	sasl.kerberos.ticket.renew.window.factor = 0.8</br>	bootstrap.servers = [localhost:9092]</br>	ssl.keystore.type = JKS</br>	sasl.mechanism = GSSAPI</br>	max.block.ms = 60000</br>	interceptor.classes = null</br>	ssl.truststore.password = null</br>	client.id = </br>	ssl.endpoint.identification.algorithm = null</br>	request.timeout.ms = 30000</br>	acks = all</br>	receive.buffer.bytes = 32768</br>	ssl.truststore.type = JKS</br>	retries = 0</br>	ssl.truststore.location = null</br>	ssl.keystore.password = null</br>	send.buffer.bytes = 131072</br>	compression.type = none</br>	metadata.fetch.timeout.ms = 60000</br>	retry.backoff.ms = 100</br>	sasl.kerberos.kinit.cmd = /usr/bin/kinit</br>	buffer.memory = 33554432</br>	timeout.ms = 30000</br>	key.serializer = class org.apache.kafka.common.serialization.StringSerializer</br>	sasl.kerberos.service.name = null</br>	sasl.kerberos.ticket.renew.jitter = 0.05</br>	ssl.trustmanager.algorithm = PKIX</br>	block.on.buffer.full = false</br>	ssl.key.password = null</br>	sasl.kerberos.min.time.before.relogin = 60000</br>	connections.max.idle.ms = 540000</br>	max.in.flight.requests.per.connection = 1</br>	metrics.num.samples = 2</br>	ssl.protocol = TLS</br>	ssl.provider = null</br>	ssl.enabled.protocols = [TLSv1.2, TLSv1.1, TLSv1]</br>	batch.size = 16384</br>	ssl.keystore.location = null</br>	ssl.cipher.suites = null</br>	security.protocol = PLAINTEXT</br>	max.request.size = 1048576</br>	value.serializer = class org.apache.kafka.common.serialization.ByteArraySerializer</br>	ssl.keymanager.algorithm = SunX509</br>	metrics.sample.window.ms = 30000</br>	partitioner.class = class org.apache.kafka.clients.producer.internals.DefaultPartitioner</br>	linger.ms = 0</br></br>[DistributedHerder] INFO org.apache.kafka.clients.producer.ProducerConfig - ProducerConfig values: </br>	metric.reporters = []</br>	metadata.max.age.ms = 300000</br>	reconnect.backoff.ms = 50</br>	sasl.kerberos.ticket.renew.window.factor = 0.8</br>	bootstrap.servers = [localhost:9092]</br>	ssl.keystore.type = JKS</br>	sasl.mechanism = GSSAPI</br>	max.block.ms = 60000</br>	interceptor.classes = null</br>	ssl.truststore.password = null</br>	client.id = producer-3</br>	ssl.endpoint.identification.algorithm = null</br>	request.timeout.ms = 30000</br>	acks = all</br>	receive.buffer.bytes = 32768</br>	ssl.truststore.type = JKS</br>	retries = 0</br>	ssl.truststore.location = null</br>	ssl.keystore.password = null</br>	send.buffer.bytes = 131072</br>	compression.type = none</br>	metadata.fetch.timeout.ms = 60000</br>	retry.backoff.ms = 100</br>	sasl.kerberos.kinit.cmd = /usr/bin/kinit</br>	buffer.memory = 33554432</br>	timeout.ms = 30000</br>	key.serializer = class org.apache.kafka.common.serialization.StringSerializer</br>	sasl.kerberos.service.name = null</br>	sasl.kerberos.ticket.renew.jitter = 0.05</br>	ssl.trustmanager.algorithm = PKIX</br>	block.on.buffer.full = false</br>	ssl.key.password = null</br>	sasl.kerberos.min.time.before.relogin = 60000</br>	connections.max.idle.ms = 540000</br>	max.in.flight.requests.per.connection = 1</br>	metrics.num.samples = 2</br>	ssl.protocol = TLS</br>	ssl.provider = null</br>	ssl.enabled.protocols = [TLSv1.2, TLSv1.1, TLSv1]</br>	batch.size = 16384</br>	ssl.keystore.location = null</br>	ssl.cipher.suites = null</br>	security.protocol = PLAINTEXT</br>	max.request.size = 1048576</br>	value.serializer = class org.apache.kafka.common.serialization.ByteArraySerializer</br>	ssl.keymanager.algorithm = SunX509</br>	metrics.sample.window.ms = 30000</br>	partitioner.class = class org.apache.kafka.clients.producer.internals.DefaultPartitioner</br>	linger.ms = 0</br></br>[DistributedHerder] WARN org.apache.kafka.clients.producer.ProducerConfig - The configuration config.storage.topic = connect-configs was supplied but isn&#39;t a known config.</br>[DistributedHerder] WARN org.apache.kafka.clients.producer.ProducerConfig - The configuration group.id = connect-cluster was supplied but isn&#39;t a known config.</br>[DistributedHerder] WARN org.apache.kafka.clients.producer.ProducerConfig - The configuration status.storage.topic = connect-statuses was supplied but isn&#39;t a known config.</br>[DistributedHerder] WARN org.apache.kafka.clients.producer.ProducerConfig - The configuration internal.key.converter.schemas.enable = false was supplied but isn&#39;t a known config.</br>[DistributedHerder] WARN org.apache.kafka.clients.producer.ProducerConfig - The configuration rest.port = 8083 was supplied but isn&#39;t a known config.</br>[DistributedHerder] WARN org.apache.kafka.clients.producer.ProducerConfig - The configuration value.converter.schema.registry.url = http://localhost:8081 was supplied but isn&#39;t a known config.</br>[DistributedHerder] WARN org.apache.kafka.clients.producer.ProducerConfig - The configuration internal.key.converter = org.apache.kafka.connect.json.JsonConverter was supplied but isn&#39;t a known config.</br>[DistributedHerder] WARN org.apache.kafka.clients.producer.ProducerConfig - The configuration internal.value.converter.schemas.enable = false was supplied but isn&#39;t a known config.</br>[DistributedHerder] WARN org.apache.kafka.clients.producer.ProducerConfig - The configuration internal.value.converter = org.apache.kafka.connect.json.JsonConverter was supplied but isn&#39;t a known config.</br>[DistributedHerder] WARN org.apache.kafka.clients.producer.ProducerConfig - The configuration offset.storage.topic = connect-offsets was supplied but isn&#39;t a known config.</br>[DistributedHerder] WARN org.apache.kafka.clients.producer.ProducerConfig - The configuration value.converter = io.confluent.connect.avro.AvroConverter was supplied but isn&#39;t a known config.</br>[DistributedHerder] WARN org.apache.kafka.clients.producer.ProducerConfig - The configuration key.converter = io.confluent.connect.avro.AvroConverter was supplied but isn&#39;t a known config.</br>[DistributedHerder] WARN org.apache.kafka.clients.producer.ProducerConfig - The configuration key.converter.schema.registry.url = http://localhost:8081 was supplied but isn&#39;t a known config.</br>[DistributedHerder] INFO org.apache.kafka.common.utils.AppInfoParser - Kafka version : 0.10.0.0</br>[DistributedHerder] INFO org.apache.kafka.common.utils.AppInfoParser - Kafka commitId : b8642491e78c5a13</br>[DistributedHerder] INFO org.apache.kafka.clients.consumer.ConsumerConfig - ConsumerConfig values: </br>	metric.reporters = []</br>	metadata.max.age.ms = 300000</br>	partition.assignment.strategy = [org.apache.kafka.clients.consumer.RangeAssignor]</br>	reconnect.backoff.ms = 50</br>	sasl.kerberos.ticket.renew.window.factor = 0.8</br>	max.partition.fetch.bytes = 1048576</br>	bootstrap.servers = [localhost:9092]</br>	ssl.keystore.type = JKS</br>	enable.auto.commit = false</br>	sasl.mechanism = GSSAPI</br>	interceptor.classes = null</br>	exclude.internal.topics = true</br>	ssl.truststore.password = null</br>	client.id = </br>	ssl.endpoint.identification.algorithm = null</br>	max.poll.records = 2147483647</br>	check.crcs = true</br>	request.timeout.ms = 40000</br>	heartbeat.interval.ms = 3000</br>	auto.commit.interval.ms = 5000</br>	receive.buffer.bytes = 65536</br>	ssl.truststore.type = JKS</br>	ssl.truststore.location = null</br>	ssl.keystore.password = null</br>	fetch.min.bytes = 1</br>	send.buffer.bytes = 131072</br>	value.deserializer = class org.apache.kafka.common.serialization.ByteArrayDeserializer</br>	group.id = connect-cluster</br>	retry.backoff.ms = 100</br>	sasl.kerberos.kinit.cmd = /usr/bin/kinit</br>	sasl.kerberos.service.name = null</br>	sasl.kerberos.ticket.renew.jitter = 0.05</br>	ssl.trustmanager.algorithm = PKIX</br>	ssl.key.password = null</br>	fetch.max.wait.ms = 500</br>	sasl.kerberos.min.time.before.relogin = 60000</br>	connections.max.idle.ms = 540000</br>	session.timeout.ms = 30000</br>	metrics.num.samples = 2</br>	key.deserializer = class org.apache.kafka.common.serialization.StringDeserializer</br>	ssl.protocol = TLS</br>	ssl.provider = null</br>	ssl.enabled.protocols = [TLSv1.2, TLSv1.1, TLSv1]</br>	ssl.keystore.location = null</br>	ssl.cipher.suites = null</br>	security.protocol = PLAINTEXT</br>	ssl.keymanager.algorithm = SunX509</br>	metrics.sample.window.ms = 30000</br>	auto.offset.reset = earliest</br></br>[DistributedHerder] INFO org.apache.kafka.clients.consumer.ConsumerConfig - ConsumerConfig values: </br>	metric.reporters = []</br>	metadata.max.age.ms = 300000</br>	partition.assignment.strategy = [org.apache.kafka.clients.consumer.RangeAssignor]</br>	reconnect.backoff.ms = 50</br>	sasl.kerberos.ticket.renew.window.factor = 0.8</br>	max.partition.fetch.bytes = 1048576</br>	bootstrap.servers = [localhost:9092]</br>	ssl.keystore.type = JKS</br>	enable.auto.commit = false</br>	sasl.mechanism = GSSAPI</br>	interceptor.classes = null</br>	exclude.internal.topics = true</br>	ssl.truststore.password = null</br>	client.id = consumer-2</br>	ssl.endpoint.identification.algorithm = null</br>	max.poll.records = 2147483647</br>	check.crcs = true</br>	request.timeout.ms = 40000</br>	heartbeat.interval.ms = 3000</br>	auto.commit.interval.ms = 5000</br>	receive.buffer.bytes = 65536</br>	ssl.truststore.type = JKS</br>	ssl.truststore.location = null</br>	ssl.keystore.password = null</br>	fetch.min.bytes = 1</br>	send.buffer.bytes = 131072</br>	value.deserializer = class org.apache.kafka.common.serialization.ByteArrayDeserializer</br>	group.id = connect-cluster</br>	retry.backoff.ms = 100</br>	sasl.kerberos.kinit.cmd = /usr/bin/kinit</br>	sasl.kerberos.service.name = null</br>	sasl.kerberos.ticket.renew.jitter = 0.05</br>	ssl.trustmanager.algorithm = PKIX</br>	ssl.key.password = null</br>	fetch.max.wait.ms = 500</br>	sasl.kerberos.min.time.before.relogin = 60000</br>	connections.max.idle.ms = 540000</br>	session.timeout.ms = 30000</br>	metrics.num.samples = 2</br>	key.deserializer = class org.apache.kafka.common.serialization.StringDeserializer</br>	ssl.protocol = TLS</br>	ssl.provider = null</br>	ssl.enabled.protocols = [TLSv1.2, TLSv1.1, TLSv1]</br>	ssl.keystore.location = null</br>	ssl.cipher.suites = null</br>	security.protocol = PLAINTEXT</br>	ssl.keymanager.algorithm = SunX509</br>	metrics.sample.window.ms = 30000</br>	auto.offset.reset = earliest</br></br>[DistributedHerder] WARN org.apache.kafka.clients.consumer.ConsumerConfig - The configuration config.storage.topic = connect-configs was supplied but isn&#39;t a known config.</br>[DistributedHerder] WARN org.apache.kafka.clients.consumer.ConsumerConfig - The configuration status.storage.topic = connect-statuses was supplied but isn&#39;t a known config.</br>[DistributedHerder] WARN org.apache.kafka.clients.consumer.ConsumerConfig - The configuration internal.key.converter.schemas.enable = false was supplied but isn&#39;t a known config.</br>[DistributedHerder] WARN org.apache.kafka.clients.consumer.ConsumerConfig - The configuration rest.port = 8083 was supplied but isn&#39;t a known config.</br>[DistributedHerder] WARN org.apache.kafka.clients.consumer.ConsumerConfig - The configuration value.converter.schema.registry.url = http://localhost:8081 was supplied but isn&#39;t a known config.</br>[DistributedHerder] WARN org.apache.kafka.clients.consumer.ConsumerConfig - The configuration internal.key.converter = org.apache.kafka.connect.json.JsonConverter was supplied but isn&#39;t a known config.</br>[DistributedHerder] WARN org.apache.kafka.clients.consumer.ConsumerConfig - The configuration internal.value.converter.schemas.enable = false was supplied but isn&#39;t a known config.</br>[DistributedHerder] WARN org.apache.kafka.clients.consumer.ConsumerConfig - The configuration internal.value.converter = org.apache.kafka.connect.json.JsonConverter was supplied but isn&#39;t a known config.</br>[DistributedHerder] WARN org.apache.kafka.clients.consumer.ConsumerConfig - The configuration offset.storage.topic = connect-offsets was supplied but isn&#39;t a known config.</br>[DistributedHerder] WARN org.apache.kafka.clients.consumer.ConsumerConfig - The configuration value.converter = io.confluent.connect.avro.AvroConverter was supplied but isn&#39;t a known config.</br>[DistributedHerder] WARN org.apache.kafka.clients.consumer.ConsumerConfig - The configuration key.converter = io.confluent.connect.avro.AvroConverter was supplied but isn&#39;t a known config.</br>[DistributedHerder] WARN org.apache.kafka.clients.consumer.ConsumerConfig - The configuration key.converter.schema.registry.url = http://localhost:8081 was supplied but isn&#39;t a known config.</br>[DistributedHerder] INFO org.apache.kafka.common.utils.AppInfoParser - Kafka version : 0.10.0.0</br>[DistributedHerder] INFO org.apache.kafka.common.utils.AppInfoParser - Kafka commitId : b8642491e78c5a13</br>[DistributedHerder] INFO org.apache.kafka.clients.consumer.internals.AbstractCoordinator - Discovered coordinator fast-data-dev:9092 (id: 2147483647 rack: null) for group connect-cluster.</br>[DistributedHerder] INFO org.apache.kafka.connect.util.KafkaBasedLog - Finished reading KafkaBasedLog for topic connect-statuses</br>[DistributedHerder] INFO org.apache.kafka.connect.util.KafkaBasedLog - Started KafkaBasedLog for topic connect-statuses</br>[DistributedHerder] INFO org.apache.kafka.connect.storage.KafkaConfigBackingStore - Starting KafkaConfigBackingStore</br>[DistributedHerder] INFO org.apache.kafka.connect.util.KafkaBasedLog - Starting KafkaBasedLog with topic connect-configs</br>[DistributedHerder] INFO org.apache.kafka.clients.producer.ProducerConfig - ProducerConfig values: </br>	metric.reporters = []</br>	metadata.max.age.ms = 300000</br>	reconnect.backoff.ms = 50</br>	sasl.kerberos.ticket.renew.window.factor = 0.8</br>	bootstrap.servers = [localhost:9092]</br>	ssl.keystore.type = JKS</br>	sasl.mechanism = GSSAPI</br>	max.block.ms = 60000</br>	interceptor.classes = null</br>	ssl.truststore.password = null</br>	client.id = </br>	ssl.endpoint.identification.algorithm = null</br>	request.timeout.ms = 30000</br>	acks = all</br>	receive.buffer.bytes = 32768</br>	ssl.truststore.type = JKS</br>	retries = 2147483647</br>	ssl.truststore.location = null</br>	ssl.keystore.password = null</br>	send.buffer.bytes = 131072</br>	compression.type = none</br>	metadata.fetch.timeout.ms = 60000</br>	retry.backoff.ms = 100</br>	sasl.kerberos.kinit.cmd = /usr/bin/kinit</br>	buffer.memory = 33554432</br>	timeout.ms = 30000</br>	key.serializer = class org.apache.kafka.common.serialization.StringSerializer</br>	sasl.kerberos.service.name = null</br>	sasl.kerberos.ticket.renew.jitter = 0.05</br>	ssl.trustmanager.algorithm = PKIX</br>	block.on.buffer.full = false</br>	ssl.key.password = null</br>	sasl.kerberos.min.time.before.relogin = 60000</br>	connections.max.idle.ms = 540000</br>	max.in.flight.requests.per.connection = 1</br>	metrics.num.samples = 2</br>	ssl.protocol = TLS</br>	ssl.provider = null</br>	ssl.enabled.protocols = [TLSv1.2, TLSv1.1, TLSv1]</br>	batch.size = 16384</br>	ssl.keystore.location = null</br>	ssl.cipher.suites = null</br>	security.protocol = PLAINTEXT</br>	max.request.size = 1048576</br>	value.serializer = class org.apache.kafka.common.serialization.ByteArraySerializer</br>	ssl.keymanager.algorithm = SunX509</br>	metrics.sample.window.ms = 30000</br>	partitioner.class = class org.apache.kafka.clients.producer.internals.DefaultPartitioner</br>	linger.ms = 0</br></br>[DistributedHerder] INFO org.apache.kafka.clients.producer.ProducerConfig - ProducerConfig values: </br>	metric.reporters = []</br>	metadata.max.age.ms = 300000</br>	reconnect.backoff.ms = 50</br>	sasl.kerberos.ticket.renew.window.factor = 0.8</br>	bootstrap.servers = [localhost:9092]</br>	ssl.keystore.type = JKS</br>	sasl.mechanism = GSSAPI</br>	max.block.ms = 60000</br>	interceptor.classes = null</br>	ssl.truststore.password = null</br>	client.id = producer-4</br>	ssl.endpoint.identification.algorithm = null</br>	request.timeout.ms = 30000</br>	acks = all</br>	receive.buffer.bytes = 32768</br>	ssl.truststore.type = JKS</br>	retries = 2147483647</br>	ssl.truststore.location = null</br>	ssl.keystore.password = null</br>	send.buffer.bytes = 131072</br>	compression.type = none</br>	metadata.fetch.timeout.ms = 60000</br>	retry.backoff.ms = 100</br>	sasl.kerberos.kinit.cmd = /usr/bin/kinit</br>	buffer.memory = 33554432</br>	timeout.ms = 30000</br>	key.serializer = class org.apache.kafka.common.serialization.StringSerializer</br>	sasl.kerberos.service.name = null</br>	sasl.kerberos.ticket.renew.jitter = 0.05</br>	ssl.trustmanager.algorithm = PKIX</br>	block.on.buffer.full = false</br>	ssl.key.password = null</br>	sasl.kerberos.min.time.before.relogin = 60000</br>	connections.max.idle.ms = 540000</br>	max.in.flight.requests.per.connection = 1</br>	metrics.num.samples = 2</br>	ssl.protocol = TLS</br>	ssl.provider = null</br>	ssl.enabled.protocols = [TLSv1.2, TLSv1.1, TLSv1]</br>	batch.size = 16384</br>	ssl.keystore.location = null</br>	ssl.cipher.suites = null</br>	security.protocol = PLAINTEXT</br>	max.request.size = 1048576</br>	value.serializer = class org.apache.kafka.common.serialization.ByteArraySerializer</br>	ssl.keymanager.algorithm = SunX509</br>	metrics.sample.window.ms = 30000</br>	partitioner.class = class org.apache.kafka.clients.producer.internals.DefaultPartitioner</br>	linger.ms = 0</br></br>[DistributedHerder] WARN org.apache.kafka.clients.producer.ProducerConfig - The configuration config.storage.topic = connect-configs was supplied but isn&#39;t a known config.</br>[DistributedHerder] WARN org.apache.kafka.clients.producer.ProducerConfig - The configuration group.id = connect-cluster was supplied but isn&#39;t a known config.</br>[DistributedHerder] WARN org.apache.kafka.clients.producer.ProducerConfig - The configuration status.storage.topic = connect-statuses was supplied but isn&#39;t a known config.</br>[DistributedHerder] WARN org.apache.kafka.clients.producer.ProducerConfig - The configuration internal.key.converter.schemas.enable = false was supplied but isn&#39;t a known config.</br>[DistributedHerder] WARN org.apache.kafka.clients.producer.ProducerConfig - The configuration rest.port = 8083 was supplied but isn&#39;t a known config.</br>[DistributedHerder] WARN org.apache.kafka.clients.producer.ProducerConfig - The configuration value.converter.schema.registry.url = http://localhost:8081 was supplied but isn&#39;t a known config.</br>[DistributedHerder] WARN org.apache.kafka.clients.producer.ProducerConfig - The configuration internal.key.converter = org.apache.kafka.connect.json.JsonConverter was supplied but isn&#39;t a known config.</br>[DistributedHerder] WARN org.apache.kafka.clients.producer.ProducerConfig - The configuration internal.value.converter.schemas.enable = false was supplied but isn&#39;t a known config.</br>[DistributedHerder] WARN org.apache.kafka.clients.producer.ProducerConfig - The configuration internal.value.converter = org.apache.kafka.connect.json.JsonConverter was supplied but isn&#39;t a known config.</br>[DistributedHerder] WARN org.apache.kafka.clients.producer.ProducerConfig - The configuration offset.storage.topic = connect-offsets was supplied but isn&#39;t a known config.</br>[DistributedHerder] WARN org.apache.kafka.clients.producer.ProducerConfig - The configuration value.converter = io.confluent.connect.avro.AvroConverter was supplied but isn&#39;t a known config.</br>[DistributedHerder] WARN org.apache.kafka.clients.producer.ProducerConfig - The configuration key.converter = io.confluent.connect.avro.AvroConverter was supplied but isn&#39;t a known config.</br>[DistributedHerder] WARN org.apache.kafka.clients.producer.ProducerConfig - The configuration key.converter.schema.registry.url = http://localhost:8081 was supplied but isn&#39;t a known config.</br>[DistributedHerder] INFO org.apache.kafka.common.utils.AppInfoParser - Kafka version : 0.10.0.0</br>[DistributedHerder] INFO org.apache.kafka.common.utils.AppInfoParser - Kafka commitId : b8642491e78c5a13</br>[DistributedHerder] INFO org.apache.kafka.clients.consumer.ConsumerConfig - ConsumerConfig values: </br>	metric.reporters = []</br>	metadata.max.age.ms = 300000</br>	partition.assignment.strategy = [org.apache.kafka.clients.consumer.RangeAssignor]</br>	reconnect.backoff.ms = 50</br>	sasl.kerberos.ticket.renew.window.factor = 0.8</br>	max.partition.fetch.bytes = 1048576</br>	bootstrap.servers = [localhost:9092]</br>	ssl.keystore.type = JKS</br>	enable.auto.commit = false</br>	sasl.mechanism = GSSAPI</br>	interceptor.classes = null</br>	exclude.internal.topics = true</br>	ssl.truststore.password = null</br>	client.id = </br>	ssl.endpoint.identification.algorithm = null</br>	max.poll.records = 2147483647</br>	check.crcs = true</br>	request.timeout.ms = 40000</br>	heartbeat.interval.ms = 3000</br>	auto.commit.interval.ms = 5000</br>	receive.buffer.bytes = 65536</br>	ssl.truststore.type = JKS</br>	ssl.truststore.location = null</br>	ssl.keystore.password = null</br>	fetch.min.bytes = 1</br>	send.buffer.bytes = 131072</br>	value.deserializer = class org.apache.kafka.common.serialization.ByteArrayDeserializer</br>	group.id = connect-cluster</br>	retry.backoff.ms = 100</br>	sasl.kerberos.kinit.cmd = /usr/bin/kinit</br>	sasl.kerberos.service.name = null</br>	sasl.kerberos.ticket.renew.jitter = 0.05</br>	ssl.trustmanager.algorithm = PKIX</br>	ssl.key.password = null</br>	fetch.max.wait.ms = 500</br>	sasl.kerberos.min.time.before.relogin = 60000</br>	connections.max.idle.ms = 540000</br>	session.timeout.ms = 30000</br>	metrics.num.samples = 2</br>	key.deserializer = class org.apache.kafka.common.serialization.StringDeserializer</br>	ssl.protocol = TLS</br>	ssl.provider = null</br>	ssl.enabled.protocols = [TLSv1.2, TLSv1.1, TLSv1]</br>	ssl.keystore.location = null</br>	ssl.cipher.suites = null</br>	security.protocol = PLAINTEXT</br>	ssl.keymanager.algorithm = SunX509</br>	metrics.sample.window.ms = 30000</br>	auto.offset.reset = earliest</br></br>[DistributedHerder] INFO org.apache.kafka.clients.consumer.ConsumerConfig - ConsumerConfig values: </br>	metric.reporters = []</br>	metadata.max.age.ms = 300000</br>	partition.assignment.strategy = [org.apache.kafka.clients.consumer.RangeAssignor]</br>	reconnect.backoff.ms = 50</br>	sasl.kerberos.ticket.renew.window.factor = 0.8</br>	max.partition.fetch.bytes = 1048576</br>	bootstrap.servers = [localhost:9092]</br>	ssl.keystore.type = JKS</br>	enable.auto.commit = false</br>	sasl.mechanism = GSSAPI</br>	interceptor.classes = null</br>	exclude.internal.topics = true</br>	ssl.truststore.password = null</br>	client.id = consumer-3</br>	ssl.endpoint.identification.algorithm = null</br>	max.poll.records = 2147483647</br>	check.crcs = true</br>	request.timeout.ms = 40000</br>	heartbeat.interval.ms = 3000</br>	auto.commit.interval.ms = 5000</br>	receive.buffer.bytes = 65536</br>	ssl.truststore.type = JKS</br>	ssl.truststore.location = null</br>	ssl.keystore.password = null</br>	fetch.min.bytes = 1</br>	send.buffer.bytes = 131072</br>	value.deserializer = class org.apache.kafka.common.serialization.ByteArrayDeserializer</br>	group.id = connect-cluster</br>	retry.backoff.ms = 100</br>	sasl.kerberos.kinit.cmd = /usr/bin/kinit</br>	sasl.kerberos.service.name = null</br>	sasl.kerberos.ticket.renew.jitter = 0.05</br>	ssl.trustmanager.algorithm = PKIX</br>	ssl.key.password = null</br>	fetch.max.wait.ms = 500</br>	sasl.kerberos.min.time.before.relogin = 60000</br>	connections.max.idle.ms = 540000</br>	session.timeout.ms = 30000</br>	metrics.num.samples = 2</br>	key.deserializer = class org.apache.kafka.common.serialization.StringDeserializer</br>	ssl.protocol = TLS</br>	ssl.provider = null</br>	ssl.enabled.protocols = [TLSv1.2, TLSv1.1, TLSv1]</br>	ssl.keystore.location = null</br>	ssl.cipher.suites = null</br>	security.protocol = PLAINTEXT</br>	ssl.keymanager.algorithm = SunX509</br>	metrics.sample.window.ms = 30000</br>	auto.offset.reset = earliest</br></br>[DistributedHerder] WARN org.apache.kafka.clients.consumer.ConsumerConfig - The configuration config.storage.topic = connect-configs was supplied but isn&#39;t a known config.</br>[DistributedHerder] WARN org.apache.kafka.clients.consumer.ConsumerConfig - The configuration status.storage.topic = connect-statuses was supplied but isn&#39;t a known config.</br>[DistributedHerder] WARN org.apache.kafka.clients.consumer.ConsumerConfig - The configuration internal.key.converter.schemas.enable = false was supplied but isn&#39;t a known config.</br>[DistributedHerder] WARN org.apache.kafka.clients.consumer.ConsumerConfig - The configuration rest.port = 8083 was supplied but isn&#39;t a known config.</br>[DistributedHerder] WARN org.apache.kafka.clients.consumer.ConsumerConfig - The configuration value.converter.schema.registry.url = http://localhost:8081 was supplied but isn&#39;t a known config.</br>[DistributedHerder] WARN org.apache.kafka.clients.consumer.ConsumerConfig - The configuration internal.key.converter = org.apache.kafka.connect.json.JsonConverter was supplied but isn&#39;t a known config.</br>[DistributedHerder] WARN org.apache.kafka.clients.consumer.ConsumerConfig - The configuration internal.value.converter.schemas.enable = false was supplied but isn&#39;t a known config.</br>[DistributedHerder] WARN org.apache.kafka.clients.consumer.ConsumerConfig - The configuration internal.value.converter = org.apache.kafka.connect.json.JsonConverter was supplied but isn&#39;t a known config.</br>[DistributedHerder] WARN org.apache.kafka.clients.consumer.ConsumerConfig - The configuration offset.storage.topic = connect-offsets was supplied but isn&#39;t a known config.</br>[DistributedHerder] WARN org.apache.kafka.clients.consumer.ConsumerConfig - The configuration value.converter = io.confluent.connect.avro.AvroConverter was supplied but isn&#39;t a known config.</br>[DistributedHerder] WARN org.apache.kafka.clients.consumer.ConsumerConfig - The configuration key.converter = io.confluent.connect.avro.AvroConverter was supplied but isn&#39;t a known config.</br>[DistributedHerder] WARN org.apache.kafka.clients.consumer.ConsumerConfig - The configuration key.converter.schema.registry.url = http://localhost:8081 was supplied but isn&#39;t a known config.</br>[DistributedHerder] INFO org.apache.kafka.common.utils.AppInfoParser - Kafka version : 0.10.0.0</br>[DistributedHerder] INFO org.apache.kafka.common.utils.AppInfoParser - Kafka commitId : b8642491e78c5a13</br>[DistributedHerder] INFO org.apache.kafka.clients.consumer.internals.AbstractCoordinator - Discovered coordinator fast-data-dev:9092 (id: 2147483647 rack: null) for group connect-cluster.</br>[DistributedHerder] INFO org.apache.kafka.connect.util.KafkaBasedLog - Finished reading KafkaBasedLog for topic connect-configs</br>[DistributedHerder] INFO org.apache.kafka.connect.util.KafkaBasedLog - Started KafkaBasedLog for topic connect-configs</br>[DistributedHerder] INFO org.apache.kafka.connect.storage.KafkaConfigBackingStore - Started KafkaConfigBackingStore</br>[DistributedHerder] INFO org.apache.kafka.connect.runtime.distributed.DistributedHerder - Herder started</br>[DistributedHerder] INFO org.apache.kafka.clients.consumer.internals.AbstractCoordinator - Discovered coordinator fast-data-dev:9092 (id: 2147483647 rack: null) for group connect-cluster.</br>[DistributedHerder] INFO org.apache.kafka.clients.consumer.internals.AbstractCoordinator - (Re-)joining group connect-cluster</br>[DistributedHerder] INFO org.apache.kafka.clients.consumer.internals.AbstractCoordinator - Successfully joined group connect-cluster with generation 1</br>[DistributedHerder] INFO org.apache.kafka.connect.runtime.distributed.DistributedHerder - Joined group and got assignment: Assignment{error=0, leader=&#39;connect-1-110fa6c9-ceae-4981-a748-032090c3d255&#39;, leaderUrl=&#39;http://172.18.0.3:8083/&#39;, offset=-1, connectorIds=[], taskIds=[]}</br>[DistributedHerder] INFO org.apache.kafka.connect.runtime.distributed.DistributedHerder - Starting connectors and tasks using config offset -1</br>[DistributedHerder] INFO org.apache.kafka.connect.runtime.distributed.DistributedHerder - Finished starting connectors and tasks</br>[KafkaBasedLog Work Thread - connect-configs] INFO org.apache.kafka.connect.runtime.distributed.DistributedHerder - Connector elastic-sink config updated</br>[DistributedHerder] INFO org.apache.kafka.connect.runtime.distributed.DistributedHerder - Rebalance started</br>[DistributedHerder] INFO org.apache.kafka.connect.runtime.distributed.DistributedHerder - Finished stopping tasks in preparation for rebalance</br>[DistributedHerder] INFO org.apache.kafka.clients.consumer.internals.AbstractCoordinator - (Re-)joining group connect-cluster</br>[DistributedHerder] INFO org.apache.kafka.clients.consumer.internals.AbstractCoordinator - Successfully joined group connect-cluster with generation 2</br>[DistributedHerder] INFO org.apache.kafka.connect.runtime.distributed.DistributedHerder - Joined group and got assignment: Assignment{error=0, leader=&#39;connect-1-110fa6c9-ceae-4981-a748-032090c3d255&#39;, leaderUrl=&#39;http://172.18.0.3:8083/&#39;, offset=1, connectorIds=[elastic-sink], taskIds=[]}</br>[DistributedHerder] INFO org.apache.kafka.connect.runtime.distributed.DistributedHerder - Starting connectors and tasks using config offset 1</br>[DistributedHerder] INFO org.apache.kafka.connect.runtime.distributed.DistributedHerder - Starting connector elastic-sink</br>[DistributedHerder] INFO org.apache.kafka.connect.runtime.ConnectorConfig - ConnectorConfig values: </br>	connector.class = com.datamountaineer.streamreactor.connect.elastic.ElasticSinkConnector</br>	tasks.max = 1</br>	name = elastic-sink</br></br>[DistributedHerder] INFO org.apache.kafka.connect.runtime.Worker - Creating connector elastic-sink of type com.datamountaineer.streamreactor.connect.elastic.ElasticSinkConnector</br>[DistributedHerder] INFO org.apache.kafka.connect.runtime.Worker - Instantiated connector elastic-sink with version null of type com.datamountaineer.streamreactor.connect.elastic.ElasticSinkConnector</br>[qtp795326519-34] INFO org.apache.kafka.connect.runtime.rest.RestServer - 172.18.0.4 - - [08/Oct/2016:21:22:18 +0000] &#34;POST /connectors HTTP/1.1&#34; 201 381  807</br>[DistributedHerder] INFO com.datamountaineer.streamreactor.connect.elastic.ElasticSinkConnector - Starting Elastic sink task with {connector.class=com.datamountaineer.streamreactor.connect.elastic.ElasticSinkConnector, tasks.max=1, topics=elastic-sink, connect.elastic.url=elasticsearch:9300, name=elastic-sink, connect.elastic.cluster.name=landoop, connect.elastic.export.route.query=INSERT INTO INDEX_1 SELECT field1, field2 FROM elastic-sink}.</br>[DistributedHerder] INFO org.apache.kafka.connect.runtime.Worker - Finished creating connector elastic-sink</br>[DistributedHerder] INFO org.apache.kafka.connect.runtime.SinkConnectorConfig - SinkConnectorConfig values: </br>	connector.class = com.datamountaineer.streamreactor.connect.elastic.ElasticSinkConnector</br>	tasks.max = 1</br>	topics = [elastic-sink]</br>	name = elastic-sink</br></br>[DistributedHerder] INFO com.datamountaineer.streamreactor.connect.elastic.ElasticSinkConnector - Setting task configurations for 1 workers.</br>[KafkaBasedLog Work Thread - connect-configs] INFO org.apache.kafka.connect.runtime.distributed.DistributedHerder - Tasks [elastic-sink-0] configs updated</br>[DistributedHerder] INFO org.apache.kafka.connect.runtime.distributed.DistributedHerder - Finished starting connectors and tasks</br>[DistributedHerder] INFO org.apache.kafka.connect.runtime.distributed.DistributedHerder - Rebalance started</br>[DistributedHerder] INFO org.apache.kafka.connect.runtime.Worker - Stopping connector elastic-sink</br>[DistributedHerder] INFO org.apache.kafka.connect.runtime.Worker - Stopped connector elastic-sink</br>[DistributedHerder] INFO org.apache.kafka.connect.runtime.distributed.DistributedHerder - Finished stopping tasks in preparation for rebalance</br>[DistributedHerder] INFO org.apache.kafka.clients.consumer.internals.AbstractCoordinator - (Re-)joining group connect-cluster</br>[DistributedHerder] INFO org.apache.kafka.clients.consumer.internals.AbstractCoordinator - Successfully joined group connect-cluster with generation 3</br>[DistributedHerder] INFO org.apache.kafka.connect.runtime.distributed.DistributedHerder - Joined group and got assignment: Assignment{error=0, leader=&#39;connect-1-110fa6c9-ceae-4981-a748-032090c3d255&#39;, leaderUrl=&#39;http://172.18.0.3:8083/&#39;, offset=3, connectorIds=[elastic-sink], taskIds=[elastic-sink-0]}</br>[DistributedHerder] INFO org.apache.kafka.connect.runtime.distributed.DistributedHerder - Starting connectors and tasks using config offset 3</br>[DistributedHerder] INFO org.apache.kafka.connect.runtime.distributed.DistributedHerder - Starting connector elastic-sink</br>[DistributedHerder] INFO org.apache.kafka.connect.runtime.ConnectorConfig - ConnectorConfig values: </br>	connector.class = com.datamountaineer.streamreactor.connect.elastic.ElasticSinkConnector</br>	tasks.max = 1</br>	name = elastic-sink</br></br>[DistributedHerder] INFO org.apache.kafka.connect.runtime.Worker - Creating connector elastic-sink of type com.datamountaineer.streamreactor.connect.elastic.ElasticSinkConnector</br>[DistributedHerder] INFO org.apache.kafka.connect.runtime.Worker - Instantiated connector elastic-sink with version null of type com.datamountaineer.streamreactor.connect.elastic.ElasticSinkConnector</br>[DistributedHerder] INFO com.datamountaineer.streamreactor.connect.elastic.ElasticSinkConnector - Starting Elastic sink task with {connector.class=com.datamountaineer.streamreactor.connect.elastic.ElasticSinkConnector, tasks.max=1, topics=elastic-sink, connect.elastic.url=elasticsearch:9300, name=elastic-sink, connect.elastic.cluster.name=landoop, connect.elastic.export.route.query=INSERT INTO INDEX_1 SELECT field1, field2 FROM elastic-sink}.</br>[DistributedHerder] INFO org.apache.kafka.connect.runtime.Worker - Finished creating connector elastic-sink</br>[DistributedHerder] INFO org.apache.kafka.connect.runtime.SinkConnectorConfig - SinkConnectorConfig values: </br>	connector.class = com.datamountaineer.streamreactor.connect.elastic.ElasticSinkConnector</br>	tasks.max = 1</br>	topics = [elastic-sink]</br>	name = elastic-sink</br></br>[DistributedHerder] INFO com.datamountaineer.streamreactor.connect.elastic.ElasticSinkConnector - Setting task configurations for 1 workers.</br>[DistributedHerder] INFO org.apache.kafka.connect.runtime.distributed.DistributedHerder - Starting task elastic-sink-0</br>[DistributedHerder] INFO org.apache.kafka.connect.runtime.TaskConfig - TaskConfig values: </br>	task.class = class com.datamountaineer.streamreactor.connect.elastic.ElasticSinkTask</br></br>[DistributedHerder] INFO org.apache.kafka.connect.runtime.Worker - Creating task elastic-sink-0</br>[DistributedHerder] INFO org.apache.kafka.connect.runtime.Worker - Instantiated task elastic-sink-0 with version null of type com.datamountaineer.streamreactor.connect.elastic.ElasticSinkTask</br>[DistributedHerder] INFO org.apache.kafka.clients.consumer.ConsumerConfig - ConsumerConfig values: </br>	metric.reporters = []</br>	metadata.max.age.ms = 300000</br>	partition.assignment.strategy = [org.apache.kafka.clients.consumer.RangeAssignor]</br>	reconnect.backoff.ms = 50</br>	sasl.kerberos.ticket.renew.window.factor = 0.8</br>	max.partition.fetch.bytes = 1048576</br>	bootstrap.servers = [localhost:9092]</br>	ssl.keystore.type = JKS</br>	enable.auto.commit = false</br>	sasl.mechanism = GSSAPI</br>	interceptor.classes = null</br>	exclude.internal.topics = true</br>	ssl.truststore.password = null</br>	client.id = </br>	ssl.endpoint.identification.algorithm = null</br>	max.poll.records = 2147483647</br>	check.crcs = true</br>	request.timeout.ms = 40000</br>	heartbeat.interval.ms = 3000</br>	auto.commit.interval.ms = 5000</br>	receive.buffer.bytes = 65536</br>	ssl.truststore.type = JKS</br>	ssl.truststore.location = null</br>	ssl.keystore.password = null</br>	fetch.min.bytes = 1</br>	send.buffer.bytes = 131072</br>	value.deserializer = class org.apache.kafka.common.serialization.ByteArrayDeserializer</br>	group.id = connect-elastic-sink</br>	retry.backoff.ms = 100</br>	sasl.kerberos.kinit.cmd = /usr/bin/kinit</br>	sasl.kerberos.service.name = null</br>	sasl.kerberos.ticket.renew.jitter = 0.05</br>	ssl.trustmanager.algorithm = PKIX</br>	ssl.key.password = null</br>	fetch.max.wait.ms = 500</br>	sasl.kerberos.min.time.before.relogin = 60000</br>	connections.max.idle.ms = 540000</br>	session.timeout.ms = 30000</br>	metrics.num.samples = 2</br>	key.deserializer = class org.apache.kafka.common.serialization.ByteArrayDeserializer</br>	ssl.protocol = TLS</br>	ssl.provider = null</br>	ssl.enabled.protocols = [TLSv1.2, TLSv1.1, TLSv1]</br>	ssl.keystore.location = null</br>	ssl.cipher.suites = null</br>	security.protocol = PLAINTEXT</br>	ssl.keymanager.algorithm = SunX509</br>	metrics.sample.window.ms = 30000</br>	auto.offset.reset = earliest</br></br>[DistributedHerder] INFO org.apache.kafka.clients.consumer.ConsumerConfig - ConsumerConfig values: </br>	metric.reporters = []</br>	metadata.max.age.ms = 300000</br>	partition.assignment.strategy = [org.apache.kafka.clients.consumer.RangeAssignor]</br>	reconnect.backoff.ms = 50</br>	sasl.kerberos.ticket.renew.window.factor = 0.8</br>	max.partition.fetch.bytes = 1048576</br>	bootstrap.servers = [localhost:9092]</br>	ssl.keystore.type = JKS</br>	enable.auto.commit = false</br>	sasl.mechanism = GSSAPI</br>	interceptor.classes = null</br>	exclude.internal.topics = true</br>	ssl.truststore.password = null</br>	client.id = consumer-4</br>	ssl.endpoint.identification.algorithm = null</br>	max.poll.records = 2147483647</br>	check.crcs = true</br>	request.timeout.ms = 40000</br>	heartbeat.interval.ms = 3000</br>	auto.commit.interval.ms = 5000</br>	receive.buffer.bytes = 65536</br>	ssl.truststore.type = JKS</br>	ssl.truststore.location = null</br>	ssl.keystore.password = null</br>	fetch.min.bytes = 1</br>	send.buffer.bytes = 131072</br>	value.deserializer = class org.apache.kafka.common.serialization.ByteArrayDeserializer</br>	group.id = connect-elastic-sink</br>	retry.backoff.ms = 100</br>	sasl.kerberos.kinit.cmd = /usr/bin/kinit</br>	sasl.kerberos.service.name = null</br>	sasl.kerberos.ticket.renew.jitter = 0.05</br>	ssl.trustmanager.algorithm = PKIX</br>	ssl.key.password = null</br>	fetch.max.wait.ms = 500</br>	sasl.kerberos.min.time.before.relogin = 60000</br>	connections.max.idle.ms = 540000</br>	session.timeout.ms = 30000</br>	metrics.num.samples = 2</br>	key.deserializer = class org.apache.kafka.common.serialization.ByteArrayDeserializer</br>	ssl.protocol = TLS</br>	ssl.provider = null</br>	ssl.enabled.protocols = [TLSv1.2, TLSv1.1, TLSv1]</br>	ssl.keystore.location = null</br>	ssl.cipher.suites = null</br>	security.protocol = PLAINTEXT</br>	ssl.keymanager.algorithm = SunX509</br>	metrics.sample.window.ms = 30000</br>	auto.offset.reset = earliest</br></br>[DistributedHerder] INFO org.apache.kafka.common.utils.AppInfoParser - Kafka version : 0.10.0.0</br>[DistributedHerder] INFO org.apache.kafka.common.utils.AppInfoParser - Kafka commitId : b8642491e78c5a13</br>[DistributedHerder] INFO org.apache.kafka.connect.runtime.distributed.DistributedHerder - Finished starting connectors and tasks</br>[pool-1-thread-1] INFO com.datamountaineer.streamreactor.connect.elastic.ElasticSinkTask - </br></br>    ____        __        __  ___                  __        _</br>   / __ \____ _/ /_____ _/  |/  /___  __  ______  / /_____ _(_)___  ___  ___  _____</br>  / / / / __ `/ __/ __ `/ /|_/ / __ \/ / / / __ \/ __/ __ `/ / __ \/ _ \/ _ \/ ___/</br> / /_/ / /_/ / /_/ /_/ / /  / / /_/ / /_/ / / / / /_/ /_/ / / / / /  __/  __/ /</br>/_____/\__,_/\__/\__,_/_/  /_/\____/\__,_/_/ /_/\__/\__,_/_/_/ /_/\___/\___/_/</br>       ________           __  _      _____ _       __</br>      / ____/ /___ ______/ /_(_)____/ ___/(_)___  / /__</br>     / __/ / / __ `/ ___/ __/ / ___/\__ \/ / __ \/ //_/</br>    / /___/ / /_/ (__  ) /_/ / /__ ___/ / / / / / ,&lt;</br>   /_____/_/\__,_/____/\__/_/\___//____/_/_/ /_/_/|_|</br></br></br>by Andrew Stevenson</br>      </br>[pool-1-thread-1] INFO com.datamountaineer.streamreactor.connect.elastic.config.ElasticSinkConfig - ElasticSinkConfig values: </br>	connect.elastic.url = elasticsearch:9300</br>	connect.elastic.url.prefix = elasticsearch</br>	connect.elastic.cluster.name = landoop</br>	connect.elastic.export.route.query = INSERT INTO INDEX_1 SELECT field1, field2 FROM elastic-sink</br></br>[2016-10-08 21:22:21,403] INFO [Captain Omen] loaded [], sites [] (org.elasticsearch.plugins:149)</br>[pool-1-thread-1] ERROR org.apache.kafka.connect.runtime.WorkerTask - Task elastic-sink-0 threw an uncaught and unrecoverable exception</br>java.lang.VerifyError: (class: org/jboss/netty/channel/socket/nio/NioWorkerPool, method: createWorker signature: (Ljava/util/concurrent/Executor;)Lorg/jboss/netty/channel/socket/nio/AbstractNioWorker;) Wrong return type in function</br>	at org.elasticsearch.transport.netty.NettyTransport.createClientBootstrap(NettyTransport.java:349)</br>	at org.elasticsearch.transport.netty.NettyTransport.doStart(NettyTransport.java:277)</br>	at org.elasticsearch.common.component.AbstractLifecycleComponent.start(AbstractLifecycleComponent.java:68)</br>	at org.elasticsearch.transport.TransportService.doStart(TransportService.java:170)</br>	at org.elasticsearch.common.component.AbstractLifecycleComponent.start(AbstractLifecycleComponent.java:68)</br>	at org.elasticsearch.client.transport.TransportClient$Builder.build(TransportClient.java:159)</br>	at com.sksamuel.elastic4s.ElasticClient$.transport(ElasticClient.scala:98)</br>	at com.datamountaineer.streamreactor.connect.elastic.ElasticWriter$.apply(ElasticWriter.scala:43)</br>	at com.datamountaineer.streamreactor.connect.elastic.ElasticSinkTask.start(ElasticSinkTask.scala:56)</br>	at org.apache.kafka.connect.runtime.WorkerSinkTask.initializeAndStart(WorkerSinkTask.java:207)</br>	at org.apache.kafka.connect.runtime.WorkerSinkTask.execute(WorkerSinkTask.java:139)</br>	at org.apache.kafka.connect.runtime.WorkerTask.doRun(WorkerTask.java:140)</br>	at org.apache.kafka.connect.runtime.WorkerTask.run(WorkerTask.java:175)</br>	at java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:511)</br>	at java.util.concurrent.FutureTask.run(FutureTask.java:266)</br>	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)</br>	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617)</br>	at java.lang.Thread.run(Thread.java:745)</br>[pool-1-thread-1] ERROR org.apache.kafka.connect.runtime.WorkerTask - Task is being killed and will not recover until manually restarted</br>[pool-1-thread-1] INFO com.datamountaineer.streamreactor.connect.elastic.ElasticSinkTask - Stopping Elastic sink.</br>[CLASSPATH traversal thread.] INFO org.reflections.Reflections - Reflections took 39901 ms to scan 1694 urls, producing 24119 keys and 197448 values </br></br>">view</button>
+
+        </div>
+        <div class="cell" style="overflow:hidden;">
+
+            Stdout_not_has matched not expected &#39;\] ERROR&#39;.
+        </div>
+    </div>
+
+        <div class="row">
+            <div class="cell skip"></div>
+            <div class="cell skip"></div>
+            <div class="cell skip"></div>
+            <div class="cell skip"></div>
+            <div class="cell skip"></div>
+            <div class="cell" style="font-weight: bold;">
+                Passed 1 out of 4
+            </div>
+            <div class="cell" style="font-weight: bold;">
+                4.78 seconds
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="cell skip"></div>
+            <div class="cell skip"></div>
+            <div class="cell skip"></div>
+            <div class="cell skip"></div>
+            <div class="cell skip"></div>
+            <div class="cell skip"></div>
+            <div class="cell skip"></div>
+        </div><div class="row header purple">
+        <div class="cell">
+            Clean-up Containers
+        </div>
+        <div class="cell">
+            <!--                         Status -->
+        </div>
+        <div class="cell">
+            Time (sec)
+        </div>
+        <div class="cell">
+            Exit Code
+        </div>
+        <div class="cell">
+            Command
+        </div>
+        <div class="cell width12">
+            StdOutput
+        </div>
+        <div class="cell width12">
+            StdError
+        </div>
+    </div>
+
+        <div class="row">
+            <div class="cell">
+                Docker Compose Down
+            </div>
+            <div class="cell  center">
+                &#10004;
+            </div>
+            <div class="cell">
+                7.84
+            </div>
+            <div class="cell">
+                0
+            </div>
+            <!-- <div class="cell" style="overflow:hidden;">
+
+
+                 docker-compose down</br>
+
+
+                 </div> -->
+            <div class="cell">
+                docker-compose down
+            </div>
+            <div class="cell" style="overflow:hidden;">
+
+            </div>
+            <div class="cell" style="overflow:hidden;">
+                <button id="trigger_3_0" class="trigger" data-tooltip-id="3_0" title="Stopping kafkaconnectelastic_fast-data-dev_1 ...
+</br>Stopping kafkaconnectelastic_elasticsearch_1 ...
+</br>[2A[2K
+Stopping kafkaconnectelastic_fast-data-dev_1 ... done
+[2B[1A[2K
+Stopping kafkaconnectelastic_elasticsearch_1 ... done
+[1BRemoving kafkaconnectelastic_fast-data-dev_1 ...
+</br>Removing kafkaconnectelastic_elasticsearch_1 ...
+</br>[1A[2K
+Removing kafkaconnectelastic_elasticsearch_1 ... done
+[1B[2A[2K
+Removing kafkaconnectelastic_fast-data-dev_1 ... done
+[2BRemoving network kafkaconnectelastic_default</br></br>">view</button>
+
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="cell skip"></div>
+            <div class="cell skip"></div>
+            <div class="cell skip"></div>
+            <div class="cell skip"></div>
+            <div class="cell skip"></div>
+            <div class="cell" style="font-weight: bold;">
+                Passed 1 out of 1
+            </div>
+            <div class="cell" style="font-weight: bold;">
+                7.84 seconds
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="cell skip"></div>
+            <div class="cell skip"></div>
+            <div class="cell skip"></div>
+            <div class="cell skip"></div>
+            <div class="cell skip"></div>
+            <div class="cell skip"></div>
+            <div class="cell skip"></div>
+        </div>
+    </div>
+
+</div>
+
+<script src="https://code.jquery.com/jquery-1.12.2.min.js"></script>
+<script src="https://code.jquery.com/ui/1.11.4/jquery-ui.min.js"></script>
+<link rel="stylesheet" href="https://code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
+
+<script>
+         $(function () {
+             //show
+             $(document).on('click', '.trigger', function () {
+                 $(this).addClass("on");
+                 $(this).tooltip({
+                     items: '.trigger.on',
+                     position: {
+                         my: "left+30 center",
+                         at: "right center",
+                         collision: "flip"
+                     },
+                     content: function(){
+                         var element = $( this );
+                         return element.attr('title')
+                     }
+                 });
+                 $(this).trigger('mouseenter');
+             });
+             //hide
+             $(document).on('click', '.trigger.on', function () {
+                 $(this).tooltip('close');
+                 $(this).removeClass("on");
+             });
+             //prevent mouseout and other related events from firing their handlers
+             $(".trigger").on('mouseout', function (e) {
+                 e.stopImmediatePropagation();
+             });
+         });
+        </script>
+</body>
+</html>

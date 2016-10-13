@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Kafka Connect UI</title>
+  <link rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/angular_material/1.1.0/angular-material.min.css">
+  <script src="https://use.fontawesome.com/fbbd91a770.js"></script>
+  <meta charset=utf-8/>
+  <meta name="viewport" content="width=device-width">
+  <meta name="description" content="Kafka Connect UI">
+  <meta name="keywords" content="kafka,schema registry,topics,kafka-topic,kafka-rest,kafka-rest-proxy,kafka management,avro">
+  <meta name="author" content="Landoop Team">
+  <link rel="shortcut icon" href="icons/favicon.png">
+
+  <style>
+    body {
+    margin: 0;
+    padding: 0;
+    font-size: 14px;
+    background-color: #2b2b2b;
+    }
+
+    header {
+    background-color: #141414;
+    min-height: 40px;
+    line-height: 40px;
+    color: blue;
+    margin-bottom: 0;
+    text-decoration: none;
+    }
+
+    header h5 {
+    margin:0px;
+    font-size: 14px;
+    }
+
+    header h5 a {
+    text-decoration:none;
+    padding-left:10px;
+    color: #337ab7;
+    }
+
+    .logo {
+      width:20px;float: left;padding-right:0px; padding-left:10px; padding-top: 5px;
+    }
+  </style>
+</head>
+
+<body ng-app="angularAPP" ng-controller="MainCtrl" ng-cloak>
+<header class="header">
+  <div layout="row" layout-xs="column">
+    <div flex>
+      <h5>
+        <a ng-click="showLeftList()" href="/#/">
+        <img ng-src="icons/logo-white-flipped.png" class="logo">
+          COYOTE
+        </a>
+      </h5>
+    </div>
+  </div>
+</header>
+
+<!--Main Content Starts here-->
+<div layout="column" >
+
+  <md-input-container flex style="padding:10px;">
+    <label>Available test results</label>
+    <md-select ng-model="item">
+      <md-option><em>None</em></md-option>
+      <md-option ng-repeat="item in list" ng-value="{{item}}">
+        <i class="fa fa-check" aria-hidden="true" ng-show="item.status == 'passed'" style="color: green"></i>
+        <i class="fa fa-times" aria-hidden="true" ng-show="item.status == 'failed'" style="color: red"></i>
+        {{item.name}}
+      </md-option>
+    </md-select>
+  </md-input-container>
+  <iframe src="{{item.file}}" height="500" width="100%" frameborder="0"
+          style="overflow:hidden;height:100%;" scrolling="no" height="100%"
+          onload="resizeIframe(this)"></iframe>
+</div>
+
+<!-- Landoop team promo -->
+<div layout-margin flex>
+  <div flex="nogrow">
+    <img ng-src="icons/landoop.svg" style="width:20px;float: left;padding-right:5px;"></div>
+  <div flex>
+    <p class="md-caption" style="padding-top:5px">Powered by
+      <a href="http://www.landoop.com/capabilities/kafka" target="_blank" style="color:white; text-decoration:none">LANDOOP</a></p>
+  </div>
+</div>
+
+<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular.min.js"></script>
+<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-animate.min.js"></script>
+<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-aria.min.js"></script>
+<script src="http://ajax.googleapis.com/ajax/libs/angular_material/1.1.0/angular-material.min.js"></script>
+
+<script>
+  function resizeIframe(obj) {
+    obj.style.height = obj.contentWindow.document.body.scrollHeight + 'px';
+  }
+</script>
+
+<script>
+angular
+    .module('angularAPP', ['ngMaterial', 'ngAnimate', 'ngAria'])
+    .config(function($mdThemingProvider) {
+      $mdThemingProvider.theme('default').primaryPalette('grey').accentPalette('red').dark()
+    })
+    .controller('MainCtrl', function ($rootScope, $scope, $log, $http, $sce) {
+      $scope.list = [];
+      $http.get('list.json').then(function(response) {
+       $scope.list = response.data;
+      });
+    });
+</script>
+
+</body>
+</html>
