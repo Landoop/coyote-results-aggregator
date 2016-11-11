@@ -68,8 +68,8 @@
                     </md-option>
                 </md-select>
             </md-input-container>
-            <iframe src="{{source}}" height="500" width="100%" frameborder="0"
-                    style="overflow:hidden;height:100%;" scrolling="no" height="100%"
+            <iframe src="{{source}}" width="100%" frameborder="0"
+                    style="overflow:hidden;height:0px;" scrolling="no"
                     onload="resizeIframe(this)"></iframe>
         </div>
 
@@ -90,7 +90,11 @@
 
         <script>
          function resizeIframe(obj) {
+            if (obj.contentWindow.document.body.scrollHeight != 0) {
              obj.style.height = obj.contentWindow.document.body.scrollHeight + 'px';
+             } else {
+                setTimeout(function() { resizeIframe(); }, 1000);
+             }
          }
         </script>
 
