@@ -68,10 +68,11 @@
                     </md-option>
                 </md-select>
             </md-input-container>
-            <iframe src="{{source}}" height="500" width="100%" frameborder="0"
-                    style="overflow:hidden;height:100%;" scrolling="no" height="100%"
-                    onload="resizeIframe(this)"
-                    id="iframeid"    ></iframe>
+
+            <iframe src="{{source}}" width="100%" frameborder="0"
+                    style="overflow:hidden;height:0px;" scrolling="no"
+                    onload="resizeIframe(this)"  id="iframeid" ></iframe>
+
         </div>
 
         <!-- Landoop team promo -->
@@ -91,7 +92,11 @@
 
         <script>
          function resizeIframe(obj) {
+            if (obj.contentWindow.document.body.scrollHeight != 0) {
              obj.style.height = obj.contentWindow.document.body.scrollHeight + 'px';
+             } else {
+                setTimeout(function() { resizeIframe(); }, 1000);
+             }
          }
 
             // Create IE + others compatible event handler
