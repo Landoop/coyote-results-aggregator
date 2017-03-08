@@ -123,8 +123,9 @@
                  $scope.source = angular.isDefined($scope.item) ? 'reports/' + $scope.item.Name : '';
              }, true);
              $http.defaults.headers.common.Accept = 'application/json';
-             $http.get('reports/').then(function(response) {
-                 $scope.list = response.data.reverse();
+             $http.get('reports/?sort=time&order=desc').then(function(response) {
+                 // $scope.list = response.data.reverse();
+                 $scope.list = response.data;
                  $scope.item = $scope.list[0];
              });
          });
